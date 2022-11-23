@@ -16,7 +16,7 @@ const ExtensionCard = ({ data }: Props) => (
       {data.description}
       </p>
       <hr className='mt-2 mb-2'/>
-      <p className='text-center text-gray-800 hover:text-gray-800'>v{data.version} - {data.license}<br />{data.author}</p>
+      <p className='text-center text-gray-800 hover:text-gray-800'>{data.version} - {data.license}<br />{data.author.name}</p>
     </a>)
 )
 
