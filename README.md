@@ -1,47 +1,28 @@
-# TypeScript Next.js example
+# FOSSBilling extension store
+This is the FOSSBilling extension store. It is a collection of extensions for FOSSBilling. It is still under ongoing development, but we have a few extensions available for download right now.
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+You can find the extension store at [https://extensions.fossbilling.org](https://extensions.fossbilling.org).
 
-## Deploy your own
+## How to install an extension
+### Automatically (recommended)
+1. Log into your FOSSBilling admin panel
+2. Go to the Extensions page
+3. Click on the "Install" button next to the extension you want to install
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-typescript)
+### Manually
+1. Download the extension archive from the extension store
+2. Create a folder named the ID of the extension in the `bb-modules` folder of your FOSSBilling installation
+3. Extract the archive there
+4. Go to the Extensions page in your FOSSBilling admin panel and enable the extension
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+## How to submit an extension
+Currently, the backend doesn't rely on a database, so you can't submit extensions through the website. You can submit extensions by creating a pull request on GitHub. We keep a list of extensions in the `utils/sample-data.ts` file. You can add your extension to the list by adding a new Extension object to the array.
 
-## How to use it?
+## How to contribute
+If you want to contribute to the extension store, you can do so by creating a pull request on GitHub. You can also create an issue if you have any questions or suggestions.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+You also might want to join our [Discord server](https://fossbilling.org/discord) if you want to get in touch with us.
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-```
-
-```bash
-yarn create next-app --example with-typescript with-typescript-app
-```
-
-```bash
-pnpm create next-app --example with-typescript with-typescript-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
-
-```
-npm install --save-dev typescript
-```
-
-To enable TypeScript's features, we install the type declarations for React and Node.
-
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
-
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
-
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
-
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+## License
+Each module is licensed under the terms set by the author. Please see the `LICENSE` file in each module for more information.
+This extension store is licensed under the Apache 2.0 license. See the `LICENSE` file for more information.
