@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { sampleExtensionData } from '../../../../utils/sample-data'
+import { sampleExtensionData } from '../../../utils/sample-data'
 
 const handler = (_req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -12,7 +12,7 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
     if (!extension) {
       throw new Error(`Cannot find extension by id: ${_req.query.id}`)
     } else {
-      res.status(200).send(extension.id)
+      res.status(200).json({ result: extension })
     }
   } catch (err: any) {
     res.status(500).json({ error: err.message })

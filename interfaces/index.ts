@@ -13,6 +13,7 @@ export type Extension = {
     name: string
     URL?: string
   }
+  downloadURL: string
   version: string
   license: string
   iconURL?: string
