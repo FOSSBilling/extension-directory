@@ -11,7 +11,7 @@ export const sampleExtensionData: Extension[] = [
       name: 'Scith & the FOSSBilling Team',
       URL: 'https://fossbilling.org'
     },
-    download_url: 'https://github.com/FOSSBilling/Proxmox/archive/refs/tags/0.0.1.zip',
+    download_url: 'https://github.com/FOSSBilling/Proxmox/releases/download/0.0.1/Serviceproxmox.zip',
     version: '0.0.1',
     license: 'GPLv3',
     icon_url: 'https://fossbilling.org/logo.png'
