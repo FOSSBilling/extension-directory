@@ -1,7 +1,7 @@
 import { Extension } from '../interfaces'
 
 /** Dummy extension data. We probably should migrate to a database as these get bigger. */
-export const sampleExtensionData: Extension[] = [
+export const extensionData: Extension[] = [
   {
     id: 'Serviceproxmox',
     type: 'mod',

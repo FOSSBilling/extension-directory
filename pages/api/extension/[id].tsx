@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { sampleExtensionData } from '../../../utils/sample-data'
+import { extensionData } from '../../../utils/data'
 
 const handler = (_req: NextApiRequest, res: NextApiResponse) => {
   try {
-    if (!Array.isArray(sampleExtensionData)) {
+    if (!Array.isArray(extensionData)) {
       throw new Error('Cannot find extension data')
     }
 
-    const extension = sampleExtensionData.find(p => p.id.toString().toLowerCase() === _req.query.id.toString().toLowerCase())
+    const extension = extensionData.find(p => p.id.toString().toLowerCase() === _req.query.id.toString().toLowerCase())
 
     if (!extension) {
       throw new Error(`Cannot find extension by id: ${_req.query.id}`)

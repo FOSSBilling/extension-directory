@@ -1,15 +1,15 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { sampleExtensionData } from '../../utils/sample-data'
+import { extensionData } from '../../utils/data'
 
 const handler = (_req: NextApiRequest, res: NextApiResponse) => {
   try {
-    if (!Array.isArray(sampleExtensionData)) {
+    if (!Array.isArray(extensionData)) {
       throw new Error('Cannot find extension data')
     }
 
-    var filtered = sampleExtensionData
+    var filtered = extensionData
     if (_req.query.type) {
-      filtered = sampleExtensionData.filter((p) => {
+      filtered = extensionData.filter((p) => {
         return p.type === _req.query.type
       })
     }
