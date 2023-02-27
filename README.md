@@ -23,6 +23,21 @@ If you want to contribute to the extension store, you can do so by creating a pu
 
 You also might want to join our [Discord server](https://fossbilling.org/discord) if you want to get in touch with us.
 
+### Running a local development server
+Running the extension store locally is fairly easy.
+
+#### Install the dependencies
+```bash
+npm i
+```
+
+#### Start the development server
+```bash
+npm run dev
+```
+
+Most of your changes will be reflected instantly without needing to restart the development server.
+
 ## License
 Each module is licensed under the terms set by the author. Please see the `LICENSE` file in each module for more information.
 This extension store is licensed under the Apache 2.0 license. See the `LICENSE` file for more information.
