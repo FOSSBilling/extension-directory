@@ -23,9 +23,8 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
 
   return (
     <Layout
-      title={`${
-        item ? item.name : 'Module detail'
-      } | FOSSBilling extensions`}
+      title={`${item ? item.name : 'Module detail'
+        } | FOSSBilling extensions`}
     >
       {item && <ListDetail item={item} />}
     </Layout>

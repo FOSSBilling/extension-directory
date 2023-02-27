@@ -12,19 +12,19 @@ type Props = {
 const IndexPage = ({ items }: Props) => (
   <Layout>
     <main className="flex w-full min-h-screen flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          <a className="text-blue-600" href="https://fossbilling.org">
-            FOSSBilling
-          </a>
-          {" "} extensions
-        </h1>
+      <h1 className="text-6xl font-bold">
+        <a className="text-blue-600" href="https://fossbilling.org">
+          FOSSBilling
+        </a>
+        {" "} extensions
+      </h1>
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          {items.map((item) => (
-            <ExtensionCard data={item} key={item.id} />
-          ))}
-        </div>
-      </main>
+      <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
+        {items.map((item) => (
+          <ExtensionCard data={item} key={item.id} />
+        ))}
+      </div>
+    </main>
   </Layout>
 )
 

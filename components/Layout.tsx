@@ -17,14 +17,14 @@ const Layout = ({ children, title = 'FOSSBilling Extensions' }: Props) => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-      <div>
-      <div>
-        {children}
-      </div>
-      <footer>
+    <div className="container mx-auto">
+      {children}
+      <footer className="mt-auto bg-gray-100 py-4">
+        <div className="container mx-auto">
+        </div>
       </footer>
-      </div>
     </div>
+  </div>
 )
 
 export default Layout
