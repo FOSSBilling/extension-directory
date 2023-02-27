@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 
 import { Extension } from '../../interfaces'
-import { extensionData } from '../../utils/data'
+import { extensionData } from '../../data/data'
 import Layout from '../../components/Layout'
 import ListDetail from '../../components/ListDetail'
 

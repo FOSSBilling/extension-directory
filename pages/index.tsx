@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
 import { Extension } from '../interfaces'
-import { extensionData } from '../utils/data'
+import { extensionData } from '../data/data'
 import ExtensionCard from '../components/ExtensionCard'
 
 import Layout from '../components/Layout'

@@ -11,12 +11,12 @@ You can find the extension store at [https://extensions.fossbilling.org](https:/
 
 ### Manually
 1. Download the extension archive from the extension store
-2. Create a folder named the ID of the extension in the `bb-modules` folder of your FOSSBilling installation
+2. Create a folder named the ID of the extension in the `modules` folder of your FOSSBilling installation
 3. Extract the archive there
 4. Go to the Extensions page in your FOSSBilling admin panel and enable the extension
 
 ## How to submit an extension
-Currently, the backend doesn't rely on a database, so you can't submit extensions through the website. You can submit extensions by creating a pull request on GitHub. We keep a list of extensions in the `utils/sample-data.ts` file. You can add your extension to the list by adding a new Extension object to the array.
+Currently, the backend doesn't rely on a database, so you can't submit extensions through the website. You can submit extensions by creating a pull request on GitHub. We keep a list of extensions in the `data/data.ts` file. You can add your extension to the list by adding a new Extension object to the array.
 
 ## How to contribute
 If you want to contribute to the extension store, you can do so by creating a pull request on GitHub. You can also create an issue if you have any questions or suggestions.
