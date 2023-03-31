@@ -9,7 +9,7 @@ type Props = {
 
 const ExtensionCard = ({ data }: Props) => (
   <div>
-    <a href={`/extension/${data.id}`} className="block bg-zinc-800 max-w-sm p-6 border border-zinc-700 rounded-lg shadow hover:bg-zinc-700">
+    <Link href={`/extension/${data.id}`} className="block bg-zinc-800 max-w-sm p-6 border border-zinc-700 rounded-lg shadow hover:bg-zinc-700">
       <h5 className="mb-2 text-white text-2xl font-bold tracking-tight">{ data.name }</h5>
       <p className="font-normal text-zinc-400">{ data.description }</p>
 
@@ -19,7 +19,7 @@ const ExtensionCard = ({ data }: Props) => (
         <p>{ data.author.name }</p>
         <p className="text-sm text-zinc-400">{ data.license }</p>
       </div>
-    </a>
+    </Link>
   </div>
 )
 
