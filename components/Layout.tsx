@@ -12,7 +12,7 @@ type Props = {
 }
 
 const Layout = ({ children, title = 'FOSSBilling Extensions' }: Props) => (
-  <div className={ PlexSans.className + " bg-gray-900" }>
+  <div className={ PlexSans.className + " bg-zinc-900" }>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />

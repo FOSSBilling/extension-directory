@@ -7,7 +7,7 @@ import Logo from './Logo';
 const Navbar = () => (
   <div>
     <header>
-      <nav className="border-gray-200 px-4 lg:px-6 py-2.5 bg-gray-800">
+      <nav className="border-zinc-200 px-4 lg:px-6 py-2.5 bg-zinc-800">
         <div className="flex flex-wrap justify-between items-center">
           
           {/* Left side */}
@@ -27,13 +27,13 @@ const Navbar = () => (
               </label>
               <div className="relative mt-1 lg:w-96">
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                  <FontAwesomeIcon icon={faSearch} className="text-gray-400 ml-1" />
+                  <FontAwesomeIcon icon={faSearch} className="text-zinc-400 ml-1" />
                 </div>
                 <input
                   type="text"
                   name="search"
                   id="topbar-search"
-                  className="border sm:text-sm rounded-lg block w-full pl-10 p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
+                  className="border sm:text-sm rounded-lg block w-full pl-10 p-2.5 bg-zinc-700 border-zinc-600 placeholder-zinc-400 text-white focus:ring-primary-500 focus:border-primary-500"
                   placeholder="Search extensions"
                 />
               </div>
