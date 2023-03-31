@@ -1,7 +1,8 @@
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Logo from './Logo';
 
 const Navbar = () => (
   <div>
@@ -13,11 +14,7 @@ const Navbar = () => (
           <div className="flex justify-start items-center">
             {/* Logo */}
             <Link href="/" className="flex mx-4">
-              <img
-                src="https://fossbilling.org/assets/img/logo_white.svg"
-                className="mr-2 h-8"
-                alt="FOSSBilling Logo"
-              />
+              <Logo className="mr-2" />
               <span className="self-center text-white text-2xl font-semibold whitespace-nowrap">
                 Extensions
               </span>

@@ -4,6 +4,7 @@ import { extensionData } from '../data/data'
 import ExtensionCard from '../components/ExtensionCard'
 
 import Layout from '../components/Layout'
+import Logo from '../components/Logo'
 
 type Props = {
   items: Extension[]
@@ -12,11 +13,11 @@ type Props = {
 const IndexPage = ({ items }: Props) => (
   <Layout>
     <main className="flex w-full min-h-screen flex-1 flex-col items-center justify-center px-20 text-center">
-      <h1 className="text-6xl font-bold">
+      <h1 className="text-5xl text-white font-bold">
         <a className="text-blue-600" href="https://fossbilling.org">
-          FOSSBilling
+          <Logo height={64} width={300} className="inline" />
         </a>
-        {" "} extensions
+        {" "} Extensions
       </h1>
 
       <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
