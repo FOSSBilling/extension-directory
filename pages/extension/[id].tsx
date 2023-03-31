@@ -3,7 +3,6 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import { Extension } from '../../interfaces'
 import { extensionData } from '../../data/data'
 import Layout from '../../components/Layout'
-import ListDetail from '../../components/ListDetail'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
@@ -42,10 +41,6 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
               </a>
             </div>
           </div>
-        </div>
-
-        <div className="flex w-full min-h-screen flex-1 flex-col items-center justify-center px-20 text-center">
-          {item && <ListDetail item={item} />}
         </div>
       </main>
     </Layout>
