@@ -17,7 +17,7 @@ export const extensionData: Extension[] = [
     icon_url: 'https://raw.githubusercontent.com/FOSSBilling/Proxmox/main/icon.png'
   },
   {
-    id: 'example',
+    id: 'Example',
     type: 'mod',
     name: 'Example',
     description: 'An example module for developers to get started.',
@@ -25,7 +25,7 @@ export const extensionData: Extension[] = [
       name: 'FOSSBilling',
       URL: 'https://fossbilling.org'
     },
-    download_url: 'https://github.com/FOSSBilling/example-module/releases/download/0.0.1/example.zip',
+    download_url: 'https://github.com/FOSSBilling/example-module/releases/download/0.0.1/Example.zip',
     version: '0.0.1',
     license: 'Apache-2.0',
     icon_url: 'https://raw.githubusercontent.com/FOSSBilling/example-module/main/icon.svg'
