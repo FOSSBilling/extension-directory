@@ -18,12 +18,10 @@ const Layout = ({ children, title = 'FOSSBilling Extensions' }: Props) => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    
-    <Navbar />
 
-    <div className="container mx-auto">
-      {children}
-    </div>
+    <Navbar />
+    {children}
+  
   </div>
 )
 
