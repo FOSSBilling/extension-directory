@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { IBM_Plex_Sans } from 'next/font/google';
 
-const PlexSans = IBM_Plex_Sans({ weight: "400" });
+const PlexSans = IBM_Plex_Sans({ weight: "400", subsets: ["latin"] });
 
 type Props = {
   children?: ReactNode
