@@ -22,11 +22,10 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
   }
 
   return (
-    <Layout
-      title={`${item ? item.name : 'Module detail'
-        } | FOSSBilling extensions`}
-    >
-      {item && <ListDetail item={item} />}
+    <Layout title={`${item ? item.name : 'Module detail' } | FOSSBilling extensions`}>
+      <main className="flex w-full min-h-screen flex-1 flex-col items-center justify-center px-20 text-center">
+        {item && <ListDetail item={item} />}
+      </main>
     </Layout>
   )
 }
