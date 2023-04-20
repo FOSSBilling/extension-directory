@@ -1,4 +1,4 @@
-import { Card, List, ListItem, Icon, Text, Bold, Flex, Title, Color } from "@tremor/react";
+import { Card, List, ListItem, Icon, Text, Bold, Flex, Title, Color, Button } from "@tremor/react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck, faCodePullRequest, faGlobeEurope, faScaleUnbalanced } from "@fortawesome/free-solid-svg-icons";
@@ -101,7 +101,9 @@ export function DetailsCard({ ext }: Props) {
                             </div>
                         </Flex>
                         {detail.link ? (
-                            <a href={detail.link} target="_blank"><Text className="text-blue-500 hover:text-blue-700">{detail.text}</Text></a>
+                            <a href={detail.link} target="_blank">
+                                <Button variant="light">{detail.text}</Button>
+                            </a>
                         ) : (
                             <Text>{detail.text}</Text>
                         )}
