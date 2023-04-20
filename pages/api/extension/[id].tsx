@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { extensionData } from '../../../data/data'
+import { extensionData } from 'data/extensions'
 
 const handler = (_req: NextApiRequest, res: NextApiResponse) => {
   try {

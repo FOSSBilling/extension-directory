@@ -1,40 +1,40 @@
 import { GetStaticProps } from 'next'
-import { Extension } from '../interfaces'
-import { extensionData } from '../data/data'
-import ExtensionCard from '../components/ExtensionCard'
+import { Badge, Button, Card, Flex, Grid, Text, Title } from "@tremor/react";
 
-import Layout from '../components/Layout'
-import Logo from '../components/Logo'
+import { extensionData } from 'data/extensions';
+import { Extension } from 'interfaces';
+import { ExtensionCard } from "components/ExtensionCard";
 
-type Props = {
-  items: Extension[]
+import Layout from "components/Layout";
+
+export default function Index({ extensions }: { extensions: Extension[] }) {
+    return (
+        <Layout title="FOSSBilling extensions">
+            <Flex justifyContent="start" alignItems="baseline" className="space-x-2">
+                <Title>FOSSBilling Extension Directory</Title>
+                <Badge className="ml-2">beta</Badge>
+            </Flex>
+            <Text>Welcome to the FOSSBilling Extension Directory. Handy with React and want to contribute? <a href="https://github.com/FOSSBilling/extension-directory" target="_blank"><Button variant="light">Check out the source code on GitHub</Button></a>.</Text>
+
+            <Grid numColsLg={3} className="mt-6 gap-6">
+                {extensions.map((ext) => (
+                    <ExtensionCard ext={ext} key={ext.name} />
+                ))}
+                {/* Complete the grid to 18 cards */}
+                {
+                    [...Array(18 - extensions.length)].map((v, i) =>
+                        <Card key={i}>
+                            {/* Placeholder to set height */}
+                            <div className="h-14" />
+                        </Card>
+                    )
+                }
+            </Grid>
+        </Layout>
+    );
 }
-
-const IndexPage = ({ items }: Props) => (
-  <Layout>
-    <main className="flex w-full min-h-screen flex-1 flex-col items-center justify-center px-20 text-center">
-      <h1 className="text-5xl text-white font-bold">
-        <a className="text-blue-600" href="https://fossbilling.org">
-          <Logo height={64} width={300} className="inline" />
-        </a>
-        {" "} Extensions
-      </h1>
-
-      <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-        {items.map((item) => (
-          <ExtensionCard data={item} key={item.id} />
-        ))}
-      </div>
-    </main>
-  </Layout>
-)
 
 export const getStaticProps: GetStaticProps = async () => {
-  // Example for including static props in a Next.js function component page.
-  // Don't forget to include the respective types for any props passed into
-  // the component.
-  const items: Extension[] = extensionData
-  return { props: { items } }
+    const extensions: Extension[] = extensionData
+    return { props: { extensions } }
 }
-
-export default IndexPage
