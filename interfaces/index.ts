@@ -9,7 +9,7 @@ import { gt, lt } from 'semver';
 export type Extension = {
   org: Lowercase<string>
   id: String
-  type: Lowercase<string>
+  type: 'mod' | 'theme' | 'payment-gateway' | 'server-manager' | 'domain-registrar' | 'hook' | 'translation',
   name: string
   description: string
   author: {
