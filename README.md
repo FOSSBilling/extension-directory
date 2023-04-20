@@ -1,4 +1,6 @@
 # FOSSBilling extension directory
+![image](https://user-images.githubusercontent.com/35808275/233458835-61a11691-e814-47c9-9cc7-63d9a585e3d5.png)
+
 This is the FOSSBilling extension directory. It is a collection of extensions for FOSSBilling. It is still under ongoing development, but we have a few extensions available for download right now.
 
 You can find the extension directory at [https://extensions.fossbilling.org](https://extensions.fossbilling.org).
