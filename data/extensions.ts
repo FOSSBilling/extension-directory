@@ -9,6 +9,8 @@ export const extensionData: Extension[] = [
     type: 'mod',
     name: 'Example',
     description: 'An example module for developers to get started.',
+    version: '0.0.1',
+    download_url: 'https://github.com/FOSSBilling/example-module/releases/download/0.0.1/Example.zip',
     releases: [
       {
         tag: '0.0.1',
@@ -79,6 +81,8 @@ We recommend hosting your extensions on a public [GitHub](https://github.com) re
       name: 'Scith & the FOSSBilling Team',
       URL: 'https://fossbilling.org'
     },
+    version: '0.0.4',
+    download_url: 'https://github.com/FOSSBilling/Proxmox/releases/download/0.0.4/Serviceproxmox.zip',
     releases: [
       {
         tag: '0.0.4',

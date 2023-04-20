@@ -27,7 +27,10 @@ export type Extension = {
   source: {
       type: 'github' | 'gitlab' | 'bitbucket' | 'custom'
       repo: string
-  }
+  },
+  // Compatibility with older versions of FOSSBilling
+  version: string,
+  download_url: string,
 }
 
 export type Release = {
