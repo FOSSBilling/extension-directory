@@ -14,7 +14,7 @@ const Layout = ({ children, title = 'FOSSBilling Extensions' }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
 
-    <div className="mx-48">
+    <div className="md:mx-48">
         {children}
     </div>
   </div>
