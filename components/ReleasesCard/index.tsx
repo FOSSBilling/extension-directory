@@ -8,7 +8,8 @@ import { faArrowRight, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { Extension, getLatestRelease, sortReleasesDescending } from "interfaces";
 
 type Props = {
-    ext: Extension
+    ext: Extension,
+    state: (view: string) => void
 }
 
 function DownloadIcon() {
@@ -23,9 +24,13 @@ function ArrowIcon() {
     )
 };
 
-export function ReleasesCard({ ext }: Props) {
+export function ReleasesCard({ ext, state }: Props) {
     var latest = getLatestRelease(ext);
     var latestThree = sortReleasesDescending(ext.releases).slice(0, 3);
+
+    function setState() {
+        state("release-history");
+    }
 
     return (
         <Card>
@@ -44,7 +49,7 @@ export function ReleasesCard({ ext }: Props) {
                 ))}
             </List>
             <Flex className="mt-2 pt-4 border-t">
-                <Button size="xs" variant="light" icon={ArrowIcon} iconPosition="right">
+                <Button size="xs" variant="light" icon={ArrowIcon} iconPosition="right" onClick={setState}>
                     View more
                 </Button>
             </Flex>

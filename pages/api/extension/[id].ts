@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { extensionData } from 'data/extensions'
+import { sortReleasesDescending } from 'interfaces'
 
 const handler = (_req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -8,6 +9,8 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
     }
 
     const extension = extensionData.find(p => p.id.toString().toLowerCase() === _req.query.id.toString().toLowerCase())
+
+    extension.releases = sortReleasesDescending(extension.releases);
 
     if (!extension) {
       throw new Error(`Cannot find extension by id: ${_req.query.id}`)

@@ -29,21 +29,21 @@ const extension = ({ ext, errors }: Props) => {
         )
     }
 
-    const [selectedView, setSelectedView] = useState("1");
+    const [selectedView, setSelectedView] = useState("overview");
     return (
         <Layout title={`${ext ? ext.name : 'Extension details'} | FOSSBilling extensions`}>
             <ExtensionHeader ext={ext} />
 
-            <TabList defaultValue="1" onValueChange={(value) => setSelectedView(value)} className="mt-6">
-                <Tab value="1" text="Overview" />
-                <Tab value="2" text="Release history" />
+            <TabList defaultValue="overview" onValueChange={(value) => setSelectedView(value)} className="mt-6">
+                <Tab value="overview" text="Overview" />
+                <Tab value="release-history" text="Release history" />
             </TabList>
 
             <Grid numColsLg={6} className="gap-6 mt-6">
                 {/* Main section */}
                 <Col numColSpanLg={4}>
                     <Card className="h-full">
-                        {selectedView === "1" ? (
+                        {selectedView === "overview" ? (
                             <Overview ext={ext} />
                         ) : (
                             <ReleasesTable ext={ext} />
@@ -55,7 +55,7 @@ const extension = ({ ext, errors }: Props) => {
                 <Col numColSpanLg={2}>
                     <div className="space-y-6">
                         <DetailsCard ext={ext} />
-                        <ReleasesCard ext={ext} />
+                        <ReleasesCard ext={ext} state={setSelectedView} />
                     </div>
                 </Col>
             </Grid>
