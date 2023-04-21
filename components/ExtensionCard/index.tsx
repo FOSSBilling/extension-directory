@@ -27,7 +27,7 @@ export function ExtensionCard({ ext }: Props) {
                         color="blue"
                     />
                     <div>
-                        <Flex justifyContent="start" alignItems="baseline" flexDirection="col" className="lg:flex-row lg:space-x-2">
+                        <Flex justifyContent="start" alignItems="baseline" flexDirection="col" className="xl:flex-row xl:space-x-2">
                             <Title>{ext.name}</Title>
                             <Text>{ext.org}/{ext.id} • v{latest.tag}</Text>
                         </Flex>
