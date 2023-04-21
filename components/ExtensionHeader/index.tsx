@@ -29,7 +29,7 @@ export function ExtensionHeader({ ext }: Props) {
             </Link>
             <img src={ext.icon_url} className="w-12 h-12" />
             <div>
-                <Flex justifyContent="start" alignItems="baseline" flexDirection="col" className="md:flex-row md:space-x-2">
+                <Flex justifyContent="start" alignItems="baseline" flexDirection="col" className="lg:flex-row lg:space-x-2">
                     <Title>{ext.name}</Title>
                     <Text>{ext.org}/{ext.id} • v{latest.tag}</Text>
                 </Flex>
