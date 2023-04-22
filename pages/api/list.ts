@@ -21,7 +21,7 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
 
     res.status(200).json({ result: filtered })
   } catch (err: any) {
-    res.status(500).json({ error: err.message })
+    res.status(500).json({ error: { message: err.message } })
   }
 }
 
