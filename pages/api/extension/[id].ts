@@ -10,11 +10,10 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
 
     const extension = extensionData.find(p => p.id.toString().toLowerCase() === _req.query.id.toString().toLowerCase())
 
-    extension.releases = sortReleasesDescending(extension.releases);
-
     if (!extension) {
       throw new Error(`Cannot find extension by id: ${_req.query.id}`)
     } else {
+      extension.releases = sortReleasesDescending(extension.releases);
       res.status(200).json({ result: extension })
     }
   } catch (err: any) {
