@@ -9,9 +9,16 @@ export const extensionData: Extension[] = [
     type: 'mod',
     name: 'Example',
     description: 'An example module for developers to get started.',
-    version: '0.0.1',
+    version: '0.0.2',
     download_url: 'https://github.com/FOSSBilling/example-module/releases/download/0.0.1/Example.zip',
     releases: [
+      {
+        tag: '0.0.2',
+        date: '2023-05-01T08:05:02Z',
+        download_url: 'https://github.com/FOSSBilling/example-module/releases/download/0.0.2/Example.zip',
+        changelog_url: 'https://github.com/FOSSBilling/example-module/releases/tag/0.0.2',
+        min_fossbilling_version: '0.1'
+      },
       {
         tag: '0.0.1',
         date: '2023-03-31T08:21:28Z',
