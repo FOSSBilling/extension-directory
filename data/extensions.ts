@@ -149,4 +149,63 @@ Initial Proxmox support for FOSSBilling. This module is still in development and
 ## Licensing
 This module is licensed under the GNU General Public License v3.0. See the LICENSE file for more information.`
   },
+  {
+    org: 'fossbilling',
+    id: 'Mollie',
+    type: 'payment-gateway',
+    name: 'Mollie',
+    description: 'Mollie extension for FOSSBilling',
+    author: {
+      name: 'FOSSBilling',
+      URL: 'https://fossbilling.org'
+    },
+    license: {
+        name: 'Apache 2.0',
+        URL: 'https://www.apache.org/licenses/LICENSE-2.0'
+    },
+    source: {
+        type: 'github',
+        repo: 'FOSSBilling/Mollie'
+    },
+    version: '0.0.1',
+    download_url: 'https://github.com/FOSSBilling/Mollie/releases/download/0.0.1/Mollie.zip',
+    releases: [
+      {
+        tag: '0.0.1',
+        date: '2023-05-08T17:16:01Z',
+        download_url: 'https://github.com/FOSSBilling/Mollie/releases/download/0.0.1/Mollie.zip',
+        changelog_url: 'https://github.com/FOSSBilling/Mollie/releases/tag/0.0.1',
+        min_fossbilling_version: '0.1'
+      },
+    ],
+    icon_url: 'https://raw.githubusercontent.com/FOSSBilling/Mollie/main/src/Mollie.png',
+    website: 'https://fossbilling.org',
+    readme: `![Molllie for FOSSBilling](https://user-images.githubusercontent.com/35808275/236844335-8085c37f-ea5f-4e6a-9712-8c5bea7ebcaf.png)
+  # Mollie for FOSSBilling
+  
+  
+  Quickly and easily integrate [Mollie](https://mollie.com) into your [FOSSBilling](https://fossbilling.org) instance using this extension.
+  
+  > **Warning**
+  > This extension, like FOSSBilling itself is under active development but is currently very much beta software. This means that there may be stability or security issues and it is not yet recommended for use in active production environments!
+  
+  ## Installation
+  ### Extension directory
+  The easiest way to install this extension is by using the [FOSSBilling extension directory](https://extensions.fossbilling.org/extension/Mollie).
+  
+  ### Manual installation
+  1. Download the latest release from the [extension directory](https://extensions.fossbilling.org/extension/Mollie)
+  2. Create a new folder named \`Mollie\` in the \`/library/Payment/Adapter\` directory of your FOSSBilling installation
+  3. Extract the archive you've downloaded in the first step into the new directory
+  4. Go to the "Payment gateways" page in your admin panel (under the "System" menu in the navigation bar) and find Mollie in the "New payment gateway" tab
+  5. Click the cog icon next to Mollie to install and configure Mollie
+  
+  ## Contributing
+  We love our contributors! Feel free to create a pull request if you want to help out.
+  
+  Not a developer? No problem! You can also help us by [reporting bugs, creating feature requests](https://github.com/FOSSBilling/mollie/issues/new/choose) or by donating to the project over [GitHub sponsors](https://github.com/sponsors/FOSSBilling) or [Open Collective](https://opencollective.com/fossbilling).
+  
+  ## Licensing
+  This extension is licensed under the Apache 2.0 license. See the [LICENSE](LICENSE) file for more information.`
+  }
 ]
