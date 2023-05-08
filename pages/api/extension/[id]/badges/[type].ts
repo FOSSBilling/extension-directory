@@ -13,7 +13,7 @@ const types = [
         name: 'min_fossbilling_version',
         label: 'Minimum FOSSBilling version',
         query: '$.result.releases[:1].min_fossbilling_version',
-        prefix: ''
+        prefix: 'v'
     },
     {
         name: 'license',
