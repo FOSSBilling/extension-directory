@@ -1,17 +1,27 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { extensionData } from 'data/extensions'
-import { getLatestRelease } from 'interfaces'
 import axios from 'axios'
 
-const typeToQueryMap = {
-    'version': '$.result.releases[:1].tag',
-    'min_fossbilling_version': '$.result.releases[:1].min_fossbilling_version',
-}
-
-const typeToLabelMap = {
-    'version': 'Latest version',
-    'min_fossbilling_version': 'Minimum FOSSBilling version',    
-}
+const types = [
+    {
+        name: 'version',
+        label: 'Latest version',
+        query: '$.result.releases[:1].tag',
+        prefix: 'v'
+    },
+    {
+        name: 'min_fossbilling_version',
+        label: 'Minimum FOSSBilling version',
+        query: '$.result.releases[:1].min_fossbilling_version',
+        prefix: ''
+    },
+    {
+        name: 'license',
+        label: 'License',
+        query: '$.result.license.name',
+        prefix: ''
+    },
+]
 
 const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -25,13 +35,16 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
       throw new Error(`Cannot find extension by id: ${_req.query.id}`)
     } else {
         try {
-            const type = _req.query.type.toString().toLowerCase();
+            const type = types.find(t => t.name === _req.query.type.toString().toLowerCase());
             let imageURL = '';
 
-            if (!typeToQueryMap[type] || !typeToLabelMap[type]) {
-                imageURL = `https://img.shields.io/badge/Unknown%20type-${encodeURIComponent(type)}-critical`
+            if (!type) {
+                imageURL = `https://img.shields.io/badge/Unknown%20type-${encodeURIComponent(_req.query.type.toString())}-critical`
             } else {
-                imageURL = `https://img.shields.io/badge/dynamic/json?color=blue&label=${encodeURIComponent(typeToLabelMap[type])}&prefix=v&query=${encodeURIComponent(typeToQueryMap[type])}&url=https%3A%2F%2Fextensions.fossbilling.org%2Fapi%2Fextension%2F${extension.id}`
+                imageURL = `https://img.shields.io/badge/dynamic/json?color=blue&label=${encodeURIComponent(type.label)}&query=${encodeURIComponent(type.query)}&url=https%3A%2F%2Fextensions.fossbilling.org%2Fapi%2Fextension%2F${extension.id}`
+                if (type.prefix) {
+                    imageURL += `&prefix=${encodeURIComponent(type.prefix)}`
+                }
             }
 
             const response = await axios.get(imageURL, { responseType: 'arraybuffer' });
