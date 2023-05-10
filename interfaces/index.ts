@@ -20,13 +20,15 @@ export type Extension = {
     }
   icon_url?: string,
   readme: string,
-  source: {
-      type: 'github' | 'gitlab' | 'bitbucket' | 'custom'
-      repo: string
-  },
+  source: Repository,
   // Compatibility with older versions of FOSSBilling
   version: string,
   download_url: string,
+}
+
+export type Repository = {
+  type: 'github' | 'gitlab' | 'bitbucket' | 'custom'
+  repo: string
 }
 
 export type Author = Organization | User;
@@ -81,4 +83,17 @@ export function sortReleasesDescending(releases: Release[]): Release[] {
       return 0;
     }
   });
+}
+
+export function repositoryURL(repository: Repository): string {
+  switch (repository.type) {
+    case 'github':
+      return `https://github.com/${repository.repo}`
+    case 'gitlab':
+      return `https://gitlab.com/${repository.repo}`
+    case 'bitbucket':
+      return `https://bitbucket.org/${repository.repo}`
+    case 'custom':
+      return repository.repo
+  }
 }

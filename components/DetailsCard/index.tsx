@@ -1,8 +1,9 @@
 import { Card, List, ListItem, Icon, Text, Bold, Flex, Title, Color, Button } from "@tremor/react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck, faCodePullRequest, faGlobeEurope, faScaleUnbalanced, faUser } from "@fortawesome/free-solid-svg-icons";
-import { Extension, getLatestRelease } from "interfaces";
+import { IconDefinition, faCircleCheck, faCodePullRequest, faScaleUnbalanced, faUser } from "@fortawesome/free-solid-svg-icons";
+import { Extension, Repository, getLatestRelease, repositoryURL } from "interfaces";
+import { faBitbucket, faGithub, faGitlab } from "@fortawesome/free-brands-svg-icons";
 
 type Props = {
     ext: Extension
@@ -16,21 +17,18 @@ type DetailsItem = {
     link?: string;
 };
 
-function formatWebsite(website: string) {
-    if (website.startsWith("https://")) {
-        website = website.slice(8);
-    } 
-    
-    if (website.startsWith("http://")) {
-        website = website.slice(7);
+function repositoryIcon(repository: Repository): IconDefinition {
+    switch (repository.type) {
+      case 'github':
+        return faGithub
+      case 'gitlab':
+        return faGitlab
+      case 'bitbucket':
+        return faBitbucket
+      case 'custom':
+        return faCodePullRequest
     }
-
-    if (website.endsWith("/")) {
-        website = website.slice(0, -1);
-    }
-
-    return website;
-}
+  }
 
 export function DetailsCard({ ext }: Props) {
     var latest = getLatestRelease(ext);
@@ -72,12 +70,12 @@ export function DetailsCard({ ext }: Props) {
             name: "Source code",
             icon: function DetailsItemIcon() {
                 return (
-                    <FontAwesomeIcon icon={faCodePullRequest} className="p-0.5 fa-fw" />
+                    <FontAwesomeIcon icon={repositoryIcon(ext.source)} className="p-0.5 fa-fw" />
                 )
             },
             color: "fuchsia",
             text: ext.source.repo,
-            link: "https://github.com/" + ext.source.repo,
+            link: repositoryURL(ext.source),
         },
     ];
 
