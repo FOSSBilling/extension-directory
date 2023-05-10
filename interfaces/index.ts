@@ -7,15 +7,11 @@
 import { gt, lt } from 'semver';
 
 export type Extension = {
-  org: Lowercase<string>
-  id: String
+  id: string
   type: 'mod' | 'theme' | 'payment-gateway' | 'server-manager' | 'domain-registrar' | 'hook' | 'translation',
   name: string
   description: string
-  author: {
-    name: string
-    URL?: string
-  }
+  author: Author,
   releases: Release[],
   website: string,
   license: {
@@ -32,6 +28,22 @@ export type Extension = {
   version: string,
   download_url: string,
 }
+
+export type Author = Organization | User;
+
+export type Organization = {
+  type: 'organization';
+  name: Lowercase<string>; // backwards compatibility
+  id: Lowercase<string>;
+  URL?: string;
+};
+
+export type User = {
+  type: 'user';
+  name: Lowercase<string>; // backwards compatibility
+  id: Lowercase<string>;
+  URL?: string;
+};
 
 export type Release = {
   tag: string;

@@ -29,7 +29,7 @@ export default async function handler(req: NextRequest) {
         <div tw="bg-gray-50 flex mx-10">
           <div tw="flex flex-col md:flex-row w-full py-12 md:items-center justify-between p-8">
             <h2 tw="flex flex-col text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-left">
-              <span>{extension.org}/{extension.name}</span>
+              <span>{extension.name}</span>
               <span tw="text-indigo-600">{extension.description}</span>
             </h2>
           </div>

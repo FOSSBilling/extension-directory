@@ -29,7 +29,7 @@ export function ExtensionCard({ ext }: Props) {
                     <div>
                         <Flex justifyContent="start" alignItems="baseline" flexDirection="col" className="xl:flex-row xl:space-x-2">
                             <Title>{ext.name}</Title>
-                            <Text>{ext.org}/{ext.id} • v{latest.tag}</Text>
+                            <Text>{ext.id} • v{latest.tag}</Text>
                         </Flex>
                         <Text>{ext.description}</Text>
                     </div>

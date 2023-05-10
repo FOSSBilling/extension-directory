@@ -1,10 +1,10 @@
-import { Extension } from '../interfaces'
+import { Extension } from 'interfaces'
+import { findAuthorByID } from './author'
 
 /** Dummy extension data. We probably should migrate to a database as these get bigger. */
 // Get the release datetime from the GitHub API: https://api.github.com/repos/org/repo/releases
 export const extensionData: Extension[] = [
   {
-    org: 'fossbilling',
     id: 'Example',
     type: 'mod',
     name: 'Example',
@@ -27,10 +27,7 @@ export const extensionData: Extension[] = [
         min_fossbilling_version: '0.1'
       }
     ],
-    author: {
-      name: 'FOSSBilling',
-      URL: 'https://fossbilling.org'
-    },
+    author: findAuthorByID('fossbilling'),
     license: {
         name: 'Apache 2.0',
         URL: 'https://www.apache.org/licenses/LICENSE-2.0'
@@ -79,15 +76,11 @@ All modules can communicate with the other modules using their API endpoints.
 We recommend hosting your extensions on a public [GitHub](https://github.com) repository.`
   },
   {
-    org: 'fossbilling',
     id: 'Serviceproxmox',
     type: 'mod',
     name: 'Proxmox',
     description: 'Provision Proxmox VMs using the Proxmox API',
-    author: {
-      name: 'Scith & the FOSSBilling Team',
-      URL: 'https://fossbilling.org'
-    },
+    author: findAuthorByID('fossbilling'),
     version: '0.0.4',
     download_url: 'https://github.com/FOSSBilling/Proxmox/releases/download/0.0.4/Serviceproxmox.zip',
     releases: [
@@ -150,15 +143,11 @@ Initial Proxmox support for FOSSBilling. This module is still in development and
 This module is licensed under the GNU General Public License v3.0. See the LICENSE file for more information.`
   },
   {
-    org: 'fossbilling',
     id: 'Mollie',
     type: 'payment-gateway',
     name: 'Mollie',
     description: 'Mollie extension for FOSSBilling',
-    author: {
-      name: 'FOSSBilling',
-      URL: 'https://fossbilling.org'
-    },
+    author: findAuthorByID('fossbilling'),
     license: {
         name: 'Apache 2.0',
         URL: 'https://www.apache.org/licenses/LICENSE-2.0'
