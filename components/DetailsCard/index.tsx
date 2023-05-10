@@ -1,7 +1,7 @@
 import { Card, List, ListItem, Icon, Text, Bold, Flex, Title, Color, Button } from "@tremor/react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck, faCodePullRequest, faGlobeEurope, faScaleUnbalanced } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faCodePullRequest, faGlobeEurope, faScaleUnbalanced, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Extension, getLatestRelease } from "interfaces";
 
 type Props = {
@@ -37,6 +37,17 @@ export function DetailsCard({ ext }: Props) {
     
     const details: DetailsItem[] = [
         {
+            name: "Publisher",
+            icon: function DetailsItemIcon() {
+                return (
+                    <FontAwesomeIcon icon={faUser} className="p-0.5 fa-fw" />
+                )
+            },
+            color: "amber",
+            text: ext.author.id,
+            link: ext.website,
+        },
+        {
             name: "Compatible with",
             icon: function DetailsItemIcon() {
                 return (
@@ -67,17 +78,6 @@ export function DetailsCard({ ext }: Props) {
             color: "fuchsia",
             text: ext.source.repo,
             link: "https://github.com/" + ext.source.repo,
-        },
-        {
-            name: "Website",
-            icon: function DetailsItemIcon() {
-                return (
-                    <FontAwesomeIcon icon={faGlobeEurope} className="p-0.5 fa-fw" />
-                )
-            },
-            color: "amber",
-            text: formatWebsite(ext.website),
-            link: ext.website,
         },
     ];
 
