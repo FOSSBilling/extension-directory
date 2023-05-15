@@ -16,7 +16,7 @@
     "@vercel/analytics": "^1.0.1",
     "@vercel/og": "^0.5.4",
     "axios": "^1.4.0",
-    "next": "^13.4.1",
+    "next": "^13.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.7",
