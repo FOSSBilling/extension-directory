@@ -38,13 +38,17 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
         var format = {
           label: 'Unknown type',
           message: _req.query.type.toString(),
-          color: _req.query.color.toString() || 'red'
+          color: 'red'
         };
 
         if (type) {
           format.label = type.label;
           format.message = type.message;
-          format.color = _req.query.color.toString() || 'blue';
+          format.color = 'blue';
+        }
+
+        if (_req.query.color) {
+          format.color = _req.query.color.toString();
         }
 
         const svg = makeBadge(format);
