@@ -21,7 +21,9 @@ You can find the extension directory at [https://extensions.fossbilling.org](htt
 Currently, the backend doesn't rely on a database, so you can't submit extensions through the website. You can submit extensions by creating a pull request on GitHub. We keep a list of extensions in the `data/data.ts` file. You can add your extension to the list by adding a new Extension object to the array.
 
 ## The badge API
-We provide an API that renders badges for your extension. You can use these badges on your README or on your website. The API is available at `https://extensions.fossbilling.org/api/extension/:id/badges/:type`. The `:id` parameter is the ID of your extension. The `:type` parameter is the type of badge you want to render. Currently, we support the following types:
+We provide an API that renders badges for your extension. You can use these badges on your README or on your website.
+
+The API is available at `https://extensions.fossbilling.org/api/extension/:id/badges/:type`. The `:id` parameter is the ID of your extension. The `:type` parameter is the type of badge you want to render. Currently, we support the following types:
 
 | Type | Description | Example |
 | ---- | ----------- | ------- |
