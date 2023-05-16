@@ -1,27 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { extensionData } from 'data/extensions'
-import axios from 'axios'
-
-const types = [
-    {
-        name: 'version',
-        label: 'Latest version',
-        query: '$.result.releases[:1].tag',
-        prefix: 'v'
-    },
-    {
-        name: 'min_fossbilling_version',
-        label: 'Minimum FOSSBilling version',
-        query: '$.result.releases[:1].min_fossbilling_version',
-        prefix: 'v'
-    },
-    {
-        name: 'license',
-        label: 'License',
-        query: '$.result.license.name',
-        prefix: ''
-    },
-]
+import { sortReleasesDescending } from 'interfaces'
+import { makeBadge } from 'badge-maker'
 
 const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -34,28 +14,47 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
     if (!extension) {
       throw new Error(`Cannot find extension by id: ${_req.query.id}`)
     } else {
-        try {
-            const type = types.find(t => t.name === _req.query.type.toString().toLowerCase());
-            let imageURL = '';
+      const types = [
+        {
+          name: 'version',
+          label: 'Latest version',
+          message: 'v' + sortReleasesDescending(extension.releases)[0].tag,
+        },
+        {
+          name: 'min_fossbilling_version',
+          label: 'Minimum FOSSBilling version',
+          message: 'v' + sortReleasesDescending(extension.releases)[0].min_fossbilling_version,
+        },
+        {
+          name: 'license',
+          label: 'License',
+          message: extension.license.name,
+        },
+      ]
 
-            if (!type) {
-                imageURL = `https://img.shields.io/badge/Unknown%20type-${encodeURIComponent(_req.query.type.toString())}-critical`
-            } else {
-                imageURL = `https://img.shields.io/badge/dynamic/json?color=blue&label=${encodeURIComponent(type.label)}&query=${encodeURIComponent(type.query)}&url=https%3A%2F%2Fextensions.fossbilling.org%2Fapi%2Fextension%2F${extension.id}`
-                if (type.prefix) {
-                    imageURL += `&prefix=${encodeURIComponent(type.prefix)}`
-                }
-            }
+      try {
+        const type = types.find(t => t.name === _req.query.type.toString().toLowerCase());
 
-            const response = await axios.get(imageURL, { responseType: 'arraybuffer' });
-            const contentType = response.headers['content-type'];
-            res.setHeader('Content-Type', contentType);
-    
-            res.send(response.data);
-        } catch (err: any) {
-            console.error(err);
-            res.status(500).json({ error: { message: "An error occurred while generating the image." } })
+        var format = {
+          label: 'Unknown type',
+          message: _req.query.type.toString(),
+          color: _req.query.color.toString() || 'red'
+        };
+
+        if (type) {
+          format.label = type.label;
+          format.message = type.message;
+          format.color = _req.query.color.toString() || 'blue';
         }
+
+        const svg = makeBadge(format);
+
+        res.setHeader('Content-Type', 'image/svg+xml');
+        res.send(svg);
+      } catch (err: any) {
+        console.error(err);
+        res.status(500).json({ error: { message: "An error occurred while generating the badge." } })
+      }
     }
   } catch (err: any) {
     res.status(500).json({ error: { message: err.message } })
