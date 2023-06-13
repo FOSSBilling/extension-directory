@@ -43,7 +43,7 @@ export const extensionData: Extension[] = [
         type: 'github',
         repo: 'FOSSBilling/example-module'
     },
-    icon_url: 'https://raw.githubusercontent.com/FOSSBilling/example-module/main/icon.svg',
+    icon_url: 'https://raw.githubusercontent.com/FOSSBilling/example-module/main/src/icon.svg',
     website: 'https://fossbilling.org',
     readme: `# Example module README file
 
