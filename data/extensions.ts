@@ -13,6 +13,13 @@ export const extensionData: Extension[] = [
     download_url: 'https://github.com/FOSSBilling/example-module/releases/download/0.0.1/Example.zip',
     releases: [
       {
+        tag: '0.0.3',
+        date: '2023-06-13T14:11:11Z',
+        download_url: 'https://github.com/FOSSBilling/example-module/releases/download/0.0.3/Example.zip',
+        changelog_url: 'https://github.com/FOSSBilling/example-module/releases/tag/0.0.3',
+        min_fossbilling_version: '0.5'
+      },
+      {
         tag: '0.0.2',
         date: '2023-05-01T08:05:02Z',
         download_url: 'https://github.com/FOSSBilling/example-module/releases/download/0.0.2/Example.zip',
@@ -39,41 +46,61 @@ export const extensionData: Extension[] = [
     icon_url: 'https://raw.githubusercontent.com/FOSSBilling/example-module/main/icon.svg',
     website: 'https://fossbilling.org',
     readme: `# Example module README file
+
+    This module provides a starting point for the developers on creating their FOSSBilling module.
     
-This module provides a starting point for the developers on creating their FOSSBilling module.
+    Explore the files and comments in the code to understand the structure of the module better. See the social links on [our website](https://fossbilling.org) if you need further information. This module has its own [GitHub repository](https://github.com/FOSSBilling/example-module) where you can submit issues and pull requests.
     
-Explore the files and comments in the code to understand the structure of the module better. See the social links on [our website](https://fossbilling.org) if you need further information. This module has its own [GitHub repository](https://github.com/FOSSBilling/example-module) where you can submit issues and pull requests.
+    In general, we use modules to extend the functionality of FOSSBilling.
     
-In general, we use modules to extend the functionality of FOSSBilling.
+    All modules can communicate with the other modules using their API endpoints.
     
-All modules can communicate with the other modules using their API endpoints.
+    ## Technical requirements about modules
     
-# Technical requirements about modules
+    ## Required
     
-## Required
+    * Module folder has to contain a **manifest.json** file to describe itself. The module engine will look for this file to find information about your extension.
     
-* Module folder has to contain a **manifest.json** file to describe itself. The module engine will look for this file to find information about your extension.
+    ## Optional
     
-## Optional
+    * **README.md** - file for installation and getting started instructions
+    * **html_admin** folder - for admin area templates, to store custom *.html.twig files
+    * **html_client** folder - for client area templates, to store custom *.html.twig files
     
-* **README.md** - file for installation and getting started instructions
-* **html_admin** folder - for admin area templates, to store custom *.html.twig files
-* **html_client** folder - for client area templates, to store custom *.html.twig files
+    ### Controller folder
     
-### Controller folder
+    * **Admin.php** - if the module has install/uninstall functions or an admin area interface\
+    * **Client.php** - if the module has a client area interface
     
-* **Admin.php** - if the module has install/uninstall functions or an admin area interface\
-* **Client.php** - if the module has a client area interface
+    ### Api folder
     
-### Api folder
+    * **Admin.php** - Administrator API, only authorized administrators will be able to call these endpoints.
+    * **Client.php** - Client API, only logged in clients will be able to call these endpoints.
+    * **Guest.php** - Guest API, no authorization is needed for these endpoints. Don't provide confidential data over these endpoints. Anybody over the internet will be able to access these information, including bots.
     
-* **Admin.php** - Administrator API, only authorized administrators will be able to call these endpoints.
-* **Client.php** - Client API, only logged in clients will be able to call these endpoints.
-* **Guest.php** - Guest API, no authorization is needed for these endpoints. Don't provide confidential data over these endpoints. Anybody over the internet will be able to access these information, including bots.
+    ## Tips
     
-## Tips
+    We recommend hosting your extensions on a public [GitHub](https://github.com) repository.
     
-We recommend hosting your extensions on a public [GitHub](https://github.com) repository.`
+    ### Automated compatibility checking
+    
+    As FOSSBilling evolves and matures, its internal functionality changes, which can create compatibility issues between your module and FOSSBilling.
+    To help developers catch these issues early on, we've designed a workflow that enables you to perform a PHPStan analysis of your module with both the latest FOSSBilling release and its preview builds.
+    While PHPStan cannot perform live tests, it's a useful tool to verify that your module doesn't reference missing functions, use incorrect types, or have other common low-level issues.
+    
+    #### Setup
+    
+    More in-depth instructions are planned. For now, check out the required files:
+    
+    * [php-ci.yml](https://github.com/FOSSBilling/example-module/blob/main/.github/workflows/php-ci.yml)
+    * [phpstan.neon](https://github.com/FOSSBilling/example-module/blob/main/phpstan.neon)
+    
+    ## Licensing
+    This extension is open source software and is released under the Apache v2.0 license. See [LICENSE](LICENSE) for the full license terms.
+    
+    This product includes the following third party work:
+    * Open Source Iconography by [Pictogrammers](https://pictogrammers.com/) licensed under the [Pictogrammers Free License](https://pictogrammers.com/docs/general/license/).
+    * We recommend hosting your extensions on a public [GitHub](https://github.com) repository.`
   },
   {
     id: 'Serviceproxmox',
@@ -84,6 +111,13 @@ We recommend hosting your extensions on a public [GitHub](https://github.com) re
     version: '0.0.4',
     download_url: 'https://github.com/FOSSBilling/Proxmox/releases/download/0.0.4/Serviceproxmox.zip',
     releases: [
+      {
+        tag: '0.0.5',
+        date: '2023-06-13T14:21:19Z',
+        download_url: 'https://github.com/FOSSBilling/Proxmox/releases/download/0.0.5/Serviceproxmox.zip',
+        changelog_url: 'https://github.com/FOSSBilling/Proxmox/releases/tag/0.0.5',
+        min_fossbilling_version: '0.5'
+      },
       {
         tag: '0.0.4',
         date: '2023-03-18T16:58:22Z',
@@ -159,6 +193,13 @@ This module is licensed under the GNU General Public License v3.0. See the LICEN
     version: '0.0.2',
     download_url: 'https://github.com/FOSSBilling/Mollie/releases/download/0.0.2/Mollie.zip',
     releases: [
+      {
+        tag: '0.0.3',
+        date: '2023-06-13T14:17:49Z',
+        download_url: 'https://github.com/FOSSBilling/Mollie/releases/download/0.0.3/Mollie.zip',
+        changelog_url: 'https://github.com/FOSSBilling/Mollie/releases/tag/0.0.3',
+        min_fossbilling_version: '0.5'
+      },
       {
         tag: '0.0.2',
         date: '2023-05-08T20:14:07Z',
