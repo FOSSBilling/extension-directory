@@ -6,6 +6,12 @@ export const authorData: Author[] = [
         name: 'fossbilling',
         id: 'fossbilling',
         URL: 'https://fossbilling.org'
+    },
+    {
+        type: 'organization',
+        name: 'bitcart',
+        id: 'bitcart',
+        URL: 'https://bitcart.ai'
     }
 ];
 
