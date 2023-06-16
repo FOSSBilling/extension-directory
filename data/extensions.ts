@@ -247,5 +247,75 @@ This module is licensed under the GNU General Public License v3.0. See the LICEN
   
   ## Disclaimer
   This extension is not affiliated with Mollie B.V. in any way. Mollie is a registered trademark of Mollie B.V. The "official" word refers exclusively to the fact that this extension is the only one that is officially supported by the FOSSBilling team. It does not imply any endorsement by Mollie B.V.`
+  },
+  {
+    id: 'Bitcart',
+    type: 'payment-gateway',
+    name: 'Bitcart',
+    description: 'Bitcart extension for FOSSBilling',
+    author: findAuthorByID('bitcart'),
+    license: {
+        name: 'MIT',
+        URL: 'https://github.com/bitcart/bitcart-fossbilling/blob/master/LICENSE'
+    },
+    source: {
+        type: 'github',
+        repo: 'bitcart/bitcart-fossbilling'
+    },
+    version: '1.1.0',
+    download_url: 'https://github.com/bitcart/bitcart-fossbilling/releases/download/1.1.0/Bitcart.zip',
+    releases: [
+      {
+        tag: '1.1.0',
+        date: '2023-06-15T19:22:52Z',
+        download_url: 'https://github.com/bitcart/bitcart-fossbilling/releases/download/1.1.0/Bitcart.zip',
+        changelog_url: 'https://github.com/bitcart/bitcart-fossbilling/releases/tag/1.1.0',
+        min_fossbilling_version: '0.5'
+      },
+      {
+        tag: '1.0.0',
+        date: '2023-05-15T19:22:52Z',
+        download_url: 'https://github.com/bitcart/bitcart-fossbilling/releases/download/1.0.0/BitcartCC.zip',
+        changelog_url: 'https://github.com/bitcart/bitcart-fossbilling/releases/tag/1.0.0',
+        min_fossbilling_version: '0.1'
+      },
+    ],
+    icon_url: 'https://raw.githubusercontent.com/bitcart/bitcart-fossbilling/master/Bitcart/Bitcart.png',
+    website: 'https://bitcart.ai',
+    readme: `# Bitcart plugin for FOSSBilling
+
+  For BoxBilling or FOSSBilling versions less than 0.5.0, you will need to use an [older version](https://github.com/bitcart/bitcart-fossbilling/tree/9aeb99cd3a59545113c2f5416d7ed63f00b149eb) of this payment gateway.
+  Please keep in mind BoxBilling is unmaintained and both BoxBilling and outdated version FOSSBilling may suffer from security vulnerabilities. Additionally, no support will be provided for either.
+  
+  ## Integration Requirements
+  
+  This version requires the following:
+  
+  * A working and up-to-date FOSSBilling instance
+  * Running Bitcart instance: [deployment guide](https://docs.bitcart.ai/deployment)
+  
+  ## Installing the Plugin
+  
+  ### Extension directory
+  
+  The easiest way to install this extension is by using the [FOSSBilling extension directory](https://extensions.fossbilling.org/extension/Bitcart).
+  
+  ### Manual installation
+  
+  1. Download the latest release from the [extension directory](https://extensions.fossbilling.org/extension/Bitcart)
+  2. Create a new folder named \`Bitcart\` in the \`/library/Payment/Adapter\` directory of your FOSSBilling installation
+  3. Extract the archive you've downloaded in the first step into the new directory
+  4. Go to the "Payment gateways" page in your admin panel (under the "System" menu in the navigation bar) and find Bitcart in the "New payment gateway" tab
+  5. Click the cog icon next to Bitcart to install and configure Bitcart
+  
+  ## Plugin Configuration
+  
+  After you have enabled the Bitcart plugin, the configuration steps are:
+  
+  1. Enter your admin panel URL (for example, https://admin.bitcart.ai) without slashes. If deployed via configurator, you should use https://bitcart.yourdomain.com/admin
+  2. Enter your merchants API URL (for example, https://api.bitcart.ai) without slashes. If deployed via configurator, you should use https://bitcart.yourdomain.com/api
+  3. Enter your store ID (click on id field in Bitcart's admin panel to copy id)
+  
+  Enjoy!`
   }
 ]
