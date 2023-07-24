@@ -34,7 +34,7 @@ const extension = ({ ext, errors }: Props) => {
         <Layout title={`${ext ? ext.name : 'Extension details'} | FOSSBilling extensions`}>
             <ExtensionHeader ext={ext} />
             <TabGroup>
-                <TabList value={selectedView} defaultValue="overview" onValueChange={(value) => setSelectedView(value)} className="mt-6">
+                <TabList value={selectedView} defaultValue="overview" className="mt-6">
                     <Tab value="overview" text="Overview" />
                     <Tab value="release-history" text="Release history" />
                 </TabList>
