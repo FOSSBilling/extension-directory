@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Extension } from 'interfaces'
 import { extensionData } from 'data/extensions'
 
-import { Card, Col, Grid, Tab, TabList } from "@tremor/react";
+import { Card, Col, Grid, Tab, TabList, TabGroup } from "@tremor/react";
 
 import { DetailsCard } from "components/DetailsCard";
 import { ReleasesCard } from "components/ReleasesCard";
@@ -33,11 +33,12 @@ const extension = ({ ext, errors }: Props) => {
     return (
         <Layout title={`${ext ? ext.name : 'Extension details'} | FOSSBilling extensions`}>
             <ExtensionHeader ext={ext} />
-
-            <TabList value={selectedView} defaultValue="overview" onValueChange={(value) => setSelectedView(value)} className="mt-6">
-                <Tab value="overview" text="Overview" />
-                <Tab value="release-history" text="Release history" />
-            </TabList>
+            <TabGroup>
+                <TabList value={selectedView} defaultValue="overview" onValueChange={(value) => setSelectedView(value)} className="mt-6">
+                    <Tab value="overview" text="Overview" />
+                    <Tab value="release-history" text="Release history" />
+                </TabList>
+            </TabGroup>
 
             <Grid numColsLg={6} className="gap-6 mt-6">
                 {/* Main section */}
