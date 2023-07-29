@@ -317,5 +317,50 @@ This module is licensed under the GNU General Public License v3.0. See the LICEN
   3. Enter your store ID (click on id field in Bitcart's admin panel to copy id)
   
   Enjoy!`
+  },
+  {
+    id: 'UddoktaPay',
+    type: 'payment-gateway',
+    name: 'UddoktaPay',
+    description: 'UddoktaPay extension for FOSSBilling',
+    author: findAuthorByID('uddoktapay'),
+    license: {
+        name: 'MIT',
+        URL: 'https://github.com/UddoktaPay/FOSSBilling/blob/master/LICENSE'
+    },
+    source: {
+        type: 'github',
+        repo: 'UddoktaPay/FOSSBilling'
+    },
+    version: '1.0.0',
+    download_url: 'https://github.com/UddoktaPay/FOSSBilling/releases/download/1.0.0/UddoktaPay.zip',
+    releases: [
+      {
+        tag: '1.0.0',
+        date: '2023-07-29T11:44:14Z',
+        download_url: 'https://github.com/UddoktaPay/FOSSBilling/releases/download/1.0.0/UddoktaPay.zip',
+        changelog_url: 'https://github.com/UddoktaPay/FOSSBilling/releases/tag/1.0.0',
+        min_fossbilling_version: '0.5'
+      }
+    ],
+    icon_url: 'https://raw.githubusercontent.com/UddoktaPay/FOSSBilling/master/UddoktaPay/UddoktaPay.png',
+    website: 'https://uddoktapay.com',
+    readme: `# UddoktaPay plugin for FOSSBilling
+
+  ## Installing the Plugin
+  
+  ### Extension directory
+  
+  The easiest way to install this extension is by using the [FOSSBilling extension directory](https://extensions.fossbilling.org/extension/UddoktaPay).
+  
+  ### Manual installation
+  
+  1. Download the latest release from the [extension directory](https://extensions.fossbilling.org/extension/UddoktaPay)
+  2. Create a new folder named \`UddoktaPay\` in the \`/library/Payment/Adapter\` directory of your FOSSBilling installation
+  3. Extract the archive you've downloaded in the first step into the new directory
+  4. Go to the "Payment gateways" page in your admin panel (under the "System" menu in the navigation bar) and find UddoktaPay in the "New payment gateway" tab
+  5. Click the cog icon next to UddoktaPay to install and configure UddoktaPay
+  
+  Enjoy!`
   }
 ]
