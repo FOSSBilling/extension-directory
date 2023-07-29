@@ -12,6 +12,12 @@ export const authorData: Author[] = [
         name: 'bitcart',
         id: 'bitcart',
         URL: 'https://bitcart.ai'
+    },
+    {
+        type: 'organization',
+        name: 'uddoktapay',
+        id: 'uddoktapay',
+        URL: 'https://uddoktapay.com'
     }
 ];
 
