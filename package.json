@@ -13,7 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@tremor/react": "^2.11.0",
-    "@vercel/analytics": "^1.0.1",
+    "@vercel/analytics": "^1.0.2",
     "@vercel/og": "^0.5.13",
     "badge-maker": "^3.3.1",
     "next": "^13.4.19",
