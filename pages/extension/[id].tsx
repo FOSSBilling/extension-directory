@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Extension } from 'interfaces'
 import { extensionData } from 'data/extensions'
 
-import { Card, Col, Grid, Tab, TabList } from "@tremor/react";
+import { Card, Col, Grid, Tab, TabList, TabGroup, TabPanels, TabPanel } from "@tremor/react";
 
 import { DetailsCard } from "components/DetailsCard";
 import { ReleasesCard } from "components/ReleasesCard";
@@ -34,31 +34,36 @@ const extension = ({ ext, errors }: Props) => {
         <Layout title={`${ext ? ext.name : 'Extension details'} | FOSSBilling extensions`}>
             <ExtensionHeader ext={ext} />
 
-            <TabList value={selectedView} defaultValue="overview" onValueChange={(value) => setSelectedView(value)} className="mt-6">
-                <Tab value="overview" text="Overview" />
-                <Tab value="release-history" text="Release history" />
-            </TabList>
+            <TabGroup>
+                <TabList className="mt-6">
+                    <Tab>Overview</Tab>
+                    <Tab>Release history</Tab>
+                </TabList>
 
-            <Grid numColsLg={6} className="gap-6 mt-6">
-                {/* Main section */}
-                <Col numColSpanLg={4}>
-                    <Card className="h-full">
-                        {selectedView === "overview" ? (
-                            <Overview ext={ext} />
-                        ) : (
-                            <ReleasesTable ext={ext} />
-                        )}
-                    </Card>
-                </Col>
+                <Grid numItemsLg={6} className="gap-6 mt-6">
+                    {/* Main section */}
+                    <Col numColSpanLg={4}>
+                        <Card className="h-full">
+                            <TabPanels>
+                                <TabPanel>
+                                    <Overview ext={ext} />
+                                </TabPanel>
+                                <TabPanel>
+                                    <ReleasesTable ext={ext} />
+                                </TabPanel>
+                            </TabPanels>
+                        </Card>
+                    </Col>
 
-                {/* KPI sidebar */}
-                <Col numColSpanLg={2}>
-                    <div className="space-y-6">
-                        <DetailsCard ext={ext} />
-                        <ReleasesCard ext={ext} state={setSelectedView} />
-                    </div>
-                </Col>
-            </Grid>
+                    {/* KPI sidebar */}
+                    <Col numColSpanLg={2}>
+                        <div className="space-y-6">
+                            <DetailsCard ext={ext} />
+                            <ReleasesCard ext={ext} state={setSelectedView} />
+                        </div>
+                    </Col>
+                </Grid>
+            </TabGroup>
         </Layout>
     );
 }

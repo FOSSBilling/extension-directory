@@ -16,7 +16,7 @@ export default function Index({ extensions }: { extensions: Extension[] }) {
             </Flex>
             <Text>Welcome to the FOSSBilling Extension Directory. Handy with React and want to contribute? <a href="https://github.com/FOSSBilling/extension-directory" target="_blank"><Button variant="light">Check out the source code on GitHub</Button></a>.</Text>
 
-            <Grid numColsLg={3} className="mt-6 gap-6">
+            <Grid numItemsLg={3} className="mt-6 gap-6">
                 {extensions.map((ext) => (
                     <ExtensionCard ext={ext} key={ext.name} />
                 ))}
