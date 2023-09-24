@@ -438,7 +438,7 @@ This module is licensed under the GNU General Public License v3.0. See the LICEN
 
   Provide your [FOSSBilling](https://fossbilling.org) customers with a variety of payment options, including Credit/Debit cards, Netbanking, UPI, Wallets, and more through [Razorpay](https://razorpay.com).
 
-  > **Disclaimer**: This module is **not officially affiliated** with [FOSSBilling](https://fossbilling.org) or [Razorpay](https://razorpay.com). Please refer to their respective documentation for detailed information on Fossbilling and Razorpay.
+  > **Disclaimer**: This module is not officially affiliated with [FOSSBilling](https://fossbilling.org) or [Razorpay](https://razorpay.com). Please refer to their respective documentation for detailed information on FOSSBilling and Razorpay.
 
   ## Installation
 
@@ -455,15 +455,15 @@ The easiest way to install this extension is by using the [FOSSBilling extension
 
 
 ## Configuration
-1. Access Razorpay Settings: In your FOSSBilling admin panel, find "**Razorpay**" under "**Payment gateways.**"
-1. Enter API Credentials: Input your Razorpay \`API Key\` and \`API Secret\`. You can obtain these from your Razorpay panel.
-1. Configure Preferences: Customize settings like currency and payment methods as needed.
-1. Save Changes: Remember to update your configuration.
-1. Test Transactions (Optional): Test your gateway integration through a payment process.
-1. Go Live: Switch to live mode to start accepting real payments.
+1. **Access Razorpay Settings:** In your FOSSBilling admin panel, find "**Razorpay**" under "**Payment gateways.**"
+2. **Enter API Credentials:** Input your Razorpay \`API Key\` and \`API Secret\`. You can obtain these from your Razorpay panel.
+3. **Configure Preferences:** Customize settings like currency and payment methods as needed.
+4. **Save Changes:** Remember to update your configuration.
+5. **Test Transactions (Optional):** Test your gateway integration through a payment process.
+6. **Go Live:** Switch to live mode to start accepting real payments.
 
 ## Usage
-Once you've installed and configured the module, you can start using Razorpay as a payment gateway in your Fossbilling setup. Customers will now see Razorpay as an option during the payment process based on the configuration you have set.
+Once you've installed and configured the module, you can start using Razorpay as a payment gateway in your FOSSBilling setup. Customers will now see Razorpay as an option during the payment process based on the configuration you have set.
 
 ## Contributing
 We welcome contributions to enhance and improve this integration module. If you'd like to contribute, please follow these steps:
@@ -474,9 +474,9 @@ Make your changes and commit them with a clear and concise commit message.
 Push your branch to your fork: \`git push origin feature-name\` and create a [pull request](https://github.com/albinvar/Razorpay-FOSSBilling/pulls).
 
 ## License
-This Fossbilling Razorpay Payment Gateway Integration module is open-source software licensed under the [Apache License 2.0](https://github.com/albinvar/Razorpay-FOSSBilling/blob/1.x-prod/LICENSE).
+This FOSSBilling Razorpay Payment Gateway Integration module is open-source software licensed under the [Apache License 2.0](https://github.com/albinvar/Razorpay-FOSSBilling/blob/1.x-prod/LICENSE).
 
-For support or questions, feel free to contact us at albinvar@pm.me
+For support or questions, feel free to contact me at albinvar@pm.me
   `,
   },
 ];
