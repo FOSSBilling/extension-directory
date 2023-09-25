@@ -9,10 +9,18 @@ export const extensionData: Extension[] = [
     type: "mod",
     name: "Example",
     description: "An example module for developers to get started.",
-    version: "0.0.2",
-    download_url:
-      "https://github.com/FOSSBilling/example-module/releases/download/0.0.1/Example.zip",
+    version: "0.0.4",
+    download_url: "https://github.com/FOSSBilling/example-module/releases/download/0.0.4/Example.zip",
     releases: [
+      {
+        tag: "0.0.4",
+        date: "2023-09-25T07:36:29Z",
+        download_url:
+          "https://github.com/FOSSBilling/example-module/releases/download/0.0.4/Example.zip",
+        changelog_url:
+          "https://github.com/FOSSBilling/example-module/releases/tag/0.0.4",
+        min_fossbilling_version: "0.5",
+      },
       {
         tag: "0.0.3",
         date: "2023-06-13T14:11:11Z",
@@ -50,8 +58,7 @@ export const extensionData: Extension[] = [
       type: "github",
       repo: "FOSSBilling/example-module",
     },
-    icon_url:
-      "https://raw.githubusercontent.com/FOSSBilling/example-module/main/src/icon.svg",
+    icon_url: "https://raw.githubusercontent.com/FOSSBilling/example-module/main/src/icon.svg",
     website: "https://fossbilling.org",
     readme: `# Example module README file
 
@@ -71,14 +78,14 @@ export const extensionData: Extension[] = [
     
     ## Optional
     
-    * **README.md** - file for installation and getting started instructions
-    * **html_admin** folder - for admin area templates, to store custom *.html.twig files
-    * **html_client** folder - for client area templates, to store custom *.html.twig files
+    * **README.md** - A file which generally is used to hold a getting started guide or installation instructions for your module.
+    * **html_admin** - A folder holding front-end templates (\`*.html.twig files\`) for the administrator panel.
+    * **html_client** - A folder holding front-end templates (\`*.html.twig files\`) for the client / guest area.
     
     ### Controller folder
     
-    * **Admin.php** - if the module has install/uninstall functions or an admin area interface\
-    * **Client.php** - if the module has a client area interface
+    * **Admin.php** - Defines the module's routes and navigation items for the administrator panel.
+    * **Client.php** - Used to define the module's routes for the client / guest area.
     
     ### Api folder
     
@@ -107,8 +114,7 @@ export const extensionData: Extension[] = [
     This extension is open source software and is released under the Apache v2.0 license. See [LICENSE](LICENSE) for the full license terms.
     
     This product includes the following third party work:
-    * Open Source Iconography by [Pictogrammers](https://pictogrammers.com/) licensed under the [Pictogrammers Free License](https://pictogrammers.com/docs/general/license/).
-    * We recommend hosting your extensions on a public [GitHub](https://github.com) repository.`,
+    * Open Source Iconography by [Pictogrammers](https://pictogrammers.com/) licensed under the [Pictogrammers Free License](https://pictogrammers.com/docs/general/license/).`,
   },
   {
     id: "Serviceproxmox",
