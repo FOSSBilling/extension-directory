@@ -18,7 +18,7 @@ You can find the extension directory at [https://extensions.fossbilling.org](htt
 4. Go to the Extensions page in your FOSSBilling admin panel and enable the extension
 
 ## How to submit an extension
-Currently, the backend doesn't rely on a database, so you can't submit extensions through the website. You can submit extensions by creating a pull request on GitHub. We keep a list of extensions in the `data/data.ts` file. You can add your extension to the list by adding a new Extension object to the array.
+Currently, the backend doesn't rely on a database, so you can't submit extensions through the website. You can submit extensions by creating a pull request on GitHub. We keep a list of extensions in the `data/extensions.ts` file, and extension authors in the `data/author.ts` file. You can add your extension to the list by adding new Extension object to the arrays.
 
 ## The badge API
 We provide an API that renders badges for your extension. You can use these badges on your README or on your website.
