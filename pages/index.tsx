@@ -15,7 +15,7 @@ export default function Index({ extensions }: { extensions: Extension[] }) {
                 <Badge className="ml-2">beta</Badge>
             </Flex>
             <Text>Welcome to the FOSSBilling Extension Directory. Handy with React and want to contribute? <a href="https://github.com/FOSSBilling/extension-directory" target="_blank"><Button variant="light">Check out the source code on GitHub</Button></a>.</Text>
-
+            <Text>Please note that only extensions that can be auto-installed from within FOSSBilling are included in the directory at this time. For a list of other working extenstions i.e. Registration modules please <a href="https://fossbilling.org/docs/extensions" target="_blank"><Button variant="light">see here</Button></a>.</Text>
             <Grid numItemsLg={3} className="mt-6 gap-6">
                 {extensions.map((ext) => (
                     <ExtensionCard ext={ext} key={ext.name} />
