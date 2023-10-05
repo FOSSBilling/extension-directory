@@ -116,7 +116,7 @@ export const extensionData: Extension[] = [
     This product includes the following third party work:
     * Open Source Iconography by [Pictogrammers](https://pictogrammers.com/) licensed under the [Pictogrammers Free License](https://pictogrammers.com/docs/general/license/).`,
   },
-  {
+  /*{
     id: "Serviceproxmox",
     type: "mod",
     name: "Proxmox",
@@ -201,7 +201,7 @@ Initial Proxmox support for FOSSBilling. This module is still in development and
     
 ## Licensing
 This module is licensed under the GNU General Public License v3.0. See the LICENSE file for more information.`,
-  },
+  },*/
   {
     id: "Mollie",
     type: "payment-gateway",
