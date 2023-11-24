@@ -15,6 +15,5 @@
     ":rebaseStalePrs"
   ],
   "automergeSchedule": ["at any time"],
-  "automergeStrategy": "squash",
-  "automergeType": "branch"
+  "automergeStrategy": "squash"
 }
