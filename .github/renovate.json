@@ -14,11 +14,6 @@
     ":prHourlyLimit2",
     ":rebaseStalePrs"
   ],
-  "lockFileMaintenance": {
-    "enabled": true,
-    "automerge": true
-  },
   "automergeSchedule": ["at any time"],
-  "automergeStrategy": "squash",
-  "automergeType": "branch"
+  "automergeStrategy": "squash"
 }
