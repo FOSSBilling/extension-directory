@@ -497,4 +497,100 @@ This FOSSBilling Razorpay Payment Gateway Integration module is open-source soft
 For support or questions, feel free to contact me at albinvar@pm.me
   `,
   },
+  {
+    id: "BTCPay",
+    type: "payment-gateway",
+    name: "BTCPay",
+    description: "BTCPay extension for FOSSBilling",
+    author: findAuthorByID("christiangabs"),
+    license: {
+      name: "Apache License 2.0",
+      URL: "https://github.com/ChristianGabs/btcpay-fossbilling/blob/main/LICENSE",
+    },
+    source: {
+      type: "github",
+      repo: "ChristianGabs/btcpay-fossbilling",
+    },
+    version: "0.1.3",
+    download_url:
+        "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.3/BTCPay-FOSSBilling-0.1.3.zip",
+    releases: [
+      {
+        tag: "0.1.3",
+        date: "2024-06-12T20:54:00Z",
+        download_url:
+            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.3/BTCPay-FOSSBilling-0.1.3.zip",
+        changelog_url:
+            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.3",
+        min_fossbilling_version: "0.6",
+      },
+      {
+        tag: "0.1.2",
+        date: "2024-06-12T11:46:00Z",
+        download_url:
+            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.2/BTCPay-FOSSBilling-0.1.2.zip",
+        changelog_url:
+            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.2",
+        min_fossbilling_version: "0.6",
+      },
+      {
+        tag: "0.1.1",
+        date: "2024-06-12T12:19:00Z",
+        download_url:
+            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.1/BTCPay-FOSSBilling-0.1.1.zip",
+        changelog_url:
+            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.2",
+        min_fossbilling_version: "0.6",
+      },
+      {
+        tag: "0.1.0",
+        date: "2024-06-11T11:52:00Z",
+        download_url:
+            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.0/BTCPay-FOSSBilling-0.1.0.zip",
+        changelog_url:
+            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.0",
+        min_fossbilling_version: "0.6",
+      },
+    ],
+    icon_url:
+        "https://raw.githubusercontent.com/ChristianGabs/btcpay-fossbilling/main/src/btcpaylogo.png",
+    website: "https://btcpayserver.org/",
+    readme: ` # BTCPay plugin for FOSSBilling
+  For FOSSBilling versions > 0.6.0
+  
+  ## Integration Requirements
+  
+  This version requires the following:
+  
+  * A working and up-to-date FOSSBilling instance
+  * Running BTCPay instance: [deployment guide](https://docs.btcpayserver.org/Deployment/)
+  
+  ## Installing the Plugin
+  ### 1). Extension directory
+
+  The easiest way to install this extension is by using the [FOSSBilling extension directory](https://extensions.fossbilling.org/extension/BTCPay).
+
+  ### 2). Manual installation
+  
+  1. Download the latest release from the [releases](https://github.com/ChristianGabs/btcpay-fossbilling/releases/latest)
+  2. Create a new folder named \`BTCPay\` in the \`/library/Payment/Adapter\` directory of your FOSSBilling installation
+  3. Extract the archive you've downloaded in the first step into the new directory
+  4. Go to the "Payment gateways" page in your admin panel (under the "System" menu in the navigation bar) and find BTCPay in the "New payment gateway" tab
+  5. Click the cog icon next to BTCPay to install and configure BTCPay
+  
+  ## Plugin Configuration
+  
+  After you have enabled the BTCPay plugin, the configuration steps are:
+  
+  1. Enter your Host URL (for example, https://pay.example.com) without slashes.
+  2. Enter your API Key [Account > Manager Account > Api Keys] Permissions : [btcpay.store.canviewinvoices, btcpay.store.cancreateinvoice]
+  3. Enter your Store id  (Settings > General > Store Id)
+  4. Enter your IPN Webhook Secret Key  (Settings > Webhook > Create Webhook) [Events : A payment has been settled, An invoice has expired, An invoice has been settled, An invoice became invalid] 
+  5. Tax Included
+  6. Speed Policy Options [High,Medium,Low, Low Medium : speed]
+  
+  ## License
+  This FOSSBilling BTCPay Payment Gateway Integration module is open-source software licensed under the [Apache License 2.0](LICENSE).
+  `,
+  },
 ];
