@@ -511,10 +511,19 @@ For support or questions, feel free to contact me at albinvar@pm.me
       type: "github",
       repo: "ChristianGabs/btcpay-fossbilling",
     },
-    version: "0.1.3",
+    version: "0.1.4",
     download_url:
-        "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.3/BTCPay-FOSSBilling-0.1.3.zip",
+        "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.4/BTCPay-FOSSBilling-0.1.4.zip",
     releases: [
+      {
+        tag: "0.1.4",
+        date: "2024-06-14T16:13:00Z",
+        download_url:
+            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.4/BTCPay-FOSSBilling-0.1.4.zip",
+        changelog_url:
+            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.4",
+        min_fossbilling_version: "0.6",
+      },
       {
         tag: "0.1.3",
         date: "2024-06-12T20:54:00Z",
@@ -531,24 +540,6 @@ For support or questions, feel free to contact me at albinvar@pm.me
             "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.2/BTCPay-FOSSBilling-0.1.2.zip",
         changelog_url:
             "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.2",
-        min_fossbilling_version: "0.6",
-      },
-      {
-        tag: "0.1.1",
-        date: "2024-06-12T12:19:00Z",
-        download_url:
-            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.1/BTCPay-FOSSBilling-0.1.1.zip",
-        changelog_url:
-            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.2",
-        min_fossbilling_version: "0.6",
-      },
-      {
-        tag: "0.1.0",
-        date: "2024-06-11T11:52:00Z",
-        download_url:
-            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.0/BTCPay-FOSSBilling-0.1.0.zip",
-        changelog_url:
-            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.0",
         min_fossbilling_version: "0.6",
       },
     ],
