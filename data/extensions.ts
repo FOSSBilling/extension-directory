@@ -603,12 +603,21 @@ For support or questions, feel free to contact me at albinvar@pm.me
         "https://github.com/neto737/PAYEER-FOSSBilling/releases/download/0.1.0/PAYEER.zip",
     releases: [
       {
+        tag: "0.1.1",
+        date: "2024-06-22T22:07:28Z",
+        download_url:
+            "https://github.com/neto737/PAYEER-FOSSBilling/releases/download/0.1.1/PAYEER-v0.1.1.zip",
+        changelog_url:
+            "https://github.com/neto737/PAYEER-FOSSBilling/releases/tag/0.1.1",
+        min_fossbilling_version: "0.6",
+      },
+      {
         tag: "0.1.0",
         date: "2024-06-21T22:41:54Z",
         download_url:
             "https://github.com/neto737/PAYEER-FOSSBilling/releases/download/0.1.0/PAYEER.zip",
         changelog_url:
-            "https://github.com/neto737/PAYEER-FOSSBilling/commits/0.1.0",
+            "https://github.com/neto737/PAYEER-FOSSBilling/releases/tag/0.1.0",
         min_fossbilling_version: "0.6",
       },
     ],
