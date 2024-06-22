@@ -622,7 +622,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
 
   ### Manual installation
   1. Download the latest release from the [releases](https://github.com/neto737/PAYEER-FOSSBilling/releases/latest)
-  2. Create a new folder named `PAYEER` in the `/library/Payment/Adapter` directory of your FOSSBilling installation
+  2. Create a new folder named \`PAYEER\` in the \`/library/Payment/Adapter\` directory of your FOSSBilling installation
   3. Extract the archive you've downloaded in the first step into the new directory
   4. Go to the "Payment gateways" page in your admin panel (under the "System" menu in the navigation bar) and find PAYEER in the "New payment gateway" tab
   5. Click the cog icon next to PAYEER to install and configure PAYEER
