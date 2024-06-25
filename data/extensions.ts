@@ -598,9 +598,9 @@ For support or questions, feel free to contact me at albinvar@pm.me
       type: "github",
       repo: "neto737/PAYEER-FOSSBilling",
     },
-    version: "0.1.0",
+    version: "0.1.1",
     download_url:
-        "https://github.com/neto737/PAYEER-FOSSBilling/releases/download/0.1.0/PAYEER.zip",
+        "https://github.com/neto737/PAYEER-FOSSBilling/releases/download/0.1.1/PAYEER-v0.1.1.zip",
     releases: [
       {
         tag: "0.1.1",
