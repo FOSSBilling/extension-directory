@@ -511,10 +511,19 @@ For support or questions, feel free to contact me at albinvar@pm.me
       type: "github",
       repo: "ChristianGabs/btcpay-fossbilling",
     },
-    version: "0.1.4",
+    version: "0.1.5",
     download_url:
-        "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.4/BTCPay-FOSSBilling-0.1.4.zip",
+        "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.5/BTCPay-FOSSBilling-0.1.5.zip",
     releases: [
+      {
+        tag: "0.1.5",
+        date: "2024-06-25T18:56:00Z",
+        download_url:
+            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.5/BTCPay-FOSSBilling-0.1.5.zip",
+        changelog_url:
+            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.5",
+        min_fossbilling_version: "0.6",
+      },
       {
         tag: "0.1.4",
         date: "2024-06-14T16:13:00Z",
@@ -533,19 +542,10 @@ For support or questions, feel free to contact me at albinvar@pm.me
             "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.3",
         min_fossbilling_version: "0.6",
       },
-      {
-        tag: "0.1.2",
-        date: "2024-06-12T11:46:00Z",
-        download_url:
-            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.2/BTCPay-FOSSBilling-0.1.2.zip",
-        changelog_url:
-            "https://github.com/ChristianGabs/btcpay-fossbilling/releases/download/0.1.2",
-        min_fossbilling_version: "0.6",
-      },
     ],
     icon_url:
         "https://raw.githubusercontent.com/ChristianGabs/btcpay-fossbilling/main/src/btcpaylogo.png",
-    website: "https://btcpayserver.org/",
+    website: "https://github.com/ChristianGabs/btcpay-fossbilling",
     readme: ` # BTCPay plugin for FOSSBilling
   For FOSSBilling versions > 0.6.0
   
@@ -579,10 +579,26 @@ For support or questions, feel free to contact me at albinvar@pm.me
   4. Enter your IPN Webhook Secret Key  (Settings > Webhook > Create Webhook) [Events : A payment has been settled, An invoice has expired, An invoice has been settled, An invoice became invalid] 
   5. Tax Included
   6. Speed Policy Options [High,Medium,Low, Low Medium : speed]
+
+  ## Debugging Webhook Callbacks
+
+  ***Enable Debugging:***
+
+  - Open ***config.php*** and set  \`\`\`debug => true\`\`\`
+
+  - *Remember to revert this setting to false once you have finished debugging.*
+
+  ***View Callback Responses***
+
+  - You can find the responses from callbacks in the log files located at FossBilling **/data/log/event/event-date.log**.
+
+  ***Example of debugging callbacks***
+  
+  - \`\`\`[BTCPay] validation has failed. HTTP_BTCPAY_SIG : "" IPN Secret : "********" \`\`\`
+  - *In this scenario, your IPN Secret is incorrect.*
   
   ## License
-  This FOSSBilling BTCPay Payment Gateway Integration module is open-source software licensed under the [Apache License 2.0](LICENSE).
-  `,
+  This FOSSBilling BTCPay Payment Gateway Integration module is open-source software licensed under the [Apache License 2.0](LICENSE).`,
   },
   {
     id: "PAYEER",
@@ -627,9 +643,13 @@ For support or questions, feel free to contact me at albinvar@pm.me
     readme: ` # PAYEER for FOSSBilling
   Quickly and easily integrate [PAYEER](https://payeer.com) into your [FOSSBilling](https://fossbilling.org) instance using this extension.
 
-  ## Installation
+  ## Installing the Plugin
+  ### 1). Extension directory
 
-  ### Manual installation
+  The easiest way to install this extension is by using the [FOSSBilling extension directory](https://extensions.fossbilling.org/extension/PAYEER).
+
+  ### 2). Manual installation
+  
   1. Download the latest release from the [releases](https://github.com/neto737/PAYEER-FOSSBilling/releases/latest)
   2. Create a new folder named \`PAYEER\` in the \`/library/Payment/Adapter\` directory of your FOSSBilling installation
   3. Extract the archive you've downloaded in the first step into the new directory
