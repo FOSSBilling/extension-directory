@@ -37,6 +37,12 @@ export const authorData: Author[] = [
     id: "neto737",
     URL: "https://github.com/neto737",
   },
+  {
+    type: "organization",
+    name: "fzfr",
+    id: "fzfr",
+    URL: "https://github.com/FZFR",
+  },
 ];
 
 export function findAuthorByID(id: string): Author | undefined {
