@@ -1,0 +1,11 @@
+[
+    {
+        "id": "wp_integration",
+        "type": "mod",
+        "name": "WordPress Integration",
+        "description": "Integrates FOSSBilling with WordPress using RabbitMQ",
+        "repository": "https://github.com/Hamza-180/fossbilling-wp-integration",
+        "author": "Hamza",
+        "version": "1.0.0"
+    }
+]
