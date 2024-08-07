@@ -1,7 +1,7 @@
 export const extensions: Extension[] = [
   // ... autres extensions existantes
   {
-    id: "wp_integration",
+    id: "wp-integration",
     type: "mod",
     name: "WordPress Integration",
     description: "Integrates FOSSBilling with WordPress using RabbitMQ",
