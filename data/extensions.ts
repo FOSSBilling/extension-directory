@@ -799,7 +799,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
         download_url:
           "https://github.com/netim-com/fossbilling-registrar-module",
         changelog_url:
-          "https://github.com/FZFR/Xendit-FOSSBilling/releases/tag/v1.0.0",
+          "https://github.com/netim-com/fossbilling-registrar-module/commits/main/",
         min_fossbilling_version: "0.6",
       },
     ],
