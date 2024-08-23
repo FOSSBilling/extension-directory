@@ -774,5 +774,90 @@ For support or questions, feel free to contact me at albinvar@pm.me
   For issues related to this adapter, please open an issue.
 
   For Xendit-specific issues, please contact Xendit support.`,
+  },
+  {
+    id: "Netim",
+    type: "domain-registrar",
+    name: "Netim",
+    description: "Netim registrar extension for FOSSBilling",
+    author: findAuthorByID("netim"),
+    license: {
+      name: "GPL-3.0 license",
+      URL: "https://github.com/netim-com/fossbilling-registrar-module/blob/main/LICENSE",
+    },
+    source: {
+      type: "github",
+      repo: "netim-com/fossbilling-registrar-module",
+    },
+    version: "1.0.0",
+    download_url:
+      "https://github.com/netim-com/fossbilling-registrar-module",
+    releases: [
+      {
+        tag: "1.0.0",
+        date: "2023-07-12T04:57:00Z",
+        download_url:
+          "https://github.com/netim-com/fossbilling-registrar-module",
+        changelog_url:
+          "https://github.com/netim-com/fossbilling-registrar-module/commits/main/",
+        min_fossbilling_version: "0.6",
+      },
+    ],
+    icon_url:
+      "https://avatars.githubusercontent.com/u/117817448?v=4",
+    website: "https://netim.com",
+    readme: `# Netim for FOSSBilling
+
+  ## About the registrar module
+  This module is the implementation of the domain name registrar extension for Netim in FOSSBilling application.
+  To learn more about FOSSBilling, see https://fossbilling.org/
+    
+  This module is licensed under the GNU General Public License v3.0. See the LICENSE file for more information.
+    
+  Online documentation: https://support.netim.com/en/docs/fossbilling
+    
+  Technical Support: modules-support@netim.com
+    
+  ## Installation
+    
+  ### 1). Extension directory  
+  Unfortunately, as FossBilling is still under development, it is not possible to install a registrar from the directory extension. Only manual installation is available.
+  ### 2). Manual installation
+  1. Download the latest release from [our official website](https://support.netim.com/en/docs/fossbilling/download-and-installation)
+  2. Extract the archive in your FOSSBilling installation directory
+  3. Ensure that the module is present in the following directory: /library/Registrar/Adapter/Netim/
+    
+  ## Features
+    
+  __Domain Management__
+  - [X] Domain Registration
+  - [X] Domain Transfer
+  - [X] Domain Renewal
+  - [X] Domain Registrar Lock
+  - [X] Domain Whois privacy
+  - [X] Support for AuthInfo Code (Domain Authorization Code)
+  - [X] Faster availability check by Netim
+  
+  __Contact Management__
+  - [X] Update of contact information
+  - [X] Full support of Latin character set (LATIN1 / LATIN-EXTA / LATIN-EXTB character sets)
+    
+  __DNS Nameserver Management__
+  - [X] Nameserver changes
+    
+  ## Testing
+  Our reseller service provides an OT&E platform so that all tests can be done before going live in production
+    
+  ## About NETIM
+  NETIM is an ICANN accredited registrar created in 2004.
+    
+  It is a worldwide registrar with more than 1000 tlds available and a large network of accreditation.
+  In a highly competitive and fast-growing market, the NETIM values are transparency, honesty in ethics with a clear pricing policy and a quality based-service rewarded on TrustPilot. 
+    
+  Website: https://www.netim.com
+    
+  Technical Support:support@netim.com
+    
+  Sales Support:sales@netim.com`,
 },
 ];
