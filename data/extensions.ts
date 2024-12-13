@@ -384,10 +384,19 @@ This module is licensed under the GNU General Public License v3.0. See the LICEN
       type: "github",
       repo: "UddoktaPay/FOSSBilling",
     },
-    version: "1.0.0",
+    version: "1.0.1",
     download_url:
-      "https://github.com/UddoktaPay/FOSSBilling/releases/download/1.0.0/UddoktaPay.zip",
+      "https://github.com/UddoktaPay/FOSSBilling/releases/download/1.0.1/UddoktaPay.zip",
     releases: [
+      {
+        tag: "1.0.1",
+        date: "2024-12-12T15:01:14Z",
+        download_url:
+          "https://github.com/UddoktaPay/FOSSBilling/releases/download/1.0.1/UddoktaPay.zip",
+        changelog_url:
+          "https://github.com/UddoktaPay/FOSSBilling/releases/tag/1.0.1",
+        min_fossbilling_version: "0.5",
+      },
       {
         tag: "1.0.0",
         date: "2023-07-29T11:44:14Z",
