@@ -885,7 +885,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
   description: "OpenProvider registrar extension for FOSSBilling",
   author: findAuthorByID("devife"),
   license: {
-    name: "GPL-3.0 license",
+    name: "Apache 2.0",
     URL: "https://github.com/Devife/fossbilling-registrar-openprovider/blob/main/LICENSE",
   },
   source: {
