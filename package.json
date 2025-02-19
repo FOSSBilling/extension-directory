@@ -12,7 +12,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@tremor/react": "^3.11.0",
+    "@tremor/react": "^3.18.7",
     "@vercel/analytics": "^1.1.1",
     "@vercel/og": "^0.6.0",
     "badge-maker": "^4.0.0",
