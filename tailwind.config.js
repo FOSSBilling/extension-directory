@@ -49,7 +49,7 @@ module.exports = {
           border: {
             DEFAULT: "#e5e7eb", // gray-200
           },
-          ring: {
+          "ring-3": {
             DEFAULT: "#e5e7eb", // gray-200
           },
           content: {
