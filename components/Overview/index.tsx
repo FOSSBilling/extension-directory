@@ -9,6 +9,8 @@ type Props = {
 
 export function Overview({ ext }: Props) {
     return (
-        <ReactMarkdown children={ext.readme} remarkPlugins={[remarkGfm]} className="markdown-body" />
+        <div className="markdown-body">
+            <ReactMarkdown children={ext.readme} remarkPlugins={[remarkGfm]} />
+        </div>
     );
 }
