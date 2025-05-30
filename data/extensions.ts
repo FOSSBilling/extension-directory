@@ -932,7 +932,6 @@ For support or questions, feel free to contact me at albinvar@pm.me
   This extension is not affiliated with Basilisk Entertainment S.R.L in any way. FaucetPay is a registered trademark of Basilisk Entertainment S.R.L.
   `,
   },
-=======
   id: "OpenProvider",
   type: "domain-registrar",
   name: "OpenProvider",
