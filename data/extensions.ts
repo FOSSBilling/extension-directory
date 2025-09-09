@@ -228,10 +228,19 @@ This module is licensed under the GNU General Public License v3.0. See the LICEN
       type: "github",
       repo: "FOSSBilling/Mollie",
     },
-    version: "0.0.4",
+    version: "0.0.5",
     download_url:
-      "https://github.com/FOSSBilling/Mollie/releases/download/0.0.4/Mollie.zip",
+      "https://github.com/FOSSBilling/Mollie/releases/download/0.0.5/Mollie.zip",
     releases: [
+      {
+        tag: "0.0.5",
+        date: "2025-09-09T15:18:04Z",
+        download_url:
+          "https://github.com/FOSSBilling/Mollie/releases/download/0.0.5/Mollie.zip",
+        changelog_url:
+          "https://github.com/FOSSBilling/Mollie/releases/tag/0.0.5",
+        min_fossbilling_version: "0.5",
+      },
       {
         tag: "0.0.4",
         date: "2025-02-14T14:17:49Z",
