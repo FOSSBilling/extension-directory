@@ -1184,4 +1184,268 @@ Licensed under the Apache License, Version 2.0. See the [LICENSE](https://github
 - Nominet for providing EPP access to .uk domain registration
 - FOSSBilling for the open-source billing platform`,
 },
+{
+  id: "TwoFactorAuth",
+  type: "mod",
+  name: "Two-Factor Authentication",
+  description: "Add TOTP-based two-factor authentication (2FA) to enhance account security. Works with Google Authenticator, Authy, and other authenticator apps.",
+  author: findAuthorByID("axyn"),
+  license: {
+    name: "Apache 2.0",
+    URL: "https://github.com/AXYN-UK/2fa-fossbilling/blob/main/LICENSE",
+  },
+  source: {
+    type: "github",
+    repo: "AXYN-UK/2fa-fossbilling",
+  },
+  version: "1.0.0",
+  download_url:
+    "https://github.com/AXYN-UK/2fa-fossbilling/releases/download/v1.0.0/TwoFactorAuth.php",
+  releases: [
+    {
+      tag: "1.0.0",
+      date: "2025-11-16T15:57:00Z",
+      download_url:
+        "https://github.com/AXYN-UK/2fa-fossbilling/releases/download/v1.0.0/TwoFactorAuth.php",
+      changelog_url:
+        "https://github.com/AXYN-UK/2fa-fossbilling/releases/tag/v1.0.0",
+      min_fossbilling_version: "0.6",
+    },
+  ],
+  icon_url:
+    "https://raw.githubusercontent.com/AXYN-UK/2fa-fossbilling/main/.github/2fa-icon.png",
+  website: "https://www.axyn.co.uk",
+  readme: `# Two-Factor Authentication Extension for FOSSBilling
+
+Add TOTP (Time-based One-Time Password) authentication to FOSSBilling to protect client accounts with an additional layer of security.
+
+## Features
+
+✅ **TOTP Authentication** - Industry-standard RFC 6238 compliant time-based codes
+✅ **Universal Compatibility** - Works with Google Authenticator, Authy, Microsoft Authenticator, and more
+✅ **QR Code Setup** - Quick enrollment by scanning QR codes
+✅ **Backup Codes** - 10 one-time recovery codes for account access
+✅ **Client Self-Service** - Clients can enable/disable 2FA independently
+✅ **Admin Controls** - View statistics and force-disable for account recovery
+✅ **No External Dependencies** - Pure PHP implementation, no additional libraries required
+✅ **Secure** - Timing-safe verification, bcrypt-hashed backup codes
+
+## Requirements
+
+- FOSSBilling 0.6.0 or later
+- PHP 7.4 or later
+- PHP extensions: json, hash (standard)
+
+## Installation
+
+### Automatic (Admin Panel)
+
+1. Download the extension from the FOSSBilling extension directory
+2. Log in to your FOSSBilling admin panel
+3. Navigate to **Extensions → Extensions**
+4. Find "Two-Factor Authentication" and click **Install**
+5. Activate the extension
+
+### Manual Installation
+
+1. Download the latest release files from [GitHub releases](https://github.com/AXYN-UK/2fa-fossbilling/releases):
+   - \`TwoFactorAuth.php\`
+   - \`Api_Client.php\`
+   - \`Api_Admin.php\`
+
+2. Upload to your FOSSBilling installation:
+   - \`TwoFactorAuth.php\` → \`/library/Box/Mod/Twofactorauth/Service.php\`
+   - \`Api_Client.php\` → \`/library/Box/Mod/Twofactorauth/Api/Client.php\`
+   - \`Api_Admin.php\` → \`/library/Box/Mod/Twofactorauth/Api/Admin.php\`
+
+3. Go to **Extensions → Extensions** in admin panel
+4. Activate "Two-Factor Authentication"
+
+## Client Usage
+
+### Enabling 2FA
+
+1. Log in to your client account
+2. Install an authenticator app on your phone:
+   - [Google Authenticator](https://support.google.com/accounts/answer/1066447) (iOS/Android)
+   - [Authy](https://authy.com/) (iOS/Android/Desktop)
+   - [Microsoft Authenticator](https://www.microsoft.com/en-us/security/mobile-authenticator-app) (iOS/Android)
+
+3. Call the API endpoint to generate QR code:
+   \`\`\`
+   POST /api/client/twofactorauth/enable
+   \`\`\`
+
+4. Scan the QR code with your authenticator app
+5. Enter the 6-digit code to activate:
+   \`\`\`
+   POST /api/client/twofactorauth/activate
+   {"code": "123456"}
+   \`\`\`
+
+6. **Save your backup codes** - they're shown only once!
+
+### Logging In with 2FA
+
+After enabling 2FA, logins require an additional step:
+1. Enter username and password as normal
+2. When prompted, enter the 6-digit code from your authenticator app
+3. Or use a backup code if you don't have access to your device
+
+### Disabling 2FA
+
+\`\`\`
+POST /api/client/twofactorauth/disable
+{"code": "123456"}
+\`\`\`
+
+## Admin API
+
+### Get Client 2FA Status
+
+\`\`\`
+POST /api/admin/twofactorauth/client_status
+{"client_id": 123}
+\`\`\`
+
+Returns:
+- \`enabled\`: Boolean
+- \`backup_codes_remaining\`: Number
+
+### View Platform Statistics
+
+\`\`\`
+POST /api/admin/twofactorauth/get_stats
+\`\`\`
+
+Returns:
+- \`total_clients\`: Total registered clients
+- \`clients_with_2fa\`: Clients with 2FA enabled
+- \`adoption_percentage\`: Percentage of clients using 2FA
+
+### Emergency 2FA Removal
+
+\`\`\`
+POST /api/admin/twofactorauth/force_disable
+{"client_id": 123}
+\`\`\`
+
+⚠️ **Use with caution** - This bypasses all security checks and is logged.
+
+### List Clients with 2FA
+
+\`\`\`
+POST /api/admin/twofactorauth/list_clients
+{
+  "page": 1,
+  "per_page": 25,
+  "filter": "enabled"
+}
+\`\`\`
+
+## How It Works
+
+This extension implements the **TOTP (Time-based One-Time Password)** algorithm as specified in [RFC 6238](https://tools.ietf.org/html/rfc6238):
+
+1. **Secret Generation**: A unique 16-character Base32-encoded secret is created for each user
+2. **Time Synchronization**: Both server and authenticator app use the current time divided into 30-second windows
+3. **Code Generation**: HMAC-SHA1 algorithm generates a 6-digit code from the secret + time window
+4. **Verification**: Server accepts codes from current time window ± 30 seconds (90 seconds total) to account for clock drift
+
+### Security Features
+
+- **Timing-Safe Verification**: Uses \`hash_equals()\` to prevent timing attacks
+- **Bcrypt Backup Codes**: One-time recovery codes are hashed using bcrypt
+- **One-Time Use**: Each backup code is deleted after successful use
+- **Admin Logging**: Force-disable actions are logged with admin ID and timestamp
+
+## Troubleshooting
+
+### "Invalid verification code"
+
+**Causes:**
+- Server and device time are out of sync (±90 seconds tolerance)
+- Code already used (each code valid only once)
+- Code manually typed incorrectly
+
+**Solutions:**
+- Check server time: \`date\` command
+- Verify device time is set to automatic
+- Ensure authenticator app is synced
+- Try waiting for next code (codes refresh every 30 seconds)
+
+### Lost Access to Authenticator Device
+
+1. Use a backup code (provided during enrollment)
+2. Contact administrator for account recovery
+3. Admin can use \`force_disable\` API to remove 2FA
+
+### Codes Not Working
+
+- Verify the secret was entered correctly during setup
+- Re-enroll by disabling and re-enabling 2FA
+- Check system time on both server and client device
+
+## Best Practices
+
+### For Clients
+
+✅ **Save backup codes** in a secure location (password manager)
+✅ **Enable 2FA** on all important accounts
+✅ **Use a trusted authenticator app** (Google Authenticator, Authy)
+⛔ **Never share** your secret key or QR code
+⛔ **Don't screenshot** QR codes or backup codes on insecure devices
+
+### For Administrators
+
+✅ **Monitor adoption** with statistics API
+✅ **Document recovery** procedures for lost devices
+✅ **Log all force-disable** actions for auditing
+✅ **Test thoroughly** before production deployment
+⛔ **Avoid overusing** force-disable (defeats security purpose)
+
+## Development & Testing
+
+### Running Tests
+
+\`\`\`bash
+# Standalone TOTP algorithm test
+php /tmp/test_2fa_standalone.php
+\`\`\`
+
+### Integration Example
+
+\`\`\`twig
+{# In login template #}
+{% if needs_2fa %}
+  <form method="post" action="{{ 'api/client/twofactorauth/verify'|link }}">
+    <input type="text" name="code" placeholder="6-digit code" maxlength="6" autocomplete="one-time-code">
+    <button type="submit">Verify</button>
+    <p>Or use a <a href="#backup">backup code</a></p>
+  </form>
+{% endif %}
+\`\`\`
+
+## License
+
+Copyright 2025 AXYN
+
+Licensed under the Apache License, Version 2.0. See the [LICENSE](https://github.com/AXYN-UK/2fa-fossbilling/blob/main/LICENSE) file for details.
+
+## Support
+
+- **Issues**: [GitHub Issues](https://github.com/AXYN-UK/2fa-fossbilling/issues)
+- **Documentation**: [README.md](https://github.com/AXYN-UK/2fa-fossbilling/blob/main/README.md)
+- **Website**: [AXYN](https://www.axyn.co.uk)
+
+## Security Disclosure
+
+If you discover a security vulnerability, please email security@axyn.co.uk with details. Do not create a public GitHub issue.
+
+## Acknowledgments
+
+- RFC 6238 TOTP specification authors
+- FOSSBilling for the open-source billing platform
+- The security community for best practices`,
+},
 ];
