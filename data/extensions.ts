@@ -1043,5 +1043,151 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 1. OpenProvider for their robust API.
 1. FOSSBilling for their open-source billing platform.`,
-}
+},
+{
+  id: "Nominet",
+  type: "domain-registrar",
+  name: "Nominet",
+  description: "Nominet EPP registrar extension for FOSSBilling - .uk domain registration",
+  author: findAuthorByID("axyn"),
+  license: {
+    name: "Apache 2.0",
+    URL: "https://github.com/AXYNUK/Nominet-EPP/blob/main/LICENSE",
+  },
+  source: {
+    type: "github",
+    repo: "AXYNUK/Nominet-EPP",
+  },
+  version: "1.0.0",
+  download_url:
+    "https://github.com/AXYNUK/Nominet-EPP/releases/download/v1.0.0/Nominet-1.0.0.zip",
+  releases: [
+    {
+      tag: "1.0.0",
+      date: "2025-11-21T22:00:00Z",
+      download_url:
+        "https://github.com/AXYNUK/Nominet-EPP/releases/download/v1.0.0/Nominet-1.0.0.zip",
+      changelog_url:
+        "https://github.com/AXYNUK/Nominet-EPP/releases/tag/v1.0.0",
+      min_fossbilling_version: "0.6",
+    },
+  ],
+  icon_url:
+    "https://raw.githubusercontent.com/AXYNUK/Nominet-EPP/main/.github/nominet-icon.png",
+  website: "https://www.axyn.co.uk",
+  readme: `# Nominet EPP Registrar for FOSSBilling
+
+Nominet EPP domain registrar adapter for FOSSBilling, enabling registration and management of .uk domains via Nominet's EPP interface.
+
+## Features
+
+- ✅ Domain availability checking
+- ✅ Domain registration (.uk, .co.uk, .org.uk, .me.uk, .net.uk, .ltd.uk, .plc.uk, .sch.uk)
+- ✅ Domain transfer
+- ✅ Domain renewal
+- ✅ Nameserver management
+- ✅ Contact creation and modification
+- ✅ EPP code retrieval
+- ✅ Test mode support (Nominet testbed)
+
+## Requirements
+
+- FOSSBilling 0.6.0 or later
+- PHP OpenSSL extension
+- Nominet registrar account with EPP credentials
+- Valid Nominet IPS Tag
+
+## Installation
+
+### Method 1: Via FOSSBilling Extension Directory (Recommended)
+
+1. Log in to your FOSSBilling admin panel
+2. Navigate to **System → Domain registration → New domain registrar**
+3. Find **Nominet** in the list and click Install
+4. Configure with your Nominet credentials
+
+### Method 2: Manual Installation
+
+1. Download the latest release ZIP from [GitHub Releases](https://github.com/AXYNUK/Nominet-EPP/releases)
+2. Extract to your FOSSBilling installation
+3. Navigate to **System → Domain registration → New domain registrar**
+4. Find **Nominet** and click the settings icon
+5. Enter your configuration:
+   - **Nominet Tag (IPS Tag)**: Your Nominet IPS Tag
+   - **Password**: Your Nominet EPP password
+   - **Test mode**: Select "Yes" for testbed, "No" for production
+
+### Supported TLDs
+
+- .uk
+- .co.uk
+- .org.uk
+- .me.uk
+- .net.uk
+- .ltd.uk
+- .plc.uk
+- .sch.uk
+
+## Getting Nominet Credentials
+
+To use this extension, you need to be a registered Nominet registrar:
+
+1. **Become a Nominet Registrar**: Visit [Nominet's registrar page](https://registrars.nominet.uk/uk-namespace/registration-and-domain-management/new-registrars/becoming-a-uk-namespace-registrar/)
+2. **Get your IPS Tag**: Your unique Nominet identifier
+3. **Generate EPP credentials**: Through Nominet's Online Services portal
+4. **Test in OT&E**: Use the testbed environment before going live
+
+## EPP Protocol
+
+This adapter uses the Extensible Provisioning Protocol (EPP) as specified by:
+- [RFC 5730](https://tools.ietf.org/html/rfc5730) - EPP base protocol
+- [RFC 5731](https://tools.ietf.org/html/rfc5731) - EPP domain mapping
+- [RFC 5733](https://tools.ietf.org/html/rfc5733) - EPP contact mapping
+
+Connection details:
+- **Production**: epp.nominet.uk:700 (SSL/TLS)
+- **Testbed**: testbed-epp.nominet.uk:700 (SSL/TLS)
+
+## Troubleshooting
+
+### Connection Issues
+
+If you see "Failed to connect to EPP server" errors:
+
+1. **Check OpenSSL**: Ensure PHP has the OpenSSL extension enabled
+2. **Verify credentials**: Double-check your IPS Tag and password in FOSSBilling
+3. **Test connectivity**: EPP servers don't respond to ping/nslookup - this is normal
+4. **Firewall**: Ensure outbound connections to port 700 are allowed
+5. **Test mode**: Try enabling test mode to use the testbed environment
+
+### EPP Errors
+
+Check FOSSBilling logs for detailed EPP error messages:
+- Application logs: \`/data/log/application/\`
+
+Common EPP result codes:
+- \`1000\`: Command completed successfully
+- \`2001\`: Command syntax error
+- \`2201\`: Authorization error
+- \`2302\`: Object exists
+- \`2303\`: Object does not exist
+
+## License
+
+Copyright 2025 AXYN
+
+Licensed under the Apache License, Version 2.0. See the [LICENSE](https://github.com/AXYNUK/Nominet-EPP/blob/main/LICENSE) file for details.
+
+## Support
+
+- **Documentation**: [Nominet Registrar Resources](https://registrars.nominet.uk/)
+- **EPP Guide**: [Nominet EPP Documentation](https://registrars.nominet.uk/uk-namespace/registration-and-domain-management/registration-systems/epp/)
+- **Issues**: [GitHub Issues](https://github.com/AXYNUK/Nominet-EPP/issues)
+- **Website**: [AXYN](https://www.axyn.co.uk)
+
+## Acknowledgments
+
+- Nominet for providing EPP access to .uk domain registration
+- FOSSBilling for the open-source billing platform`,
+},
 ];
