@@ -1043,5 +1043,230 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 1. OpenProvider for their robust API.
 1. FOSSBilling for their open-source billing platform.`,
-}
-];
+},
+{
+  id: "Twofactor",
+  type: "mod",
+  name: "Two-Factor Authentication (Email)",
+  description: "Email-based Two-Factor Authentication extension for FOSSBilling. Adds an extra layer of security by requiring users to enter a verification code sent to their email after login.",
+  author: findAuthorByID("axyn"),
+  license: {
+    name: "Apache 2.0",
+    URL: "https://github.com/AXYN-UK/fossbilling-2fa-email/blob/main/LICENSE",
+  },
+  source: {
+    type: "github",
+    repo: "AXYN-UK/fossbilling-2fa-email",
+  },
+  version: "1.0.0",
+  download_url:
+    "https://github.com/AXYN-UK/fossbilling-2fa-email/archive/refs/tags/v1.0.0.zip",
+  releases: [
+    {
+      tag: "v1.0.0",
+      date: "2025-11-24T00:00:00Z",
+      download_url:
+        "https://github.com/AXYN-UK/fossbilling-2fa-email/archive/refs/tags/v1.0.0.zip",
+      changelog_url:
+        "https://github.com/AXYN-UK/fossbilling-2fa-email/releases/tag/v1.0.0",
+      min_fossbilling_version: "0.6",
+    },
+  ],
+  icon_url:
+    "https://raw.githubusercontent.com/AXYN-UK/fossbilling-2fa-email/main/.github/2fa-email-icon.png",
+  website: "https://www.axyn.co.uk",
+  readme: `# FOSSBilling Two-Factor Authentication Extension
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![FOSSBilling](https://img.shields.io/badge/FOSSBilling-0.6%2B-green.svg)](https://fossbilling.org/)
+[![PHP](https://img.shields.io/badge/PHP-7.4%2B-purple.svg)](https://php.net/)
+[![Tests](https://img.shields.io/badge/Tests-15%2F15%20Passed-success.svg)](https://github.com/AXYN-UK/fossbilling-2fa-email)
+
+Email-based Two-Factor Authentication (2FA) extension for FOSSBilling. Adds an extra layer of security to your billing system by requiring users to verify their identity with a code sent to their email after entering their password.
+
+## 🔐 Key Features
+
+- **Email-Based Verification**: Sends 6-digit cryptographically secure codes via email
+- **Branded Emails**: Uses FOSSBilling's template system with company logo and signature  
+- **Login Interception**: Seamlessly integrates into existing login workflow
+- **Rate Limiting**: Maximum 3 verification attempts to prevent brute-force attacks
+- **Code Expiration**: Codes automatically expire after 10 minutes (configurable)
+- **User Control**: Clients can enable/disable 2FA for their own accounts
+- **Admin Management**: Administrators can manage 2FA for all users
+- **Enforcement Policies**: Optional mandatory 2FA for admins and/or clients
+- **Statistics Dashboard**: Track 2FA usage and successful verifications
+- **Session Security**: Partial authentication state prevents session hijacking
+- **Automatic Cleanup**: Cron job removes expired codes
+
+## 📋 Requirements
+
+- **FOSSBilling**: Version 0.6 or higher
+- **PHP**: Version 7.4 or higher with cURL, PDO, mbstring extensions
+- **Database**: MySQL 5.7+ or MariaDB 10.3+
+- **SMTP**: Configured email system in FOSSBilling
+- **Email Access**: Users must have access to their email accounts
+
+## 📦 Installation
+
+### Method 1: Extension Directory (Recommended)
+
+1. Navigate to **Extensions** → **Extension Directory** in FOSSBilling admin
+2. Search for "Two-Factor Authentication (Email)"
+3. Click **Install**
+4. Click **Activate**
+
+### Method 2: Manual Installation
+
+\`\`\`bash
+cd /var/www/fossbilling/bb-modules/
+git clone https://github.com/AXYN-UK/fossbilling-2fa-email.git Twofactor
+chown -R www-data:www-data Twofactor
+chmod -R 755 Twofactor
+\`\`\`
+
+Then activate in FOSSBilling admin panel under **Extensions**.
+
+## ⚙️ Configuration
+
+Navigate to **Admin Panel** → **System** → **Two-Factor Authentication**
+
+### Basic Settings
+
+- **Enable Extension**: Master switch for 2FA functionality
+- **Code Expiry Time**: How long codes remain valid (default: 10 minutes)  
+- **Maximum Attempts**: Number of code entry attempts before lockout (default: 3)
+
+### Enforcement Policies
+
+- **Require 2FA for Admins**: Makes 2FA mandatory for all administrators
+- **Require 2FA for Clients**: Makes 2FA mandatory for all clients
+
+⚠️ **Warning**: Enabling enforcement may lock out users without email access.
+
+## 🔄 How It Works
+
+1. User enters username and password
+2. Credentials validated  
+3. If 2FA enabled: Generate and email 6-digit code
+4. User redirected to verification page
+5. User enters code from email
+6. Code verified (max 3 attempts)
+7. Access granted to dashboard
+
+## 🔒 Security Features
+
+### Cryptographic Code Generation
+- Uses PHP's \`random_int()\` for cryptographically secure random numbers
+- Generates 6-digit codes (100000-999999)
+- ~1 million possibilities with 3 attempt limit = 0.0003% brute force success rate
+
+### Rate Limiting
+- Maximum 3 verification attempts per session
+- After 3 failed attempts, user must re-login
+- Attempt counter tracked in database
+
+### Code Expiration
+- Codes expire 10 minutes after generation (configurable)
+- Expiration enforced server-side
+- Automatic cleanup of expired codes
+
+### Session Security
+- No full session established until code verified
+- Temporary partial authentication state
+- Session variables: \`twofactor_pending\`, \`twofactor_user_id\`, \`twofactor_user_type\`
+
+## 🧪 Testing
+
+**All 15 automated tests passed (100% success rate)**
+
+Run the test suite:
+\`\`\`bash
+cd /var/www/fossbilling/bb-modules/Twofactor/
+php test_twofactor.php
+\`\`\`
+
+See [TEST_PLAN.md](https://github.com/AXYN-UK/fossbilling-2fa-email/blob/main/TEST_PLAN.md) for comprehensive integration test cases.
+
+See [TEST_CERTIFICATE.md](https://github.com/AXYN-UK/fossbilling-2fa-email/blob/main/TEST_CERTIFICATE.md) for full test results and certification.
+
+## 📊 Admin Dashboard Features
+
+- **Statistics Panel**: Codes sent, successful logins, user counts  
+- **Admin Management**: Enable/disable 2FA for specific admins
+- **Maintenance**: Manual database cleanup of expired codes
+- **Enforcement**: Override user preferences with policies
+
+## 🐛 Troubleshooting
+
+### Email Not Received
+1. Check SMTP settings in **Admin** → **Settings** → **Email**
+2. Check spam folder
+3. Review FOSSBilling email logs
+
+### Code Not Accepted
+1. Check code hasn't expired (10 minutes)
+2. Verify all 6 digits entered correctly
+3. Check attempts remaining (max 3)
+
+### Cannot Login (Locked Out)
+Admins can disable 2FA via database:
+\`\`\`sql
+UPDATE twofactor_settings 
+SET enabled = 0 
+WHERE user_id = [USER_ID] AND user_type = 'admin';
+\`\`\`
+
+## 📚 API Reference
+
+### Guest API (No Auth)
+- \`twofactor_verify\` - Verify 6-digit code
+- \`twofactor_resend\` - Request new code
+
+### Client API (Client Auth)
+- \`twofactor_is_enabled\` - Check 2FA status
+- \`twofactor_enable\` - Enable 2FA
+- \`twofactor_disable\` - Disable 2FA
+
+### Admin API (Admin Auth)
+- \`twofactor_get_settings\` - Get extension settings
+- \`twofactor_update_settings\` - Update settings
+- \`twofactor_enable_for_admin\` - Enable for specific admin
+- \`twofactor_disable_for_admin\` - Disable for specific admin
+- \`twofactor_get_admin_statuses\` - List all admin 2FA statuses
+- \`twofactor_get_statistics\` - Get usage statistics
+- \`twofactor_cleanup_expired_codes\` - Remove expired codes
+
+## 📄 License
+
+Licensed under **Apache License 2.0**
+
+Copyright 2025 AXYNUK
+
+## 🤝 Contributing
+
+Contributions welcome! Please:
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes  
+4. Open a Pull Request
+
+## 🆘 Support
+
+- **Issues**: [GitHub Issues](https://github.com/AXYN-UK/fossbilling-2fa-email/issues)
+- **Documentation**: [README.md](https://github.com/AXYN-UK/fossbilling-2fa-email/blob/main/README.md)
+- **Test Plan**: [TEST_PLAN.md](https://github.com/AXYN-UK/fossbilling-2fa-email/blob/main/TEST_PLAN.md)
+- **Website**: [https://www.axyn.co.uk](https://www.axyn.co.uk)
+
+## 🏆 Credits
+
+**Developed by**: [AXYNUK](https://www.axyn.co.uk)  
+**For**: FOSSBilling Community  
+**Year**: 2025
+
+**Test Status**: ✅ 15/15 Tests Passed (100%)  
+**Security**: ✅ Cryptographically Secure  
+**Production Ready**: ✅ YES
+
+---
+
+**Made with ❤️ by [AXYNUK](https://www.axyn.co.uk) for the FOSSBilling community**`,
