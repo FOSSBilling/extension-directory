@@ -1052,28 +1052,28 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
   author: findAuthorByID("axyn"),
   license: {
     name: "Apache 2.0",
-    URL: "https://github.com/AXYN-UK/nominet-fossbilling/blob/main/LICENSE",
+    URL: "https://github.com/AXYNUK/nominet-fossbilling/blob/main/LICENSE",
   },
   source: {
     type: "github",
-    repo: "AXYN-UK/nominet-fossbilling",
+    repo: "AXYNUK/nominet-fossbilling",
   },
   version: "1.0.0",
   download_url:
-    "https://github.com/AXYN-UK/nominet-fossbilling/releases/download/v1.0.0/Nominet.php",
+    "https://github.com/AXYNUK/nominet-fossbilling/releases/download/v1.0.0/Nominet.php",
   releases: [
     {
       tag: "1.0.0",
       date: "2025-11-16T12:00:00Z",
       download_url:
-        "https://github.com/AXYN-UK/nominet-fossbilling/releases/download/v1.0.0/Nominet.php",
+        "https://github.com/AXYNUK/nominet-fossbilling/releases/download/v1.0.0/Nominet.php",
       changelog_url:
-        "https://github.com/AXYN-UK/nominet-fossbilling/releases/tag/v1.0.0",
+        "https://github.com/AXYNUK/nominet-fossbilling/releases/tag/v1.0.0",
       min_fossbilling_version: "0.6",
     },
   ],
   icon_url:
-    "https://raw.githubusercontent.com/AXYN-UK/nominet-fossbilling/main/.github/nominet-icon.png",
+    "https://raw.githubusercontent.com/AXYNUK/nominet-fossbilling/main/.github/nominet-icon.png",
   website: "https://www.axyn.co.uk",
   readme: `# Nominet EPP Registrar for FOSSBilling
 
@@ -1101,7 +1101,7 @@ Nominet EPP domain registrar adapter for FOSSBilling, enabling registration and 
 
 ### Manual Installation
 
-1. Download the latest release from the [GitHub repository](https://github.com/AXYN-UK/nominet-fossbilling/releases)
+1. Download the latest release from the [GitHub repository](https://github.com/AXYNUK/nominet-fossbilling/releases)
 2. Extract the \`Nominet.php\` file to your FOSSBilling installation directory: \`/library/Registrar/Adapter/Nominet.php\`
 3. Log in to your FOSSBilling admin panel
 4. Navigate to **System → Domain registration → New domain registrar**
@@ -1170,13 +1170,13 @@ Common EPP result codes:
 
 Copyright 2025 AXYN
 
-Licensed under the Apache License, Version 2.0. See the [LICENSE](https://github.com/AXYN-UK/nominet-fossbilling/blob/main/LICENSE) file for details.
+Licensed under the Apache License, Version 2.0. See the [LICENSE](https://github.com/AXYNUK/nominet-fossbilling/blob/main/LICENSE) file for details.
 
 ## Support
 
 - **Documentation**: [Nominet Registrar Resources](https://registrars.nominet.uk/)
 - **EPP Guide**: [Nominet EPP Documentation](https://registrars.nominet.uk/uk-namespace/registration-and-domain-management/registration-systems/epp/)
-- **Issues**: [GitHub Issues](https://github.com/AXYN-UK/nominet-fossbilling/issues)
+- **Issues**: [GitHub Issues](https://github.com/AXYNUK/nominet-fossbilling/issues)
 - **Website**: [AXYN](https://www.axyn.co.uk)
 
 ## Acknowledgments
@@ -1192,28 +1192,28 @@ Licensed under the Apache License, Version 2.0. See the [LICENSE](https://github
   author: findAuthorByID("axyn"),
   license: {
     name: "Apache 2.0",
-    URL: "https://github.com/AXYN-UK/2fa-fossbilling/blob/main/LICENSE",
+    URL: "https://github.com/AXYNUK/2fa-fossbilling/blob/main/LICENSE",
   },
   source: {
     type: "github",
-    repo: "AXYN-UK/2fa-fossbilling",
+    repo: "AXYNUK/2fa-fossbilling",
   },
   version: "1.0.0",
   download_url:
-    "https://github.com/AXYN-UK/2fa-fossbilling/releases/download/v1.0.0/TwoFactorAuth.php",
+    "https://github.com/AXYNUK/2fa-fossbilling/releases/download/v1.0.0/TwoFactorAuth.php",
   releases: [
     {
       tag: "1.0.0",
       date: "2025-11-16T15:57:00Z",
       download_url:
-        "https://github.com/AXYN-UK/2fa-fossbilling/releases/download/v1.0.0/TwoFactorAuth.php",
+        "https://github.com/AXYNUK/2fa-fossbilling/releases/download/v1.0.0/TwoFactorAuth.php",
       changelog_url:
-        "https://github.com/AXYN-UK/2fa-fossbilling/releases/tag/v1.0.0",
+        "https://github.com/AXYNUK/2fa-fossbilling/releases/tag/v1.0.0",
       min_fossbilling_version: "0.6",
     },
   ],
   icon_url:
-    "https://raw.githubusercontent.com/AXYN-UK/2fa-fossbilling/main/.github/2fa-icon.png",
+    "https://raw.githubusercontent.com/AXYNUK/2fa-fossbilling/main/.github/2fa-icon.png",
   website: "https://www.axyn.co.uk",
   readme: `# Two-Factor Authentication Extension for FOSSBilling
 
@@ -1248,7 +1248,7 @@ Add TOTP (Time-based One-Time Password) authentication to FOSSBilling to protect
 
 ### Manual Installation
 
-1. Download the latest release files from [GitHub releases](https://github.com/AXYN-UK/2fa-fossbilling/releases):
+1. Download the latest release files from [GitHub releases](https://github.com/AXYNUK/2fa-fossbilling/releases):
    - \`TwoFactorAuth.php\`
    - \`Api_Client.php\`
    - \`Api_Admin.php\`
@@ -1430,12 +1430,12 @@ php /tmp/test_2fa_standalone.php
 
 Copyright 2025 AXYN
 
-Licensed under the Apache License, Version 2.0. See the [LICENSE](https://github.com/AXYN-UK/2fa-fossbilling/blob/main/LICENSE) file for details.
+Licensed under the Apache License, Version 2.0. See the [LICENSE](https://github.com/AXYNUK/2fa-fossbilling/blob/main/LICENSE) file for details.
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/AXYN-UK/2fa-fossbilling/issues)
-- **Documentation**: [README.md](https://github.com/AXYN-UK/2fa-fossbilling/blob/main/README.md)
+- **Issues**: [GitHub Issues](https://github.com/AXYNUK/2fa-fossbilling/issues)
+- **Documentation**: [README.md](https://github.com/AXYNUK/2fa-fossbilling/blob/main/README.md)
 - **Website**: [AXYN](https://www.axyn.co.uk)
 
 ## Security Disclosure
