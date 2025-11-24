@@ -1124,16 +1124,16 @@ Add TOTP (Time-based One-Time Password) authentication to FOSSBilling to protect
    - [Microsoft Authenticator](https://www.microsoft.com/en-us/security/mobile-authenticator-app) (iOS/Android)
 
 3. Call the API endpoint to generate QR code:
-   \\\`\\\`\\\`
+   \`\`\`
    POST /api/client/twofactorauth/enable
-   \\\`\\\`\\\`
+   \`\`\`
 
 4. Scan the QR code with your authenticator app
 5. Enter the 6-digit code to activate:
-   \\\`\\\`\\\`
+   \`\`\`
    POST /api/client/twofactorauth/activate
    {"code": "123456"}
-   \\\`\\\`\\\`
+   \`\`\`
 
 6. **Save your backup codes** - they're shown only once!
 
@@ -1146,19 +1146,19 @@ After enabling 2FA, logins require an additional step:
 
 ### Disabling 2FA
 
-\\\`\\\`\\\`
+\`\`\`
 POST /api/client/twofactorauth/disable
 {"code": "123456"}
-\\\`\\\`\\\`
+\`\`\`
 
 ## Admin API
 
 ### Get Client 2FA Status
 
-\\\`\\\`\\\`
+\`\`\`
 POST /api/admin/twofactorauth/client_status
 {"client_id": 123}
-\\\`\\\`\\\`
+\`\`\`
 
 Returns:
 - \`enabled\`: Boolean
@@ -1166,9 +1166,9 @@ Returns:
 
 ### View Platform Statistics
 
-\\\`\\\`\\\`
+\`\`\`
 POST /api/admin/twofactorauth/get_stats
-\\\`\\\`\\\`
+\`\`\`
 
 Returns:
 - \`total_clients\`: Total registered clients
@@ -1177,23 +1177,23 @@ Returns:
 
 ### Emergency 2FA Removal
 
-\\\`\\\`\\\`
+\`\`\`
 POST /api/admin/twofactorauth/force_disable
 {"client_id": 123}
-\\\`\\\`\\\`
+\`\`\`
 
 ⚠️ **Use with caution** - This bypasses all security checks and is logged.
 
 ### List Clients with 2FA
 
-\\\`\\\`\\\`
+\`\`\`
 POST /api/admin/twofactorauth/list_clients
 {
   "page": 1,
   "per_page": 25,
   "filter": "enabled"
 }
-\\\`\\\`\\\`
+\`\`\`
 
 ## How It Works
 
