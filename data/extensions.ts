@@ -1043,7 +1043,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 1. OpenProvider for their robust API.
 1. FOSSBilling for their open-source billing platform.`,
-}
+},
   {
     id: "AmazonPay",
     type: "payment-gateway",
