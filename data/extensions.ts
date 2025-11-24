@@ -1448,4 +1448,111 @@ If you discover a security vulnerability, please email security@axyn.co.uk with 
 - FOSSBilling for the open-source billing platform
 - The security community for best practices`,
 },
+{
+  id: "AmazonPay",
+  type: "payment-gateway",
+  name: "Amazon Pay",
+  description: "Amazon Pay payment gateway for FOSSBilling - Accept payments via Amazon Pay",
+  author: findAuthorByID("axyn"),
+  license: {
+    name: "Apache 2.0",
+    URL: "https://github.com/AXYNUK/fossbilling-amazonpay/blob/main/LICENSE",
+  },
+  source: {
+    type: "github",
+    repo: "AXYNUK/fossbilling-amazonpay",
+  },
+  version: "1.0.0",
+  download_url:
+    "https://github.com/AXYNUK/fossbilling-amazonpay/releases/download/v1.0.0/AmazonPay.zip",
+  releases: [
+    {
+      tag: "1.0.0",
+      date: "2025-11-24T12:00:00Z",
+      download_url:
+        "https://github.com/AXYNUK/fossbilling-amazonpay/releases/download/v1.0.0/AmazonPay.zip",
+      changelog_url:
+        "https://github.com/AXYNUK/fossbilling-amazonpay/releases/tag/v1.0.0",
+      min_fossbilling_version: "0.6",
+    },
+  ],
+  icon_url:
+    "https://raw.githubusercontent.com/AXYNUK/fossbilling-amazonpay/main/.github/amazonpay-icon.png",
+  website: "https://www.axyn.co.uk",
+  readme: `# Amazon Pay Gateway for FOSSBilling
+
+Amazon Pay payment gateway adapter for FOSSBilling, enabling secure payments through Amazon Pay.
+
+## Features
+
+- ✅ One-time payments
+- ✅ Recurring billing support
+- ✅ Sandbox mode for testing
+- ✅ Multi-region support (EU, US, JP)
+- ✅ Authorize and capture or authorize only
+- ✅ Secure API key management
+- ✅ Comprehensive transaction logging
+
+## Requirements
+
+- FOSSBilling 0.6.0 or later
+- PHP 8.1 or later
+- Composer
+- Amazon Pay merchant account
+- Amazon Pay API credentials (Public Key ID, Private Key, Merchant ID)
+
+## Installation
+
+### Via FOSSBilling Extension Directory (Recommended)
+
+The easiest way to install this extension is by using the [FOSSBilling extension directory](https://extensions.fossbilling.org/extension/AmazonPay).
+
+### Manual installation
+
+1. Download the latest release from the [GitHub repository](https://github.com/AXYNUK/fossbilling-amazonpay/releases)
+2. Create a new folder named \`AmazonPay\` in the \`/library/Payment/Adapter\` directory of your FOSSBilling installation
+3. Extract the archive you've downloaded in the first step into the new directory
+4. Run \`composer require amzn/amazon-pay-api-sdk-php\` in your FOSSBilling root directory
+5. Go to the "Payment gateways" page in your admin panel (under the "System" menu in the navigation bar) and find Amazon Pay in the "New payment gateway" tab
+6. Click the cog icon next to Amazon Pay to install and configure
+
+## Configuration
+
+Configure the following fields in the FOSSBilling admin panel:
+
+- **Public Key ID**: Obtain from Amazon Seller Central > Integration Central
+- **Private Key (.pem)**: The private key you generated in Seller Central
+- **Merchant ID**: Your Amazon Pay merchant ID
+- **Region**: Select your region (EU, US, JP)
+- **Sandbox Mode**: Enable for testing
+- **Payment Action**: Choose Authorize (capture later) or AuthorizeWithCapture (immediate)
+
+## Testing
+
+- Use Amazon Pay sandbox credentials for testing
+- Test both one-time and recurring payments
+- Check FOSSBilling logs for detailed transaction information
+
+## Documentation
+
+See the \`/docs\` folder for:
+- Configuration guide
+- Security best practices
+- Webhook handling
+- Testing procedures
+
+## Support
+
+For issues or questions:
+- GitHub: [https://github.com/AXYNUK/fossbilling-amazonpay/issues](https://github.com/AXYNUK/fossbilling-amazonpay/issues)
+- Email: support@axyn.co.uk
+
+## License
+
+Apache-2.0
+
+## Disclaimer
+
+This extension is not officially affiliated with Amazon Pay or FOSSBilling. Amazon Pay is a registered trademark of Amazon.com, Inc.`,
+},
 ];
