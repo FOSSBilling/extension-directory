@@ -888,6 +888,163 @@ For support or questions, feel free to contact me at albinvar@pm.me
   Sales Support:sales@netim.com`,
 },
 {
+    id: "Opensrs",
+    type: "domain-registrar",
+    name: "OpenSRS",
+    description: "OpenSRS registrar adapter for FOSSBilling with full XML API integration supporting domain registration, transfers, renewals, and management",
+    author: findAuthorByID("axyn"),
+    license: {
+      name: "Apache 2.0",
+      URL: "https://github.com/AXYNUK/fossbilling-opensrs/blob/main/LICENSE",
+    },
+    source: {
+      type: "github",
+      repo: "AXYNUK/fossbilling-opensrs",
+    },
+    version: "1.0.0",
+    download_url:
+      "https://github.com/AXYNUK/fossbilling-opensrs/archive/refs/heads/main.zip",
+    releases: [
+      {
+        tag: "1.0.0",
+        date: "2025-11-24T00:00:00Z",
+        download_url:
+          "https://github.com/AXYNUK/fossbilling-opensrs/archive/refs/heads/main.zip",
+        changelog_url:
+          "https://github.com/AXYNUK/fossbilling-opensrs/commits/main/",
+        min_fossbilling_version: "0.6",
+      },
+    ],
+    icon_url:
+      "https://avatars.githubusercontent.com/u/195851869?v=4",
+    website: "https://www.axyn.co.uk",
+    readme: `# OpenSRS for FOSSBilling
+
+## About the registrar adapter
+This adapter provides complete integration with the OpenSRS XML API, enabling full domain management capabilities within FOSSBilling. OpenSRS is a wholesale domain registrar and reseller platform supporting 1000+ TLDs.
+
+This adapter is licensed under the Apache License 2.0. See the LICENSE file for more information.
+
+Repository: https://github.com/AXYNUK/fossbilling-opensrs
+
+## Installation
+
+### 1). Manual installation (Recommended)
+1. Download the adapter from [GitHub](https://github.com/AXYNUK/fossbilling-opensrs)
+2. Extract the archive
+3. Copy \`library/Registrar/Adapter/Opensrs.php\` to your FOSSBilling installation directory: \`/library/Registrar/Adapter/\`
+4. Configure the adapter in your FOSSBilling admin panel with your OpenSRS username and private key
+
+### 2). Configuration
+1. Log into your FOSSBilling admin panel
+2. Navigate to System > Domain Registration
+3. Select OpenSRS as your registrar
+4. Enter your OpenSRS reseller username
+5. Enter your OpenSRS private key (from OpenSRS.conf)
+6. Optionally enable test mode for Horizon testbed testing
+
+## Features
+
+**Domain Management**
+- [X] Domain Registration
+- [X] Domain Transfer (with EPP/Auth code support)
+- [X] Domain Renewal
+- [X] Domain Lock/Unlock
+- [X] WHOIS Privacy Protection (enable/disable)
+- [X] EPP/Authorization Code Retrieval
+- [X] Domain Deletion/Revocation
+- [X] Domain Availability Checks
+- [X] Transfer Eligibility Checks
+
+**Contact Management**
+- [X] Update contact information (owner, admin, billing, tech)
+- [X] Automatic contact formatting for OpenSRS requirements
+- [X] International phone number support
+
+**DNS Nameserver Management**
+- [X] Nameserver updates (up to 4 nameservers)
+- [X] Custom nameserver configuration
+
+**API Features**
+- [X] XML-over-HTTP protocol (OpenSRS XCP)
+- [X] Double MD5 signature authentication
+- [X] Production and test environment support
+- [X] Comprehensive error handling and logging
+- [X] IP whitelist support
+
+## Testing
+
+### Test Results
+This adapter has been thoroughly tested with the OpenSRS production API:
+- ✅ All 9 automated tests passed (100%)
+- ✅ Live domain availability checks verified
+- ✅ Transfer eligibility checks confirmed
+- ✅ XML generation and parsing validated
+- ✅ Authentication signature calculation verified
+
+Full test results: https://github.com/AXYNUK/fossbilling-opensrs/blob/main/TEST_RESULTS.md
+
+### Test Environment
+OpenSRS provides both production and test (Horizon) environments:
+- Production: https://rr-n1-tor.opensrs.net:55443
+- Test: https://horizon.opensrs.net:55443
+
+## Requirements
+
+- FOSSBilling 0.6+
+- PHP 7.4+ (tested on PHP 8.x)
+- PHP cURL extension
+- PHP SimpleXML extension
+- OpenSRS reseller account
+- OpenSRS private key
+- Whitelisted IP address (for production API)
+
+## Technical Specifications
+
+### Authentication
+- Method: Double MD5 signature (MD5(MD5(xml + key) + key))
+- Headers: X-Username and X-Signature
+- Protocol: XML-over-HTTP (OpenSRS XCP)
+
+### API Protocol
+OpenSRS uses a proprietary XML format with dt_assoc (associative arrays) and dt_array (indexed arrays) structures. This adapter handles all XML conversion automatically.
+
+### Supported Operations
+1. LOOKUP - Domain availability check
+2. CHECK_TRANSFER - Transfer eligibility check
+3. SW_REGISTER - Domain registration and transfer
+4. RENEW - Domain renewal
+5. GET - Retrieve domain details
+6. MODIFY - Update nameservers, contacts, lock status
+7. UPDATE_CONTACTS - Update contact information
+8. SEND_AUTHCODE - Retrieve EPP code
+9. REVOKE - Delete/revoke domain
+
+## About OpenSRS
+
+OpenSRS is a leading wholesale domain registrar and reseller platform, part of Tucows Inc. Founded in 1999, OpenSRS provides domain registration, SSL certificates, email services, and more to over 27,000 web hosting companies and ISPs worldwide.
+
+Website: https://opensrs.com
+
+## Support
+
+For issues related to this adapter, please open an issue on GitHub:
+https://github.com/AXYNUK/fossbilling-opensrs/issues
+
+For OpenSRS-specific questions, please contact OpenSRS support:
+https://opensrs.com/support/
+
+For FOSSBilling questions, visit:
+https://fossbilling.org
+
+## About AXYN
+
+AXYN is a UK-based technology company providing web hosting, domain registration, and IT solutions. We contribute to open-source projects and develop custom integrations for various platforms.
+
+Website: https://www.axyn.co.uk
+Technical Support: tech@axyn.co.uk`,
+},
+{
     id: "FaucetPay",
     type: "payment-gateway",
     name: "FaucetPay",
