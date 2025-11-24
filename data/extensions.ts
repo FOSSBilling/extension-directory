@@ -911,7 +911,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
         download_url:
           "https://github.com/AXYNUK/fossbilling-opensrs/archive/refs/heads/main.zip",
         changelog_url:
-          "https://github.com/AXYNUK/fossbilling-opensrs/commits/main/",
+          "https://github.com/AXYNUK/fossbilling-opensrs/releases/tag/1.0.0",
         min_fossbilling_version: "0.6",
       },
     ],
