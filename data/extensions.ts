@@ -903,13 +903,13 @@ For support or questions, feel free to contact me at albinvar@pm.me
     },
     version: "1.0.0",
     download_url:
-      "https://github.com/AXYNUK/fossbilling-opensrs/archive/refs/heads/main.zip",
+      "https://github.com/AXYNUK/fossbilling-opensrs/releases/download/v1.0.0/Opensrs.zip",
     releases: [
       {
         tag: "1.0.0",
         date: "2025-11-24T00:00:00Z",
         download_url:
-          "https://github.com/AXYNUK/fossbilling-opensrs/archive/refs/heads/main.zip",
+          "https://github.com/AXYNUK/fossbilling-opensrs/releases/download/v1.0.0/Opensrs.zip",
         changelog_url:
           "https://github.com/AXYNUK/fossbilling-opensrs/releases/tag/1.0.0",
         min_fossbilling_version: "0.6",
