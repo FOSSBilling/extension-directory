@@ -1064,7 +1064,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
     releases: [
       {
         tag: "1.0.0",
-        date: "2024-11-24T13:00:00Z",
+        date: "2025-11-24T13:00:00Z",
         download_url:
           "https://github.com/AXYNUK/fossbilling-amazonpay/releases/download/v1.0.0/AmazonPay-1.0.0.zip",
         changelog_url:
@@ -1103,9 +1103,9 @@ The easiest way to install this extension is by using the [FOSSBilling extension
 ### Manual installation
 
 1. Download the latest release from the [GitHub repository](https://github.com/AXYNUK/fossbilling-amazonpay/releases)
-2. Create a new folder named `AmazonPay` in the \\\`/library/Payment/Adapter\\\` directory of your FOSSBilling installation
+2. Create a new folder named `AmazonPay` in the \`/library/Payment/Adapter\` directory of your FOSSBilling installation
 3. Extract the archive you've downloaded in the first step into the new directory
-4. Run \\\`composer require amzn/amazon-pay-api-sdk-php\\\` in your FOSSBilling root directory
+4. Run \`composer require amzn/amazon-pay-api-sdk-php\` in your FOSSBilling root directory
 5. Go to the "Payment gateways" page in your admin panel (under the "System" menu in the navigation bar) and find Amazon Pay in the "New payment gateway" tab
 6. Click the cog icon next to Amazon Pay to install and configure
 
@@ -1128,7 +1128,7 @@ Configure the following fields in the FOSSBilling admin panel:
 
 ## Documentation
 
-See the \\\`/docs\\\` folder for:
+See the \`/docs\` folder for:
 - Configuration guide
 - Security best practices
 - Webhook handling
