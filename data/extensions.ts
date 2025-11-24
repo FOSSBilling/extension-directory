@@ -929,13 +929,13 @@ Repository: https://github.com/AXYNUK/fossbilling-opensrs
 
 ## Installation
 
-### 1). Manual installation (Recommended)
+### Manual installation (Recommended)
 1. Download the adapter from [GitHub](https://github.com/AXYNUK/fossbilling-opensrs)
 2. Extract the archive
 3. Copy \`library/Registrar/Adapter/Opensrs.php\` to your FOSSBilling installation directory: \`/library/Registrar/Adapter/\`
 4. Configure the adapter in your FOSSBilling admin panel with your OpenSRS username and private key
 
-### 2). Configuration
+### Configuration
 1. Log into your FOSSBilling admin panel
 2. Navigate to System > Domain Registration
 3. Select OpenSRS as your registrar
