@@ -1286,7 +1286,7 @@ To use this extension, you need to be a registered Nominet registrar:
 1. **Become a Nominet Registrar**: Visit [Nominet's registrar page](https://registrars.nominet.uk/uk-namespace/registration-and-domain-management/new-registrars/becoming-a-uk-namespace-registrar/)
 2. **Get your IPS Tag**: Your unique Nominet identifier
 3. **Generate EPP credentials**: Through Nominet's Online Services portal
-4. **Test in OT&E**: Use the testbed environment before going live
+4. **Test in Operational Test and Evaluation (OT&E)**: Use the testbed environment before going live
 
 ## EPP Protocol
 
