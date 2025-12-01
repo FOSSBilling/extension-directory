@@ -1043,5 +1043,99 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 1. OpenProvider for their robust API.
 1. FOSSBilling for their open-source billing platform.`,
+},
+{
+  id: "Nominet",
+  type: "domain-registrar",
+  name: "Nominet EPP",
+  description: "Nominet EPP domain registrar for .uk domains",
+  author: findAuthorByID("axyn"),
+  license: {
+    name: "Apache 2.0",
+    URL: "https://github.com/AXYNUK/Nominet-EPP/blob/main/LICENSE",
+  },
+  source: {
+    type: "github",
+    repo: "AXYNUK/Nominet-EPP",
+  },
+  version: "1.0.0",
+  download_url:
+    "https://github.com/AXYNUK/Nominet-EPP/releases/download/v1.0.0/Nominet-1.0.0.zip",
+  releases: [
+    {
+      tag: "1.0.0",
+      date: "2025-01-13T23:21:25Z",
+      download_url:
+        "https://github.com/AXYNUK/Nominet-EPP/releases/download/v1.0.0/Nominet-1.0.0.zip",
+      changelog_url:
+        "https://github.com/AXYNUK/Nominet-EPP/releases/tag/v1.0.0",
+      min_fossbilling_version: "0.6",
+    },
+  ],
+  icon_url:
+    "https://avatars.githubusercontent.com/u/239074168?v=4",
+  website: "https://www.axyn.co.uk",
+  readme: \`# Nominet EPP Registrar Adapter for FOSSBilling
+
+Official Nominet EPP integration for FOSSBilling, enabling automated domain registration and management for .uk domains.
+
+## Features
+
+- ✅ Domain availability checking
+- ✅ Domain registration (.uk, .co.uk, .org.uk, .me.uk, .net.uk, .ltd.uk, .plc.uk, .sch.uk)
+- ✅ Domain renewal
+- ✅ Domain transfer
+- ✅ Nameserver management
+- ✅ EPP code retrieval
+- ✅ Domain information queries
+- ✅ Test mode support (Nominet testbed)
+
+## Requirements
+
+- FOSSBilling 0.6.0 or higher
+- PHP 7.4 or higher
+- OpenSSL PHP extension
+- Nominet IPS Tag and EPP credentials
+
+## Installation
+
+### Extension Directory
+
+The easiest way to install this extension is by using the [FOSSBilling extension directory](https://extensions.fossbilling.org/extension/Nominet).
+
+### Manual Installation
+
+1. Download the latest release from the [releases](https://github.com/AXYNUK/Nominet-EPP/releases/latest)
+2. Extract to \\\`/library/Registrar/Adapter/\\\`
+3. Ensure the file is named \\\`Nominet.php\\\`
+4. The extension will appear in the registrar list
+
+## Configuration
+
+1. Navigate to **System** → **Domain Registration** → **Registrars**
+2. Find **Nominet EPP** and click **Configure**
+3. Enter your credentials:
+   - **Nominet Tag (IPS Tag)**: Your Nominet IPS Tag
+   - **Password**: Your Nominet EPP password
+   - **Test Mode**: Enable to use Nominet testbed environment
+
+## Supported TLDs
+
+- .uk
+- .co.uk
+- .org.uk
+- .me.uk
+- .net.uk
+- .ltd.uk
+- .plc.uk
+- .sch.uk
+
+## License
+
+Apache License 2.0 - see [LICENSE](LICENSE) file for details
+
+## Credits
+
+Developed by [AXYN](https://axyn.co.uk) for the FOSSBilling community.\`,
 }
 ];
