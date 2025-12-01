@@ -1075,7 +1075,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
   icon_url:
     "https://avatars.githubusercontent.com/u/239074168?v=4",
   website: "https://www.axyn.co.uk",
-  readme: \`# Nominet EPP Registrar Adapter for FOSSBilling
+  readme: `# Nominet EPP Registrar Adapter for FOSSBilling
 
 Official Nominet EPP integration for FOSSBilling, enabling automated domain registration and management for .uk domains.
 
@@ -1106,8 +1106,8 @@ The easiest way to install this extension is by using the [FOSSBilling extension
 ### Manual Installation
 
 1. Download the latest release from the [releases](https://github.com/AXYNUK/Nominet-EPP/releases/latest)
-2. Extract to \\\`/library/Registrar/Adapter/\\\`
-3. Ensure the file is named \\\`Nominet.php\\\`
+2. Extract to \`/library/Registrar/Adapter/\`
+3. Ensure the file is named \`Nominet.php\`
 4. The extension will appear in the registrar list
 
 ## Configuration
@@ -1136,6 +1136,6 @@ Apache License 2.0 - see [LICENSE](LICENSE) file for details
 
 ## Credits
 
-Developed by [AXYN](https://axyn.co.uk) for the FOSSBilling community.\`,
+Developed by [AXYN](https://axyn.co.uk) for the FOSSBilling community.`,
 }
 ];
