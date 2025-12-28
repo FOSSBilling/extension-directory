@@ -17,8 +17,8 @@
     "@vercel/og": "^0.8.0",
     "badge-maker": "^5.0.0",
     "next": "^16.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-markdown": "^10.0.0",
     "remark-gfm": "^4.0.0",
     "semver": "^7.5.4"
@@ -26,8 +26,8 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.7",
     "@types/node": "^24.0.0",
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "@types/semver": "^7.5.5",
     "@headlessui/tailwindcss": "^0.2.2",
     "autoprefixer": "^10.4.16",
