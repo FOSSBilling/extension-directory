@@ -9,7 +9,7 @@ import { Extension, getLatestRelease, sortReleasesDescending } from "interfaces"
 
 type Props = {
     ext: Extension,
-    state: (view: string) => void
+    onSelectedViewChange: (view: string) => void
 }
 
 function DownloadIcon() {
@@ -24,12 +24,12 @@ function ArrowIcon() {
     )
 };
 
-export function ReleasesCard({ ext, state }: Props) {
+export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
     var latest = getLatestRelease(ext);
     var latestThree = sortReleasesDescending(ext.releases).slice(0, 3);
 
     function setState() {
-        state("release-history");
+        onSelectedViewChange("release-history");
     }
 
     return (
