@@ -28,7 +28,7 @@ const Extension = ({ ext, errors }: Props) => {
         )
     }
 
-    const handleSelectedViewChange = (_view: string) => {
+    const handleSelectedViewChange = (view: string) => {
         // Currently a no-op; kept to satisfy ReleasesCard's expected callback prop
     };
     return (
@@ -60,7 +60,7 @@ const Extension = ({ ext, errors }: Props) => {
                     <Col numColSpanLg={2}>
                         <div className="space-y-6">
                             <DetailsCard ext={ext} />
-                            <ReleasesCard ext={ext} state={handleSelectedViewChange} />
+                            <ReleasesCard ext={ext} onSelectedViewChange={handleSelectedViewChange} />
                         </div>
                     </Col>
                 </Grid>
@@ -95,7 +95,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         // By returning { props: ext }, the StaticPropsDetail component
         // will receive `ext` as a prop at build time
         return { props: { ext } }
-    } catch (err: any) {
-        return { props: { errors: err.message } }
+    } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : String(err);
+        return { props: { errors: errorMessage } }
     }
 }
