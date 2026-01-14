@@ -29,7 +29,7 @@ const extension = ({ ext, errors }: Props) => {
         )
     }
 
-    const [selectedView, setSelectedView] = useState("overview");
+    const [, setSelectedView] = useState("overview");
     return (
         <Layout title={`${ext ? ext.name : 'Extension details'} | FOSSBilling extensions`}>
             <ExtensionHeader ext={ext} />
