@@ -1,7 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { useState } from "react";
 
-import { Extension } from 'interfaces'
+import type { Extension } from 'interfaces'
 import { extensionData } from 'data/extensions'
 
 import { Card, Col, Grid, Tab, TabList, TabGroup, TabPanels, TabPanel } from "@tremor/react";
@@ -18,7 +17,7 @@ type Props = {
     errors?: string
 }
 
-const extension = ({ ext, errors }: Props) => {
+const Extension = ({ ext, errors }: Props) => {
     if (errors) {
         return (
             <Layout title="An error occurred!">
@@ -29,7 +28,9 @@ const extension = ({ ext, errors }: Props) => {
         )
     }
 
-    const [, setSelectedView] = useState("overview");
+    const handleSelectedViewChange = (_view: string) => {
+        // Currently a no-op; kept to satisfy ReleasesCard's expected callback prop
+    };
     return (
         <Layout title={`${ext ? ext.name : 'Extension details'} | FOSSBilling extensions`}>
             <ExtensionHeader ext={ext} />
@@ -59,7 +60,7 @@ const extension = ({ ext, errors }: Props) => {
                     <Col numColSpanLg={2}>
                         <div className="space-y-6">
                             <DetailsCard ext={ext} />
-                            <ReleasesCard ext={ext} state={setSelectedView} />
+                            <ReleasesCard ext={ext} state={handleSelectedViewChange} />
                         </div>
                     </Col>
                 </Grid>
@@ -68,7 +69,7 @@ const extension = ({ ext, errors }: Props) => {
     );
 }
 
-export default extension
+export default Extension
 
 export const getStaticPaths: GetStaticPaths = async () => {
     // Get the paths we want to pre-render based on the extension data
@@ -88,6 +89,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     try {
         const id = params?.id
         const ext = extensionData.find((data) => data.id === String(id))
+        if (!ext) {
+            return { notFound: true }
+        }
         // By returning { props: ext }, the StaticPropsDetail component
         // will receive `ext` as a prop at build time
         return { props: { ext } }
