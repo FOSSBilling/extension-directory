@@ -158,7 +158,7 @@ This product includes the following third party work:
     repo: "bojandenic/fossbilling-servicelicense",
   },
   icon_url:
-    "https://raw.githubusercontent.com/bojandenic/fossbilling-servicelicense/main/icon.svg",
+    "https://raw.githubusercontent.com/FOSSBilling/example-module/main/src/icon.svg",
   website: "https://github.com/bojandenic/fossbilling-servicelicense",
   readme: `Servicelicense is a FOSSBilling module for WordPress plugin vendors.
 
