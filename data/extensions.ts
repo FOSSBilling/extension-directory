@@ -136,13 +136,13 @@ This product includes the following third party work:
     "WordPress plugin license generation and secure ZIP distribution module for FOSSBilling.",
   version: "1.0.0",
   download_url:
-    "https://github.com/bojandenic/fossbilling-servicelicense/releases/download/fossbilling/Servicelicense_release_v1.0.0.zip",
+    "https://github.com/bojandenic/fossbilling-servicelicense/releases/download/1.0.0/Servicelicense_release_v1.0.0.zip",
   releases: [
     {
       tag: "1.0.0",
       date: "2026-02-15T17:42:00Z",
       download_url:
-        "https://github.com/bojandenic/fossbilling-servicelicense/releases/download/fossbilling/Servicelicense_release_v1.0.0.zip",
+        "https://github.com/bojandenic/fossbilling-servicelicense/releases/download/1.0.0/Servicelicense_release_v1.0.0.zip",
       changelog_url:
         "https://github.com/bojandenic/fossbilling-servicelicense/releases/tag/fossbilling",
       min_fossbilling_version: "0.5",
