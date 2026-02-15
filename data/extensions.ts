@@ -128,6 +128,52 @@ This product includes the following third party work:
     
  - Open Source Iconography by [Pictogrammers](https://pictogrammers.com/) licensed under the [Pictogrammers Free License](https://pictogrammers.com/docs/general/license/).`,
   },
+  {
+  id: "Servicelicense",
+  type: "mod",
+  name: "Servicelicense",
+  description:
+    "WordPress plugin license generation and secure ZIP distribution module for FOSSBilling.",
+  version: "v1.0.0",
+  download_url:
+    "https://github.com/bojandenic/fossbilling-servicelicense/releases/download/v1.0.0/Servicelicense_release_v1.0.0.zip",
+  releases: [
+    {
+      tag: "v1.0.0",
+      date: "2026-02-15T17:42:00Z",
+      download_url:
+        "https://github.com/bojandenic/fossbilling-servicelicense/releases/download/v1.0.0/Servicelicense_release_v1.0.0.zip",
+      changelog_url:
+        "https://github.com/bojandenic/fossbilling-servicelicense/releases/tag/v1.0.0",
+      min_fossbilling_version: "0.5",
+    },
+  ],
+  author: findAuthorByID("bojandenic"),
+  license: {
+    name: "MIT",
+    URL: "https://github.com/bojandenic/fossbilling-servicelicense/blob/main/LICENSE",
+  },
+  source: {
+    type: "github",
+    repo: "bojandenic/fossbilling-servicelicense",
+  },
+  icon_url:
+    "https://raw.githubusercontent.com/bojandenic/fossbilling-servicelicense/main/icon.svg",
+  website: "https://github.com/bojandenic/fossbilling-servicelicense",
+  readme: `Servicelicense is a FOSSBilling module for WordPress plugin vendors.
+
+Features:
+- License key generation per order
+- Secure ZIP download
+- Product-based configuration
+- Plugin version + changelog display
+- Optional domain validation
+
+Installation:
+1. Create /modules/Servicelicense/
+2. Extract ZIP inside that folder
+3. Enable in Admin → Extensions.`,
+},
   /*{
     id: "Serviceproxmox",
     type: "mod",
