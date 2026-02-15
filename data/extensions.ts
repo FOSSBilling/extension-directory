@@ -140,11 +140,11 @@ This product includes the following third party work:
   releases: [
     {
       tag: "1.0.0",
-      date: "2026-02-15T17:42:00Z",
+      date: "2026-02-15T18:07:34Z",
       download_url:
         "https://github.com/bojandenic/fossbilling-servicelicense/releases/download/1.0.0/Servicelicense_release_v1.0.0.zip",
       changelog_url:
-        "https://github.com/bojandenic/fossbilling-servicelicense/releases/tag/fossbilling",
+        "https://github.com/bojandenic/fossbilling-servicelicense/releases/tag/1.0.0",
       min_fossbilling_version: "0.5",
     },
   ],
@@ -158,8 +158,8 @@ This product includes the following third party work:
     repo: "bojandenic/fossbilling-servicelicense",
   },
   icon_url:
-    "https://raw.githubusercontent.com/FOSSBilling/example-module/main/src/icon.svg",
-  website: "https://github.com/bojandenic/fossbilling-servicelicense",
+    "https://raw.githubusercontent.com/bojandenic/fossbilling-servicelicense/refs/heads/main/licences-icon.svg",
+  website: "https://www.kha-concepts.com",
   readme: `Servicelicense is a FOSSBilling module for WordPress plugin vendors.
 
 Features:
