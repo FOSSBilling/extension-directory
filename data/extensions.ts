@@ -1058,15 +1058,15 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
     type: "github",
     repo: "mehrnet/fossbilling-registrar-porkbun",
   },
-  version: "0.1.0",
+  version: "0.1.1",
   download_url:
-    "https://github.com/mehrnet/fossbilling-registrar-porkbun/archive/refs/tags/0.1.0.zip",
+    "https://github.com/mehrnet/fossbilling-registrar-porkbun/archive/refs/tags/0.1.1.zip",
   releases: [
     {
-      tag: "0.1.0",
-      date: "2026-02-20T07:25:40Z",
+      tag: "0.1.1",
+      date: "2026-02-20T08:40:03Z",
       download_url:
-        "https://github.com/mehrnet/fossbilling-registrar-porkbun/archive/refs/tags/0.1.0.zip",
+        "https://github.com/mehrnet/fossbilling-registrar-porkbun/archive/refs/tags/0.1.1.zip",
       changelog_url:
         "https://github.com/mehrnet/fossbilling-registrar-porkbun/commits/main/",
       min_fossbilling_version: "0.6",
