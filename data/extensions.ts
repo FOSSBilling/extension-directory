@@ -1043,5 +1043,68 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 1. OpenProvider for their robust API.
 1. FOSSBilling for their open-source billing platform.`,
+},
+{
+  id: "Porkbun",
+  type: "domain-registrar",
+  name: "Porkbun",
+  description: "Porkbun registrar extension for FOSSBilling",
+  author: findAuthorByID("mehrnet"),
+  license: {
+    name: "Apache 2.0",
+    URL: "https://github.com/mehrnet/fossbilling-registrar-porkbun/blob/main/LICENSE",
+  },
+  source: {
+    type: "github",
+    repo: "mehrnet/fossbilling-registrar-porkbun",
+  },
+  version: "0.1.0",
+  download_url:
+    "https://github.com/mehrnet/fossbilling-registrar-porkbun/archive/refs/tags/0.1.0.zip",
+  releases: [
+    {
+      tag: "0.1.0",
+      date: "2026-02-20T07:25:40Z",
+      download_url:
+        "https://github.com/mehrnet/fossbilling-registrar-porkbun/archive/refs/tags/0.1.0.zip",
+      changelog_url:
+        "https://github.com/mehrnet/fossbilling-registrar-porkbun/commits/main/",
+      min_fossbilling_version: "0.6",
+    },
+  ],
+  icon_url:
+    "https://avatars.githubusercontent.com/u/248735231?v=4",
+  website: "https://mehrnet.com",
+  readme: `# FossBilling Porkbun Registrar Adapter
+
+Porkbun domain registrar adapter for FOSSBilling using the Porkbun JSON API v3.
+
+## Features
+
+- Domain availability checks
+- Domain registration
+- Domain nameserver updates
+- Domain detail sync (registration date, expiry date, lock/privacy flags, nameservers)
+
+## Installation
+
+### Automatically from the extension directory (recommended)
+1. Log in to your FOSSBilling admin panel.
+2. Go to the Extensions page.
+3. Click Install for Porkbun.
+4. Go to System > Domain registration.
+5. In New domain registrar, enable Porkbun and configure your API credentials.
+
+### Manual .zip installation
+1. Download the latest release archive from the repository.
+2. Extract the archive into your FOSSBilling installation root so this file exists:
+   - \`library/Registrar/Adapter/Porkbun.php\`
+3. In the admin panel, go to System > Domain registration and enable Porkbun.
+
+## Notes
+
+- Porkbun registration expects cost in pennies.
+- This adapter currently supports check/register/modify nameservers/get details.
+- Unsupported operations (transfer, manual renewal, auth-code retrieval, contact edits, lock/privacy toggles, delete) throw explicit errors.`,
 }
 ];
