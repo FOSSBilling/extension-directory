@@ -1073,7 +1073,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
     },
   ],
   icon_url:
-    "https://avatars.githubusercontent.com/u/248735231?v=4",
+    "https://porkbun.com//images/favicons/ms-icon-144x144.png",
   website: "https://mehrnet.com",
   readme: `# FossBilling Porkbun Registrar Adapter
 
