@@ -10,7 +10,7 @@ export function Overview({ ext }: Props) {
     return (
         <div className="markdown-body">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {ext.readme}
+                {ext.readme ?? ''}
             </ReactMarkdown>
         </div>
     );
