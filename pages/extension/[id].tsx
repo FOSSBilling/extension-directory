@@ -3,7 +3,7 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import type { Extension } from 'interfaces'
 import { extensionData } from 'data/extensions'
 
-import { Card, Col, Grid, Tab, TabList, TabGroup, TabPanels, TabPanel } from '@tremor/react';
+import { Card, Col, Grid, Tab, TabList, TabGroup, TabPanels, TabPanel } from '@tremor/react'
 
 import { DetailsCard } from 'components/DetailsCard';
 import { ReleasesCard } from 'components/ReleasesCard';
