@@ -3,11 +3,11 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import type { Extension } from 'interfaces'
 import { extensionData } from 'data/extensions'
 
-import { Card, Col, Grid, Tab, TabList, TabGroup, TabPanels, TabPanel } from "@tremor/react";
+import { Card, Col, Grid, Tab, TabList, TabGroup, TabPanels, TabPanel } from '@tremor/react';
 
-import { DetailsCard } from "components/DetailsCard";
-import { ReleasesCard } from "components/ReleasesCard";
-import { Overview } from "components/Overview";
+import { DetailsCard } from 'components/DetailsCard';
+import { ReleasesCard } from 'components/ReleasesCard';
+import { Overview } from 'components/Overview';
 import { ExtensionHeader } from 'components/ExtensionHeader';
 import { ReleasesTable } from 'components/ReleasesTable';
 import Layout from 'components/Layout';
