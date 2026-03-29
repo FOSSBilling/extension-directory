@@ -28,9 +28,6 @@ const Extension = ({ ext, errors }: Props) => {
         )
     }
 
-    const handleSelectedViewChange = (view: string) => {
-        // Currently a no-op; kept to satisfy ReleasesCard's expected callback prop
-    };
     return (
         <Layout title={`${ext ? ext.name : 'Extension details'} | FOSSBilling extensions`}>
             <ExtensionHeader ext={ext} />
@@ -60,7 +57,7 @@ const Extension = ({ ext, errors }: Props) => {
                     <Col numColSpanLg={2}>
                         <div className="space-y-6">
                             <DetailsCard ext={ext} />
-                            <ReleasesCard ext={ext} onSelectedViewChange={handleSelectedViewChange} />
+                            <ReleasesCard ext={ext} />
                         </div>
                     </Col>
                 </Grid>

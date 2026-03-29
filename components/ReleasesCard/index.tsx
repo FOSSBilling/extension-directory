@@ -9,7 +9,7 @@ import { Extension, getLatestRelease, sortReleasesDescending } from "interfaces"
 
 type Props = {
     ext: Extension,
-    onSelectedViewChange: (view: string) => void
+    onSelectedViewChange?: (view: string) => void
 }
 
 function DownloadIcon() {
@@ -29,7 +29,7 @@ export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
     var latestThree = sortReleasesDescending(ext.releases).slice(0, 3);
 
     function setState() {
-        onSelectedViewChange("release-history");
+        onSelectedViewChange?.("release-history");
     }
 
     return (
