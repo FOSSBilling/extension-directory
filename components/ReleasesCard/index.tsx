@@ -8,7 +8,7 @@ import { faArrowRight, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { Extension, getLatestRelease, sortReleasesDescending } from "interfaces";
 
 type Props = {
-    ext: Extension,
+    ext?: Extension,
     onSelectedViewChange?: (view: string) => void
 }
 
@@ -25,8 +25,16 @@ function ArrowIcon() {
 };
 
 export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
-    var latest = getLatestRelease(ext);
-    var latestThree = sortReleasesDescending(ext.releases).slice(0, 3);
+    if (!ext) {
+        return (
+            <Card>
+                <Title>Latest release</Title>
+            </Card>
+        );
+    }
+
+    const latest = getLatestRelease(ext);
+    const latestThree = sortReleasesDescending(ext.releases).slice(0, 3);
 
     function setState() {
         onSelectedViewChange?.("release-history");
@@ -36,7 +44,7 @@ export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
         <Card>
             <Flex>
                 <Title>Latest release</Title>
-                <a href={latest.download_url} target="_blank"><Badge icon={DownloadIcon} className="hover:bg-blue-200 hover:cursor-pointer">v{latest.tag}</Badge></a>
+                <a href={latest.download_url} target="_blank" rel="noopener noreferrer"><Badge icon={DownloadIcon} className="hover:bg-blue-200 hover:cursor-pointer">v{latest.tag}</Badge></a>
             </Flex>
             <Metric className="mt-1"><time dateTime={latest.date}>{formatDistanceToNow(new Date(latest.date), { locale: enUS, addSuffix: true })}</time></Metric>
 

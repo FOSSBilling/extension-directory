@@ -28,8 +28,18 @@ const Extension = ({ ext, errors }: Props) => {
         )
     }
 
+    if (!ext) {
+        return (
+            <Layout title="Extension details | FOSSBilling extensions">
+                <p>
+                    <span style={{ color: 'red' }}>Error:</span> Extension data is unavailable.
+                </p>
+            </Layout>
+        )
+    }
+
     return (
-        <Layout title={`${ext ? ext.name : 'Extension details'} | FOSSBilling extensions`}>
+        <Layout title={`${ext.name} | FOSSBilling extensions`}>
             <ExtensionHeader ext={ext} />
 
             <TabGroup>
