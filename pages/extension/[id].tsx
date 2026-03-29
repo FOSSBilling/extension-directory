@@ -17,7 +17,7 @@ type Props = {
     errors?: string
 }
 
-const Extension = ({ ext, errors }: Props) => {
+const ExtensionPage = ({ ext, errors }: Props) => {
     if (errors) {
         return (
             <Layout title="An error occurred!">
@@ -76,7 +76,7 @@ const Extension = ({ ext, errors }: Props) => {
     );
 }
 
-export default Extension
+export default ExtensionPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
     // Get the paths we want to pre-render based on the extension data
