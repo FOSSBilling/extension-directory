@@ -1063,7 +1063,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
     "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/releases/download/v0.5.0/Yoco.zip",
   releases: [
     {
-      tag: "v0.5.0",
+      tag: "0.5.0",
       date: "2026-05-07T18:53:00Z",
       download_url:
         "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/releases/download/v0.5.0/Yoco.zip",
