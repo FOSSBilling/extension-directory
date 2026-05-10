@@ -11,7 +11,6 @@ export const extensionData: Extension[] = [
     description: "An example module for developers to get started.",
     version: "0.0.4",
     download_url: "https://github.com/FOSSBilling/example-module/releases/download/0.0.5/Example.zip",
-    icon_url: "https://coinpayportal.com/logo.svg",
     releases: [
       {
         tag: "0.0.5",
@@ -1121,6 +1120,7 @@ This extension is not affiliated with FOSSBilling or Yoco.`,
   version: "1.0.0",
   download_url:
     "https://github.com/profullstack/coinpayportal/releases/download/1.0.0/CoinPayPortal.zip",
+  icon_url: "https://coinpayportal.com/logo.svg",
   releases: [
     {
       tag: "1.0.0",
