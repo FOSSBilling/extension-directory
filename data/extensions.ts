@@ -1120,7 +1120,7 @@ This extension is not affiliated with FOSSBilling or Yoco.`,
   version: "1.0.0",
   download_url:
     "https://github.com/profullstack/coinpayportal/releases/download/1.0.0/CoinPayPortal.zip",
-  icon_url: "https://coinpayportal.com/logo.svg",
+  icon_url: "https://coinpayportal.com/icons/icon-512x512.png",
   releases: [
     {
       tag: "1.0.0",
