@@ -1048,7 +1048,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
   id: "Yoco",
   type: "payment-gateway",
   name: "Yoco",
-  description: "Yoco payment gateway for FOSSBilling.",
+  description: "Yoco payment gateway integration for FOSSBilling",
   author: findAuthorByID("demassimo"),
   license: {
     name: "Apache 2.0",
@@ -1058,22 +1058,22 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
     type: "github",
     repo: "demassimo/Yoco_Payment_Gateway_Fossbilling",
   },
-  version: "0.5.0",
+  version: "0.5.1",
   download_url:
-    "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/releases/download/v0.5.0/Yoco.zip",
+    "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/releases/download/v0.5.1/Yoco.zip",
   releases: [
     {
-      tag: "0.5.0",
-      date: "2026-05-07T18:53:00Z",
+      tag: "0.5.1",
+      date: "2026-05-10T09:22:26+02:00",
       download_url:
-        "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/releases/download/v0.5.0/Yoco.zip",
+        "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/releases/download/v0.5.1/Yoco.zip",
       changelog_url:
-        "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/releases/tag/v0.5.0",
+        "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/releases/tag/v0.5.1",
       min_fossbilling_version: "0.7",
     },
   ],
   icon_url:
-    "https://raw.githubusercontent.com/demassimo/Yoco_Payment_Gateway_Fossbilling/main/data/assets/gateways/yoco.png",
+    "https://raw.githubusercontent.com/demassimo/Yoco_Payment_Gateway_Fossbilling/main/assets/yoco-icon.svg",
   website: "https://www.yoco.com/za/",
   readme: `# FOSSBilling Yoco Gateway
 
@@ -1092,12 +1092,26 @@ This extension lets FOSSBilling accept one-time Yoco Checkout payments in South 
 ## Installation
 
 1. Download the latest release ZIP.
-2. Extract the archive into your FOSSBilling root.
+2. Extract the archive into your FOSSBilling root so the paths merge into:
+   - \`library/Payment/Adapter/Yoco.php\`
+   - \`data/assets/gateways/yoco.png\`
 3. Clear the FOSSBilling cache.
-4. In the FOSSBilling admin panel, go to System > Payment gateways.
-5. Install or enable the Yoco payment gateway.
+4. In the FOSSBilling admin panel, go to **System > Payment gateways**.
+5. Install or enable the **Yoco** payment gateway.
 6. Add your Yoco live or test keys.
 7. Configure your Yoco webhook and add the webhook secret in the gateway settings.
+
+## Currency notes
+
+Yoco checkout is processed in ZAR. ZAR invoices are charged directly. USD invoices can be converted to ZAR using the configured gateway conversion rate or the FOSSBilling currency rates.
+
+## Webhook notes
+
+The gateway verifies Yoco webhook signatures when a webhook secret is configured. Payment confirmation is handled through the \`payment.succeeded\` event.
+
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE).
 
 ## Disclaimer
 
