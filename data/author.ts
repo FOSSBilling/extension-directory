@@ -57,6 +57,12 @@ export const authorData: Author[] = [
   },
   {
     type: "organization",
+    name: "demassimo",
+    id: "demassimo",
+    URL: "https://github.com/demassimo",
+  },
+  {
+    type: "organization",
     name: "coinpayportal",
     id: "coinpayportal",
     URL: "https://coinpayportal.com",
