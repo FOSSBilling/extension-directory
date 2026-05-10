@@ -1043,5 +1043,64 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 1. OpenProvider for their robust API.
 1. FOSSBilling for their open-source billing platform.`,
+},
+{
+  id: "Yoco",
+  type: "payment-gateway",
+  name: "Yoco",
+  description: "Yoco payment gateway for FOSSBilling.",
+  author: findAuthorByID("demassimo"),
+  license: {
+    name: "Apache 2.0",
+    URL: "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/blob/main/LICENSE",
+  },
+  source: {
+    type: "github",
+    repo: "demassimo/Yoco_Payment_Gateway_Fossbilling",
+  },
+  version: "0.5.0",
+  download_url:
+    "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/releases/download/v0.5.0/Yoco.zip",
+  releases: [
+    {
+      tag: "0.5.0",
+      date: "2026-05-07T18:53:00Z",
+      download_url:
+        "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/releases/download/v0.5.0/Yoco.zip",
+      changelog_url:
+        "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/releases/tag/v0.5.0",
+      min_fossbilling_version: "0.7",
+    },
+  ],
+  icon_url:
+    "https://raw.githubusercontent.com/demassimo/Yoco_Payment_Gateway_Fossbilling/main/data/assets/gateways/yoco.png",
+  website: "https://www.yoco.com/za/",
+  readme: `# FOSSBilling Yoco Gateway
+
+Yoco payment gateway integration for FOSSBilling.
+
+This extension lets FOSSBilling accept one-time Yoco Checkout payments in South African Rand (ZAR). It also supports optional USD invoice conversion into ZAR before checkout.
+
+## Features
+
+- One-time Yoco Checkout payments
+- ZAR invoice support
+- Optional USD-to-ZAR invoice conversion
+- Yoco webhook verification for payment confirmation
+- Test and live API key fields
+
+## Installation
+
+1. Download the latest release ZIP.
+2. Extract the archive into your FOSSBilling root.
+3. Clear the FOSSBilling cache.
+4. In the FOSSBilling admin panel, go to System > Payment gateways.
+5. Install or enable the Yoco payment gateway.
+6. Add your Yoco live or test keys.
+7. Configure your Yoco webhook and add the webhook secret in the gateway settings.
+
+## Disclaimer
+
+This extension is not affiliated with FOSSBilling or Yoco.`,
 }
 ];
