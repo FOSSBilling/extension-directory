@@ -56,10 +56,16 @@ export const authorData: Author[] = [
     URL: "https://devife.com",
   },
   {
-    type: "user",
+    type: "organization",
     name: "demassimo",
     id: "demassimo",
     URL: "https://github.com/demassimo",
+  },
+  {
+    type: "organization",
+    name: "coinpayportal",
+    id: "coinpayportal",
+    URL: "https://coinpayportal.com",
   },
 ];
 

@@ -1052,7 +1052,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
   author: findAuthorByID("demassimo"),
   license: {
     name: "Apache 2.0",
-    URL: "https://www.apache.org/licenses/LICENSE-2.0",
+    URL: "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/blob/main/LICENSE",
   },
   source: {
     type: "github",
@@ -1069,12 +1069,12 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
         "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/archive/refs/tags/v0.5.1.zip",
       changelog_url:
         "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/releases/tag/v0.5.1",
-      min_fossbilling_version: "0.6",
+      min_fossbilling_version: "0.7",
     },
   ],
   icon_url:
     "https://raw.githubusercontent.com/demassimo/Yoco_Payment_Gateway_Fossbilling/main/assets/yoco-icon.svg",
-  website: "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling",
+  website: "https://www.yoco.com/za/",
   readme: `# FOSSBilling Yoco Gateway
 
 Yoco payment gateway integration for FOSSBilling.
@@ -1116,5 +1116,80 @@ Apache License 2.0. See [LICENSE](LICENSE).
 ## Disclaimer
 
 This extension is not affiliated with FOSSBilling or Yoco.`,
-}
+},
+{
+  id: "CoinPayPortal",
+  type: "payment-gateway",
+  name: "CoinPayPortal Crypto Payments",
+  description: "Accept crypto payments through CoinPayPortal. Customers are redirected to a secure checkout and invoices are automatically marked paid after verified payment confirmation.",
+  author: findAuthorByID("coinpayportal"),
+  license: {
+    name: "MIT",
+    URL: "https://github.com/profullstack/coinpayportal/blob/master/plugins/fossbilling/LICENSE",
+  },
+  source: {
+    type: "github",
+    repo: "profullstack/coinpayportal",
+  },
+  version: "1.0.0",
+  download_url:
+    "https://github.com/profullstack/coinpayportal/releases/download/1.0.0/CoinPayPortal.zip",
+  icon_url: "https://coinpayportal.com/icons/icon-512x512.png",
+  releases: [
+    {
+      tag: "1.0.0",
+      date: "2026-04-30T09:27:49Z",
+      download_url:
+        "https://github.com/profullstack/coinpayportal/releases/download/1.0.0/CoinPayPortal.zip",
+      changelog_url:
+        "https://github.com/profullstack/coinpayportal/releases/tag/1.0.0",
+      min_fossbilling_version: "0.6",
+    },
+  ],
+  website: "https://coinpayportal.com",
+  readme: `# CoinPayPortal Crypto Payments for FOSSBilling
+
+Accept cryptocurrency payments through [CoinPayPortal](https://coinpayportal.com). Customers are redirected to a secure CoinPayPortal checkout page and invoices are automatically marked paid after verified payment confirmation.
+
+## Features
+
+- Accept crypto payments (Bitcoin, Ethereum, USDC, and more)
+- Secure webhook-based payment confirmation with signature verification
+- Sandbox/test mode for development
+- Configurable underpayment tolerance
+- Debug logging for troubleshooting
+
+## Requirements
+
+- FOSSBilling >= 0.6.0
+- PHP >= 8.0
+- A [CoinPayPortal](https://coinpayportal.com) merchant account
+
+## Installation
+
+### Extension directory (recommended)
+
+The easiest way to install this extension is by using the [FOSSBilling extension directory](https://extensions.fossbilling.org/extension/CoinPayPortal).
+
+### Manual installation
+
+1. Download the latest release from the [extension directory](https://extensions.fossbilling.org/extension/CoinPayPortal)
+2. Extract the archive into the \`/library/Payment/Adapter/\` directory of your FOSSBilling installation
+3. Go to the "Payment gateways" page in your admin panel and find CoinPayPortal in the "New payment gateway" tab
+4. Click the cog icon next to CoinPayPortal to install and configure it
+
+## Configuration
+
+After enabling the gateway, configure the following settings in your FOSSBilling admin panel:
+
+- **API Key**: Your CoinPayPortal API key (found in Settings → API in your merchant dashboard)
+- **Merchant ID**: Your CoinPayPortal merchant or account ID
+- **Webhook Secret**: Secret used to verify incoming webhook signatures
+
+For full configuration and webhook setup instructions, see the [documentation](https://github.com/profullstack/coinpayportal/tree/master/plugins/fossbilling/docs).
+
+## License
+
+This extension is licensed under the MIT License. See the [LICENSE](https://github.com/profullstack/coinpayportal/blob/master/plugins/fossbilling/LICENSE) file for details.`,
+},
 ];
