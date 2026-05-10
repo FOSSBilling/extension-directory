@@ -11,6 +11,7 @@ export const extensionData: Extension[] = [
     description: "An example module for developers to get started.",
     version: "0.0.4",
     download_url: "https://github.com/FOSSBilling/example-module/releases/download/0.0.5/Example.zip",
+    icon_url: "https://coinpayportal.com/logo.svg",
     releases: [
       {
         tag: "0.0.5",
