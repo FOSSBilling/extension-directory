@@ -61,6 +61,12 @@ export const authorData: Author[] = [
     id: "demassimo",
     URL: "https://github.com/demassimo",
   },
+  {
+    type: "organization",
+    name: "coinpayportal",
+    id: "coinpayportal",
+    URL: "https://coinpayportal.com",
+  },
 ];
 
 export function findAuthorByID(id: string): Author | undefined {
