@@ -8,7 +8,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
@@ -17,13 +17,14 @@
     "jsx": "react-jsx",
     "module": "esnext",
     "resolveJsonModule": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
     "paths": {
-      "*": [
-        "./*",
-        "./interfaces/*",
-        "./data/*"
-      ]
-    }
+      "@/*": ["./*"],
+      "@/components/*": ["./components/*"],
+      "@/lib/*": ["./lib/*"]
+    },
+    "esModuleInterop": true
   },
   "include": [
     "next-env.d.ts",
@@ -32,6 +33,5 @@
   ],
   "exclude": [
     "node_modules"
-  ],
-  "types": ["*"]
+  ]
 }

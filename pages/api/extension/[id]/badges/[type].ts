@@ -9,10 +9,15 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
       throw new Error('Cannot find extension data')
     }
 
-    const extension = extensionData.find(p => p.id.toString().toLowerCase() === _req.query.id.toString().toLowerCase())
+    const id = _req.query.id
+    if (!id || Array.isArray(id)) {
+      throw new Error('Invalid extension id')
+    }
+
+    const extension = extensionData.find(p => p.id.toString().toLowerCase() === id.toString().toLowerCase())
 
     if (!extension) {
-      throw new Error(`Cannot find extension by id: ${_req.query.id}`)
+      throw new Error(`Cannot find extension by id: ${id}`)
     } else {
       const types = [
         {
@@ -33,11 +38,15 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
       ]
 
       try {
-        const type = types.find(t => t.name === _req.query.type.toString().toLowerCase());
+        const typeParam = _req.query.type
+        if (!typeParam || Array.isArray(typeParam)) {
+          throw new Error('Invalid badge type')
+        }
+        const type = types.find(t => t.name === typeParam.toLowerCase());
 
-        var format = {
+        let format = {
           label: 'Unknown type',
-          message: _req.query.type.toString(),
+          message: typeParam,
           color: 'red'
         };
 
@@ -47,16 +56,16 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
           format.color = 'blue';
         }
 
-        if (_req.query.color) {
-          format.color = _req.query.color.toString();
+        const colorParam = _req.query.color
+        if (colorParam && !Array.isArray(colorParam)) {
+          format.color = colorParam;
         }
 
         const svg = makeBadge(format);
 
         res.setHeader('Content-Type', 'image/svg+xml');
         res.send(svg);
-      } catch (err: any) {
-        console.error(err);
+      } catch {
         res.status(500).json({ error: { message: "An error occurred while generating the badge." } })
       }
     }

@@ -1,34 +1,33 @@
-import { Card, List, ListItem, Flex, Title, Badge, Metric, Button } from "@tremor/react";
-
 import { formatDistanceToNow } from 'date-fns'
 import { enUS } from 'date-fns/locale'
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faDownload } from "@fortawesome/free-solid-svg-icons";
+import { ArrowRight, Download } from "lucide-react";
 import { Extension, getLatestRelease, sortReleasesDescending } from "interfaces";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type Props = {
     ext?: Extension,
     onSelectedViewChange?: (view: string) => void
 }
 
-function DownloadIcon() {
-    return (
-        <FontAwesomeIcon icon={faDownload} className="p-0.5 fa-fw" />
-    )
+function DownloadIcon({ className }: { className?: string }) {
+    return <Download className={cn("w-4 h-4", className)} />;
 };
 
-function ArrowIcon() {
-    return (
-        <FontAwesomeIcon icon={faArrowRight} className="p-0.5 fa-fw" />
-    )
+function ArrowIcon({ className }: { className?: string }) {
+    return <ArrowRight className={cn("w-4 h-4", className)} />;
 };
 
 export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
     if (!ext) {
         return (
             <Card>
-                <Title>Latest release</Title>
+                <CardContent className="pt-6">
+                    <CardTitle className="text-lg">Latest Release</CardTitle>
+                </CardContent>
             </Card>
         );
     }
@@ -40,27 +39,48 @@ export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
         onSelectedViewChange?.("release-history");
     }
 
+    if (!latest) {
+        return (
+            <Card>
+                <CardContent className="pt-6">
+                    <CardTitle className="text-lg">Latest Release</CardTitle>
+                    <p className="text-muted-foreground mt-2">No releases available</p>
+                </CardContent>
+            </Card>
+        );
+    }
+
     return (
         <Card>
-            <Flex>
-                <Title>Latest release</Title>
-                <a href={latest.download_url} target="_blank" rel="noopener noreferrer"><Badge icon={DownloadIcon} className="hover:bg-blue-200 hover:cursor-pointer">v{latest.tag}</Badge></a>
-            </Flex>
-            <Metric className="mt-1"><time dateTime={latest.date}>{formatDistanceToNow(new Date(latest.date), { locale: enUS, addSuffix: true })}</time></Metric>
+            <CardContent className="pt-6">
+                <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg">Latest Release</CardTitle>
+                    <a href={latest.download_url} target="_blank" rel="noopener noreferrer">
+                        <Badge className="hover:bg-primary/80 cursor-pointer gap-1" variant="default">
+                            <DownloadIcon /> v{latest.tag}
+                        </Badge>
+                    </a>
+                </div>
+                <p className="text-sm text-muted-foreground mt-1">
+                    <time dateTime={latest.date}>{formatDistanceToNow(new Date(latest.date), { locale: enUS, addSuffix: true })}</time>
+                </p>
 
-            <List className="mt-2">
-                {latestThree.map((release) => (
-                    <ListItem key={release.tag}>
-                        <span>v{release.tag}</span>
-                        <span><time dateTime={release.date}>{formatDistanceToNow(new Date(release.date), { locale: enUS, addSuffix: true })}</time></span>
-                    </ListItem>
-                ))}
-            </List>
-            <Flex className="mt-2 pt-4 border-t">
-                <Button size="xs" variant="light" icon={ArrowIcon} iconPosition="right" onClick={setState}>
-                    View more
-                </Button>
-            </Flex>
+                <ul className="mt-4 space-y-2 border-t pt-4">
+                    {latestThree.map((release) => (
+                        <li key={release.tag} className="flex justify-between text-sm">
+                            <span>v{release.tag}</span>
+                            <span className="text-muted-foreground">
+                                <time dateTime={release.date}>{formatDistanceToNow(new Date(release.date), { locale: enUS, addSuffix: true })}</time>
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+                <div className="mt-4 pt-4 border-t">
+                    <Button variant="outline" size="sm" onClick={setState}>
+                        View More <ArrowIcon />
+                    </Button>
+                </div>
+            </CardContent>
         </Card>
     );
 }

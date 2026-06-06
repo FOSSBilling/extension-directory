@@ -1,8 +1,12 @@
-import { Extension } from "interfaces";
+import { Extension, Author } from "interfaces";
 import { findAuthorByID } from "./author";
 
-/** Dummy extension data. We probably should migrate to a database as these get bigger. */
-// Get the release datetime from the GitHub API: https://api.github.com/repos/org/repo/releases
+function getAuthor(id: string): Author {
+  const author = findAuthorByID(id);
+  if (!author) throw new Error(`Author not found: ${id}`);
+  return author;
+}
+
 export const extensionData: Extension[] = [
   {
     id: "Example",
@@ -58,7 +62,7 @@ export const extensionData: Extension[] = [
         min_fossbilling_version: "0.1",
       },
     ],
-    author: findAuthorByID("fossbilling"),
+    author: getAuthor("fossbilling"),
     license: {
       name: "Apache 2.0",
       URL: "https://www.apache.org/licenses/LICENSE-2.0",
@@ -126,100 +130,14 @@ This extension is open source software and is released under the Apache v2.0 lic
     
 This product includes the following third party work:
     
- - Open Source Iconography by [Pictogrammers](https://pictogrammers.com/) licensed under the [Pictogrammers Free License](https://pictogrammers.com/docs/general/license/).`,
+  - Open Source Iconography by [Pictogrammers](https://pictogrammers.com/) licensed under the [Pictogrammers Free License](https://pictogrammers.com/docs/general/license/).`,
   },
-  /*{
-    id: "Serviceproxmox",
-    type: "mod",
-    name: "Proxmox",
-    description: "Provision Proxmox VMs using the Proxmox API",
-    author: findAuthorByID("fossbilling"),
-    version: "0.0.4",
-    download_url:
-      "https://github.com/FOSSBilling/Proxmox/releases/download/0.0.4/Serviceproxmox.zip",
-    releases: [
-      {
-        tag: "0.0.5",
-        date: "2023-06-13T14:21:19Z",
-        download_url:
-          "https://github.com/FOSSBilling/Proxmox/releases/download/0.0.5/Serviceproxmox.zip",
-        changelog_url:
-          "https://github.com/FOSSBilling/Proxmox/releases/tag/0.0.5",
-        min_fossbilling_version: "0.5",
-      },
-      {
-        tag: "0.0.4",
-        date: "2023-03-18T16:58:22Z",
-        download_url:
-          "https://github.com/FOSSBilling/Proxmox/releases/download/0.0.4/Serviceproxmox.zip",
-        changelog_url:
-          "https://github.com/FOSSBilling/Proxmox/releases/tag/0.0.4",
-        min_fossbilling_version: "0.1",
-      },
-      {
-        tag: "0.0.3",
-        date: "2022-12-16T18:11:08Z",
-        download_url:
-          "https://github.com/FOSSBilling/Proxmox/releases/download/0.0.3/Serviceproxmox.zip",
-        changelog_url:
-          "https://github.com/FOSSBilling/Proxmox/releases/tag/0.0.3",
-        min_fossbilling_version: "0.1",
-      },
-      {
-        tag: "0.0.2",
-        date: "2022-12-07T21:20:38Z",
-        download_url:
-          "https://github.com/FOSSBilling/Proxmox/releases/download/0.0.2/Serviceproxmox.zip",
-        changelog_url:
-          "https://github.com/FOSSBilling/Proxmox/releases/tag/0.0.2",
-        min_fossbilling_version: "0.1",
-      },
-      {
-        tag: "0.0.1",
-        date: "2022-11-26T16:10:34Z",
-        download_url:
-          "https://github.com/FOSSBilling/Proxmox/releases/download/0.0.1/Serviceproxmox.zip",
-        changelog_url:
-          "https://github.com/FOSSBilling/Proxmox/releases/tag/0.0.1",
-        min_fossbilling_version: "0.1",
-      },
-    ],
-    license: {
-      name: "GNU General Public License v3.0",
-      URL: "https://www.gnu.org/licenses/gpl-3.0.html",
-    },
-    source: {
-      type: "github",
-      repo: "FOSSBilling/Proxmox",
-    },
-    icon_url:
-      "https://raw.githubusercontent.com/FOSSBilling/Proxmox/main/icon.svg",
-    website: "https://fossbilling.org",
-    readme: `# Proxmox module for FOSSBilling
-Initial Proxmox support for FOSSBilling. This module is still in development and not ready for production use. Based on [previous work](https://github.com/scith/BoxBilling_Proxmox) by [Scith](https://github.com/scith).
-    
-![Screenshot](https://user-images.githubusercontent.com/35808275/199820039-d917c48c-b42f-42c6-8b4e-0f1e36bd7357.png)
-    
-## Features
-- Manage pools of Proxmox servers (orders can be allocated to servers automatically based on their capacity)
-- Provision LXC containers
-- Provision QEMU KVM machines
-- Clients can use an online console, start, shutdown and reboot their VMs (not working right now)
-    
-## Installation
-- Copy the "Serviceproxmox" folder in *modules*
-- Add new Proxmox servers
-- Add new Proxmox products with the correct VM settings setup
-    
-## Licensing
-This module is licensed under the GNU General Public License v3.0. See the LICENSE file for more information.`,
-  },*/
   {
     id: "Mollie",
     type: "payment-gateway",
     name: "Mollie",
     description: "Mollie extension for FOSSBilling",
-    author: findAuthorByID("fossbilling"),
+    author: getAuthor("fossbilling"),
     license: {
       name: "Apache 2.0",
       URL: "https://www.apache.org/licenses/LICENSE-2.0",
@@ -317,7 +235,7 @@ This module is licensed under the GNU General Public License v3.0. See the LICEN
     type: "payment-gateway",
     name: "Bitcart",
     description: "Bitcart extension for FOSSBilling",
-    author: findAuthorByID("bitcart"),
+    author: getAuthor("bitcart"),
     license: {
       name: "MIT",
       URL: "https://github.com/bitcart/bitcart-fossbilling/blob/master/LICENSE",
@@ -393,7 +311,7 @@ This module is licensed under the GNU General Public License v3.0. See the LICEN
     type: "payment-gateway",
     name: "UddoktaPay",
     description: "UddoktaPay extension for FOSSBilling",
-    author: findAuthorByID("uddoktapay"),
+    author: getAuthor("uddoktapay"),
     license: {
       name: "MIT",
       URL: "https://github.com/UddoktaPay/FOSSBilling/blob/master/LICENSE",
@@ -451,7 +369,7 @@ This module is licensed under the GNU General Public License v3.0. See the LICEN
     type: "payment-gateway",
     name: "Razorpay",
     description: "Razorpay extension for FOSSBilling",
-    author: findAuthorByID("albinvar"),
+    author: getAuthor("albinvar"),
     license: {
       name: "Apache 2.0",
       URL: "https://github.com/albinvar/Razorpay-FOSSBilling/blob/1.x-prod/LICENSE",
@@ -529,7 +447,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
     type: "payment-gateway",
     name: "BTCPay",
     description: "BTCPay extension for FOSSBilling",
-    author: findAuthorByID("christiangabs"),
+    author: getAuthor("christiangabs"),
     license: {
       name: "Apache License 2.0",
       URL: "https://github.com/ChristianGabs/btcpay-fossbilling/blob/main/LICENSE",
@@ -632,7 +550,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
     type: "payment-gateway",
     name: "PAYEER",
     description: "PAYEER extension for FOSSBilling",
-    author: findAuthorByID("neto737"),
+    author: getAuthor("neto737"),
     license: {
       name: "MIT",
       URL: "https://github.com/neto737/PAYEER-FOSSBilling/blob/main/LICENSE",
@@ -695,7 +613,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
     type: "payment-gateway",
     name: "Xendit",
     description: "Xendit extension for FOSSBilling",
-    author: findAuthorByID("fzfr"),
+    author: getAuthor("fzfr"),
     license: {
       name: "Apache 2.0",
       URL: "https://github.com/FZFR/Xendit-FOSSBilling/blob/main/LICENSE",
@@ -807,7 +725,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
     type: "domain-registrar",
     name: "Netim",
     description: "Netim registrar extension for FOSSBilling",
-    author: findAuthorByID("netim"),
+    author: getAuthor("netim"),
     license: {
       name: "GPL-3.0 license",
       URL: "https://github.com/netim-com/fossbilling-registrar-module/blob/main/LICENSE",
@@ -892,7 +810,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
     type: "payment-gateway",
     name: "FaucetPay",
     description: "FaucetPay extension for FOSSBilling",
-    author: findAuthorByID("neto737"),
+    author: getAuthor("neto737"),
     license: {
       name: "MIT",
       URL: "https://github.com/neto737/FaucetPay-FOSSBilling/blob/main/LICENSE",
@@ -946,7 +864,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
   type: "domain-registrar",
   name: "OpenProvider",
   description: "OpenProvider registrar extension for FOSSBilling",
-  author: findAuthorByID("devife"),
+  author: getAuthor("devife"),
   license: {
     name: "Apache 2.0",
     URL: "https://github.com/Devife/fossbilling-registrar-openprovider/blob/main/LICENSE",
@@ -1049,7 +967,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
   type: "payment-gateway",
   name: "Yoco",
   description: "Yoco payment gateway integration for FOSSBilling",
-  author: findAuthorByID("demassimo"),
+  author: getAuthor("demassimo"),
   license: {
     name: "Apache 2.0",
     URL: "https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/blob/main/LICENSE",
@@ -1122,7 +1040,7 @@ This extension is not affiliated with FOSSBilling or Yoco.`,
   type: "payment-gateway",
   name: "CoinPayPortal Crypto Payments",
   description: "Accept crypto payments through CoinPayPortal. Customers are redirected to a secure checkout and invoices are automatically marked paid after verified payment confirmation.",
-  author: findAuthorByID("coinpayportal"),
+  author: getAuthor("coinpayportal"),
   license: {
     name: "MIT",
     URL: "https://github.com/profullstack/coinpayportal/blob/master/plugins/fossbilling/LICENSE",

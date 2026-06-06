@@ -8,10 +8,15 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
       throw new Error('Cannot find extension data')
     }
 
-    const extension = extensionData.find(p => p.id.toString().toLowerCase() === _req.query.id.toString().toLowerCase())
+    const id = _req.query.id
+    if (!id || Array.isArray(id)) {
+      throw new Error('Invalid extension id')
+    }
+
+    const extension = extensionData.find(p => p.id.toString().toLowerCase() === id.toString().toLowerCase())
 
     if (!extension) {
-      throw new Error(`Cannot find extension by id: ${_req.query.id}`)
+      throw new Error(`Cannot find extension by id: ${id}`)
     } else {
       extension.releases = sortReleasesDescending(extension.releases);
       res.status(200).json({ result: extension })

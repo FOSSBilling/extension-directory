@@ -1,14 +1,14 @@
-import { Card, Icon, Text, Flex, Title } from "@tremor/react";
-
 import { Extension, getLatestRelease } from "interfaces";
 import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 type Props = {
     ext: Extension
 }
 
 export function ExtensionCard({ ext }: Props) {
-    var latest = getLatestRelease(ext);
+    const latest = getLatestRelease(ext);
 
     function extensionIcon() {
         return (
@@ -18,22 +18,19 @@ export function ExtensionCard({ ext }: Props) {
 
     return (
         <Link href={`/extension/${ext.id}`}>
-            <Card className="hover:bg-gray-100">
-                <Flex justifyContent="start" alignItems="center" className="space-x-4">
-                    <Icon
-                        variant="light"
-                        icon={extensionIcon}
-                        size="md"
-                        color="blue"
-                    />
-                    <div>
-                        <Flex justifyContent="start" alignItems="baseline" flexDirection="col" className="xl:flex-row xl:space-x-2">
-                            <Title>{ext.name}</Title>
-                            <Text>{ext.id} • v{latest.tag}</Text>
-                        </Flex>
-                        <Text>{ext.description}</Text>
+            <Card className={cn("hover:bg-muted/50 transition-colors", "h-full")}>
+                <CardContent className="flex items-start space-x-4 p-6">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                        {extensionIcon()}
                     </div>
-                </Flex>
+                    <div className="flex-1 min-w-0">
+                        <div className="flex items-baseline space-x-2">
+                            <h3 className="text-xl font-semibold leading-none tracking-tight">{ext.name}</h3>
+                            <span className="text-sm text-muted-foreground">{ext.id} • v{latest?.tag ?? "unknown"}</span>
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-1 truncate">{ext.description}</p>
+                    </div>
+                </CardContent>
             </Card>
         </Link>
     );

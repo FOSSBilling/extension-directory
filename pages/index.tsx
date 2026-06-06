@@ -1,35 +1,39 @@
 import { GetStaticProps } from 'next'
-import { Badge, Button, Card, Flex, Grid, Text, Title } from "@tremor/react";
 
 import { extensionData } from 'data/extensions';
 import { Extension } from 'interfaces';
-import { ExtensionCard } from "components/ExtensionCard";
+import { ExtensionCard } from '@/components/ExtensionCard';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
-import Layout from "components/Layout";
+import Layout from '@/components/Layout';
 
 export default function Index({ extensions }: { extensions: Extension[] }) {
     return (
-        <Layout title="FOSSBilling extensions">
-            <Flex justifyContent="start" alignItems="baseline" className="space-x-2">
-                <Title>FOSSBilling Extension Directory</Title>
-                <Badge className="ml-2">beta</Badge>
-            </Flex>
-            <Text>Welcome to the FOSSBilling Extension Directory. Handy with React and want to contribute? <a href="https://github.com/FOSSBilling/extension-directory" target="_blank"><Button variant="light">Check out the source code on GitHub</Button></a>.</Text>
-            <Text>Please note that only extensions that can be auto-installed from within FOSSBilling are included in the directory at this time. For a list of other working extenstions i.e. Registration modules please <a href="https://fossbilling.org/docs/extensions" target="_blank"><Button variant="light">see here</Button></a>.</Text>
-            <Grid numItemsLg={3} className="mt-6 gap-6">
+        <Layout title="FOSSBilling Extensions">
+            <div className="flex items-baseline justify-between mb-6">
+                <h1 className="text-3xl font-bold tracking-tight">FOSSBilling Extension Directory</h1>
+                <Badge variant="secondary">beta</Badge>
+            </div>
+            <p className="text-muted-foreground mb-6">
+                Welcome to the FOSSBilling Extension Directory. Handy with React and want to contribute?{' '}
+                <a href="https://github.com/FOSSBilling/extension-directory" target="_blank" rel="noopener noreferrer">
+                    <Button variant="ghost" size="sm">Check out the source code on GitHub</Button>
+                </a>
+                {' '}.
+            </p>
+            <p className="text-muted-foreground mb-8">
+                Please note that only extensions that can be auto-installed from within FOSSBilling are included in the directory at this time. For a list of other working extensions i.e. Registration modules please{' '}
+                <a href="https://fossbilling.org/docs/extensions" target="_blank" rel="noopener noreferrer">
+                    <Button variant="ghost" size="sm">see here</Button>
+                </a>
+                {' '}.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {extensions.map((ext) => (
                     <ExtensionCard ext={ext} key={ext.name} />
                 ))}
-                {/* Complete the grid to 18 cards */}
-                {
-                    [...Array(18 - extensions.length)].map((v, i) =>
-                        <Card key={i}>
-                            {/* Placeholder to set height */}
-                            <div className="h-14" />
-                        </Card>
-                    )
-                }
-            </Grid>
+            </div>
         </Layout>
     );
 }

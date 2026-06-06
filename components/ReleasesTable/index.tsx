@@ -4,20 +4,17 @@ import { Extension, sortReleasesDescending } from "interfaces";
 import { parseISO, format } from 'date-fns'
 import { enUS } from 'date-fns/locale'
 
-import { Title, Flex, Table, TableRow, TableCell, TableHead, TableHeaderCell, TableBody, Badge, Icon, } from "@tremor/react";
-import { faDownload, faList } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Download, List } from 'lucide-react';
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
-function DownloadIcon() {
-    return (
-        <FontAwesomeIcon icon={faDownload} className="p-0.5 fa-fw" />
-    )
+function DownloadIcon({ className }: { className?: string }) {
+    return <Download className={cn("w-4 h-4", className)} />;
 };
 
-function ListIcon() {
-    return (
-        <FontAwesomeIcon icon={faList} className="p-0.5 fa-fw" />
-    )
+function ListIcon({ className }: { className?: string }) {
+    return <List className={cn("w-4 h-4", className)} />;
 };
 
 type Props = {
@@ -25,47 +22,40 @@ type Props = {
 }
 
 export function ReleasesTable({ ext }: Props) {
-    var releases = sortReleasesDescending(ext.releases);
+    const releases = sortReleasesDescending(ext.releases);
 
     return (
         <div>
-            <Flex justifyContent="start" className="space-x-2">
-                <Title>Releases</Title>
-                <Badge color="gray">{releases.length}</Badge>
-            </Flex>
+            <div className="flex items-center justify-between">
+                <h2 className="text-xl font-semibold">Releases</h2>
+                <Badge variant="secondary">{releases.length}</Badge>
+            </div>
 
             <Table className="mt-6">
-                <TableHead>
+                <TableHeader>
                     <TableRow>
-                        <TableHeaderCell>Tag</TableHeaderCell>
-                        <TableHeaderCell>Release date</TableHeaderCell>
-                        <TableHeaderCell>Links</TableHeaderCell>
+                        <TableHead>Tag</TableHead>
+                        <TableHead>Release Date</TableHead>
+                        <TableHead>Links</TableHead>
                     </TableRow>
-                </TableHead>
+                </TableHeader>
 
                 <TableBody>
                     {releases.map((release) => (
                         <TableRow key={release.tag}>
-                            <TableCell>v{release.tag}</TableCell>
+                            <TableCell className="font-mono">v{release.tag}</TableCell>
                             <TableCell><time dateTime={release.date}>{format(parseISO(release.date), 'd LLLL yyyy', { locale: enUS })}</time></TableCell>
                             <TableCell>
-                                <a href={release.download_url} target="_blank">
-                                    <Icon
-                                        icon={DownloadIcon}
-                                        variant="solid"
-                                        tooltip="Download the release"
-                                        className="mr-2"
-                                    />
-                                </a>
-                                {release.changelog_url ? (
-                                    <a href={release.changelog_url} target="_blank">
-                                        <Icon
-                                            icon={ListIcon}
-                                            variant="shadow"
-                                            tooltip="View the changelog for the release"
-                                        />
+                                <div className="flex items-center space-x-2">
+                                    <a href={release.download_url} target="_blank" rel="noopener noreferrer" title="Download the Release">
+                                        <DownloadIcon className="text-muted-foreground hover:text-foreground transition-colors" />
                                     </a>
-                                ) : null}
+                                    {release.changelog_url ? (
+                                        <a href={release.changelog_url} target="_blank" rel="noopener noreferrer" title="View the Changelog for the Release">
+                                            <ListIcon className="text-muted-foreground hover:text-foreground transition-colors" />
+                                        </a>
+                                    ) : null}
+                                </div>
                             </TableCell>
                         </TableRow>
                     ))}
