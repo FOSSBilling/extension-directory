@@ -1,5 +1,5 @@
 import { Extension, Repository, getLatestRelease, repositoryURL } from "interfaces";
-import { CheckCircle, GitBranch, GitFork, GitPullRequest, Scale, User } from "lucide-react";
+import { CheckCircle, GitBranch, Scale, User } from "lucide-react";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,17 +16,6 @@ type DetailsItem = {
     text: string;
     link?: string;
 };
-
-function repositoryIcon(repository: Repository): React.ReactNode {
-    switch (repository.type) {
-      case 'github':
-        return <GitBranch className="w-4 h-4" />
-      case 'gitlab':
-        return <GitFork className="w-4 h-4" />
-      case 'custom':
-        return <GitPullRequest className="w-4 h-4" />
-    }
-  }
 
 const colorClasses: Record<string, string> = {
     amber: "bg-amber-100 text-amber-700",
@@ -61,7 +50,7 @@ export function DetailsCard({ ext }: Props) {
         },
         {
             name: "Source code",
-            icon: repositoryIcon(ext.source),
+            icon: <GitBranch className="w-4 h-4" />,
             color: "fuchsia",
             text: ext.source.repo,
             link: repositoryURL(ext.source),
@@ -71,7 +60,7 @@ export function DetailsCard({ ext }: Props) {
     return (
         <Card>
             <CardContent className="pt-6">
-                <CardTitle className="text-lg">Extension details</CardTitle>
+                <CardTitle className="text-lg">Extension Details</CardTitle>
                 <ul className="mt-4 space-y-4">
                     {details.map((detail) => (
                         <li key={detail.name} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">

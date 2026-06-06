@@ -35,7 +35,7 @@ export function ReleasesTable({ ext }: Props) {
                 <TableHeader>
                     <TableRow>
                         <TableHead>Tag</TableHead>
-                        <TableHead>Release date</TableHead>
+                        <TableHead>Release Date</TableHead>
                         <TableHead>Links</TableHead>
                     </TableRow>
                 </TableHeader>
@@ -47,11 +47,11 @@ export function ReleasesTable({ ext }: Props) {
                             <TableCell><time dateTime={release.date}>{format(parseISO(release.date), 'd LLLL yyyy', { locale: enUS })}</time></TableCell>
                             <TableCell>
                                 <div className="flex items-center space-x-2">
-                                    <a href={release.download_url} target="_blank" rel="noopener noreferrer" title="Download the release">
+                                    <a href={release.download_url} target="_blank" rel="noopener noreferrer" title="Download the Release">
                                         <DownloadIcon className="text-muted-foreground hover:text-foreground transition-colors" />
                                     </a>
                                     {release.changelog_url ? (
-                                        <a href={release.changelog_url} target="_blank" rel="noopener noreferrer" title="View the changelog for the release">
+                                        <a href={release.changelog_url} target="_blank" rel="noopener noreferrer" title="View the Changelog for the Release">
                                             <ListIcon className="text-muted-foreground hover:text-foreground transition-colors" />
                                         </a>
                                     ) : null}

@@ -26,7 +26,7 @@ export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
         return (
             <Card>
                 <CardContent className="pt-6">
-                    <CardTitle className="text-lg">Latest release</CardTitle>
+                    <CardTitle className="text-lg">Latest Release</CardTitle>
                 </CardContent>
             </Card>
         );
@@ -43,7 +43,7 @@ export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
         <Card>
             <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">Latest release</CardTitle>
+                    <CardTitle className="text-lg">Latest Release</CardTitle>
                     <a href={latest.download_url} target="_blank" rel="noopener noreferrer">
                         <Badge className="hover:bg-primary/80 cursor-pointer gap-1" variant="default">
                             <DownloadIcon /> v{latest.tag}
@@ -66,7 +66,7 @@ export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
                 </ul>
                 <div className="mt-4 pt-4 border-t">
                     <Button variant="outline" size="sm" onClick={setState}>
-                        View more <ArrowIcon />
+                        View More <ArrowIcon />
                     </Button>
                 </div>
             </CardContent>
