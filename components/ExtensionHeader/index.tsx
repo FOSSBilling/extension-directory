@@ -10,7 +10,7 @@ type Props = {
 }
 
 export function ExtensionHeader({ ext }: Props) {
-    var latest = getLatestRelease(ext);
+    const latest = getLatestRelease(ext);
 
     return (
         <div className="flex items-start space-x-4">
@@ -23,7 +23,7 @@ export function ExtensionHeader({ ext }: Props) {
             <div className="flex-1">
                 <div className="flex items-baseline flex-wrap gap-2">
                     <h1 className="text-2xl font-semibold">{ext.name}</h1>
-                    <span className="text-muted-foreground">{ext.id} • v{latest.tag}</span>
+                    <span className="text-muted-foreground">{ext.id} • v{latest?.tag ?? "unknown"}</span>
                 </div>
                 <p className="text-muted-foreground mt-1">{ext.description}</p>
             </div>

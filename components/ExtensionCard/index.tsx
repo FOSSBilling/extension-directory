@@ -8,7 +8,7 @@ type Props = {
 }
 
 export function ExtensionCard({ ext }: Props) {
-    var latest = getLatestRelease(ext);
+    const latest = getLatestRelease(ext);
 
     function extensionIcon() {
         return (
@@ -26,7 +26,7 @@ export function ExtensionCard({ ext }: Props) {
                     <div className="flex-1 min-w-0">
                         <div className="flex items-baseline space-x-2">
                             <h3 className="text-xl font-semibold leading-none tracking-tight">{ext.name}</h3>
-                            <span className="text-sm text-muted-foreground">{ext.id} • v{latest.tag}</span>
+                            <span className="text-sm text-muted-foreground">{ext.id} • v{latest?.tag ?? "unknown"}</span>
                         </div>
                         <p className="text-sm text-muted-foreground mt-1 truncate">{ext.description}</p>
                     </div>

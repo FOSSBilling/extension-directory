@@ -1,9 +1,3 @@
-// You can include shared interfaces/types in a separate file
-// and then use them in any component by importing them. For
-// example, to import the interface below do:
-//
-// import { Extension } from 'path/to/interfaces';
-
 import { gt, lt } from 'semver';
 
 export type Extension = {
@@ -21,7 +15,6 @@ export type Extension = {
   icon_url?: string,
   readme: string,
   source: Repository,
-  // Compatibility with older versions of FOSSBilling
   version: string,
   download_url: string,
 }
@@ -35,14 +28,14 @@ export type Author = Organization | User;
 
 export type Organization = {
   type: 'organization';
-  name: Lowercase<string>; // backwards compatibility
+  name: Lowercase<string>;
   id: Lowercase<string>;
   URL?: string;
 };
 
 export type User = {
   type: 'user';
-  name: Lowercase<string>; // backwards compatibility
+  name: Lowercase<string>;
   id: Lowercase<string>;
   URL?: string;
 };

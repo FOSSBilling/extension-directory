@@ -22,7 +22,7 @@ type Props = {
 }
 
 export function ReleasesTable({ ext }: Props) {
-    var releases = sortReleasesDescending(ext.releases);
+    const releases = sortReleasesDescending(ext.releases);
 
     return (
         <div>

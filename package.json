@@ -10,7 +10,6 @@
     "@radix-ui/react-slot": "^1.2.5",
     "@radix-ui/react-tabs": "^1.1.14",
     "@vercel/analytics": "^2.0.0",
-    "@vercel/og": "^0.11.0",
     "badge-maker": "^5.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -25,7 +24,6 @@
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
-    "@headlessui/tailwindcss": "^0.2.2",
     "@tailwindcss/postcss": "^4.0.7",
     "@types/node": "^24.0.0",
     "@types/react": "^18.2.37",

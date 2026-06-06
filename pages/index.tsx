@@ -2,12 +2,12 @@ import { GetStaticProps } from 'next'
 
 import { extensionData } from 'data/extensions';
 import { Extension } from 'interfaces';
-import { ExtensionCard } from "components/ExtensionCard";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { ExtensionCard } from '@/components/ExtensionCard';
+import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
-import Layout from "components/Layout";
+import Layout from '@/components/Layout';
 
 export default function Index({ extensions }: { extensions: Extension[] }) {
     return (
@@ -34,15 +34,6 @@ export default function Index({ extensions }: { extensions: Extension[] }) {
                 {extensions.map((ext) => (
                     <ExtensionCard ext={ext} key={ext.name} />
                 ))}
-                {/* Complete the grid to 18 cards */}
-                {
-                    [...Array(18 - extensions.length)].map((v, i) =>
-                        <Card key={i} className="h-40">
-                            {/* Placeholder to set height */}
-                            <div className="h-full" />
-                        </Card>
-                    )
-                }
             </div>
         </Layout>
     );

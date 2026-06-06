@@ -39,6 +39,17 @@ export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
         onSelectedViewChange?.("release-history");
     }
 
+    if (!latest) {
+        return (
+            <Card>
+                <CardContent className="pt-6">
+                    <CardTitle className="text-lg">Latest Release</CardTitle>
+                    <p className="text-muted-foreground mt-2">No releases available</p>
+                </CardContent>
+            </Card>
+        );
+    }
+
     return (
         <Card>
             <CardContent className="pt-6">

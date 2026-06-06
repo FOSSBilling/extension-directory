@@ -25,7 +25,7 @@ const colorClasses: Record<string, string> = {
 };
 
 export function DetailsCard({ ext }: Props) {
-    var latest = getLatestRelease(ext);
+    const latest = getLatestRelease(ext);
     
     const details: DetailsItem[] = [
         {
@@ -39,7 +39,7 @@ export function DetailsCard({ ext }: Props) {
             name: "Compatible with",
             icon: <CheckCircle className="w-4 h-4" />,
             color: "green",
-            text: `FOSSBilling v${latest.min_fossbilling_version} and later`,
+            text: latest ? `FOSSBilling v${latest.min_fossbilling_version} and later` : "Unknown version",
         },
         {
             name: "License",
