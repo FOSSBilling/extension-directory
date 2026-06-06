@@ -3,7 +3,6 @@ import { GetStaticProps } from 'next'
 import { extensionData } from 'data/extensions';
 import { Extension } from 'interfaces';
 import { ExtensionCard } from '@/components/ExtensionCard';
-import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
