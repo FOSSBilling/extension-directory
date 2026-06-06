@@ -27,7 +27,7 @@ export type Extension = {
 }
 
 export type Repository = {
-  type: 'github' | 'gitlab' | 'bitbucket' | 'custom'
+  type: 'github' | 'gitlab' | 'custom'
   repo: string
 }
 
@@ -91,8 +91,6 @@ export function repositoryURL(repository: Repository): string {
       return `https://github.com/${repository.repo}`
     case 'gitlab':
       return `https://gitlab.com/${repository.repo}`
-    case 'bitbucket':
-      return `https://bitbucket.org/${repository.repo}`
     case 'custom':
       return repository.repo
   }

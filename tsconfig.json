@@ -17,13 +17,25 @@
     "jsx": "react-jsx",
     "module": "esnext",
     "resolveJsonModule": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
     "paths": {
       "*": [
         "./*",
         "./interfaces/*",
         "./data/*"
+      ],
+      "@/*": [
+        "./*"
+      ],
+      "@/components/*": [
+        "./components/*"
+      ],
+      "@/lib/*": [
+        "./lib/*"
       ]
-    }
+    },
+    "esModuleInterop": true
   },
   "include": [
     "next-env.d.ts",
@@ -33,5 +45,7 @@
   "exclude": [
     "node_modules"
   ],
-  "types": ["*"]
+  "types": [
+    "*"
+  ]
 }
