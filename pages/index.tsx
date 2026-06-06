@@ -11,7 +11,7 @@ import Layout from "components/Layout";
 
 export default function Index({ extensions }: { extensions: Extension[] }) {
     return (
-        <Layout title="FOSSBilling extensions">
+        <Layout title="FOSSBilling Extensions">
             <div className="flex items-baseline justify-between mb-6">
                 <h1 className="text-3xl font-bold tracking-tight">FOSSBilling Extension Directory</h1>
                 <Badge variant="secondary">beta</Badge>
