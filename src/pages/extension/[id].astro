@@ -32,55 +32,63 @@ export function getStaticPaths() {
 <Base title={`${ext.name} | FOSSBilling Extensions`}>
   <ExtensionHeader ext={ext} />
 
-  <div data-tabs class="mt-6" role="tablist" aria-label="Extension tabs">
-    <button
-      role="tab"
-      data-tab="overview"
-      class="tab-btn px-3 py-1.5 text-sm font-medium rounded-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors bg-background text-foreground shadow-sm"
-      aria-selected="true"
-      aria-controls="overview-panel"
-    >
-      Overview
-    </button>
-    <button
-      role="tab"
-      data-tab="release-history"
-      class="tab-btn px-3 py-1.5 text-sm font-medium rounded-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-      aria-selected="false"
-      aria-controls="release-history-panel"
-    >
-      Release history
-    </button>
-  </div>
+  <div class="tabs mt-6" id="extension-tabs">
+    <nav role="tablist" aria-orientation="horizontal" aria-label="Extension tabs">
+      <button
+        type="button"
+        role="tab"
+        id="overview-tab"
+        aria-selected="true"
+        aria-controls="overview-panel"
+        tabindex="0"
+      >
+        Overview
+      </button>
+      <button
+        type="button"
+        role="tab"
+        id="release-history-tab"
+        aria-selected="false"
+        aria-controls="release-history-panel"
+        tabindex="0"
+      >
+        Release history
+      </button>
+    </nav>
 
-  <div class="grid gap-6 lg:grid-cols-6 mt-6">
-    <div class="lg:col-span-4">
-      <article class="card h-full">
-        <div class="card-body h-full p-0">
-          <div
-            role="tabpanel"
-            id="overview-panel"
-            data-tab-panel="overview"
-            class="p-6"
-            aria-labelledby="overview-tab"
-          >
-            <Overview ext={ext} />
+    <div class="grid gap-6 lg:grid-cols-6 mt-6">
+      <div class="lg:col-span-4">
+        <article class="card h-full">
+          <div class="card-body h-full p-0">
+            <div
+              role="tabpanel"
+              id="overview-panel"
+              class="p-6"
+              aria-labelledby="overview-tab"
+              tabindex="-1"
+              aria-selected="true"
+            >
+              <Overview ext={ext} />
+            </div>
+            <div
+              role="tabpanel"
+              id="release-history-panel"
+              class="p-6"
+              aria-labelledby="release-history-tab"
+              tabindex="-1"
+              aria-selected="false"
+              hidden
+            >
+              <ReleasesTable ext={ext} />
+            </div>
           </div>
-          <div
-            role="tabpanel"
-            id="release-history-panel"
-            data-tab-panel="release-history"
-            class="p-6 hidden"
-            aria-labelledby="release-history-tab"
-          >
-            <ReleasesTable ext={ext} />
-          </div>
-        </div>
+        </article>
       </div>
 
       <div class="lg:col-span-2 space-y-6">
         <DetailsCard ext={ext} />
         <ReleasesCard ext={ext} />
       </div>
+    </div>
   </div>
 </Base>

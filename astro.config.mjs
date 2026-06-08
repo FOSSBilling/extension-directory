@@ -9,7 +9,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      exclude: ['basecoat-css/tabs'],
+      exclude: ['basecoat-css/basecoat', 'basecoat-css/tabs'],
     },
   },
 });
