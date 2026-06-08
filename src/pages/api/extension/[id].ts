@@ -1,6 +1,5 @@
 import type { APIRoute } from 'astro';
-import { extensionData } from '../../../data/extensions';
-import { sortReleasesDescending } from '../../../types';
+import { getExtensionById, getExtensionWithSortedReleases } from '@/lib/extensions';
 
 export const prerender = false;
 
@@ -17,9 +16,7 @@ export const GET: APIRoute = async ({ params }) => {
     );
   }
 
-  const extension = extensionData.find(
-    (p) => p.id.toString().toLowerCase() === id.toString().toLowerCase(),
-  );
+  const extension = getExtensionById(id);
 
   if (!extension) {
     return new Response(
@@ -31,14 +28,12 @@ export const GET: APIRoute = async ({ params }) => {
         headers: { 'Content-Type': 'application/json' },
       },
     );
-  } else {
-    const sortedReleases = sortReleasesDescending(extension.releases);
-    return new Response(
-      JSON.stringify({ result: { ...extension, releases: sortedReleases } }),
-      {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' },
-      },
-    );
   }
+
+  const result = getExtensionWithSortedReleases(extension);
+
+  return new Response(JSON.stringify({ result }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
 };

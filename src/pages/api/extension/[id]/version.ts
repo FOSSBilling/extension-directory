@@ -1,6 +1,5 @@
 import type { APIRoute } from 'astro';
-import { extensionData } from '../../../../data/extensions';
-import { getLatestRelease } from '../../../../types';
+import { getExtensionById, getExtensionLatestRelease } from '@/lib/extensions';
 
 export const prerender = false;
 
@@ -17,9 +16,7 @@ export const GET: APIRoute = async ({ params }) => {
     );
   }
 
-  const extension = extensionData.find(
-    (p) => p.id.toString().toLowerCase() === id.toString().toLowerCase(),
-  );
+  const extension = getExtensionById(id);
 
   if (!extension) {
     return new Response(
@@ -31,20 +28,22 @@ export const GET: APIRoute = async ({ params }) => {
         headers: { 'Content-Type': 'application/json' },
       },
     );
-  } else {
-    const latest = getLatestRelease(extension);
-    if (!latest) {
-      return new Response(
-        JSON.stringify({ error: { message: 'No releases found' } }),
-        {
-          status: 404,
-          headers: { 'Content-Type': 'application/json' },
-        },
-      );
-    }
-    return new Response(latest.tag, {
-      status: 200,
-      headers: { 'Content-Type': 'text/plain' },
-    });
   }
+
+  const latest = getExtensionLatestRelease(extension);
+
+  if (!latest) {
+    return new Response(
+      JSON.stringify({ error: { message: 'No releases found' } }),
+      {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
+  }
+
+  return new Response(latest.tag, {
+    status: 200,
+    headers: { 'Content-Type': 'text/plain' },
+  });
 };

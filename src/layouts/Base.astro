@@ -1,5 +1,7 @@
 ---
-import '../styles/global.css';
+import '@/styles/global.css';
+import Container from '@/components/Container.astro';
+import ThemeToggle from '@/components/ThemeToggle.astro';
 
 interface Props {
   title: string;
@@ -15,9 +17,29 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <script>
+      import 'basecoat-css/tabs';
+      </script>
     <title>{title}</title>
   </head>
-  <body class="bg-slate-50">
-    <slot />
+  <body class="bg-background">
+    <header class="border-b border-border sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <Container class="flex h-16 items-center justify-between">
+        <a href="/" class="font-semibold text-xl" aria-label="FOSSBilling Extensions Home">
+          FOSSBilling Extensions
+        </a>
+        <ThemeToggle />
+      </Container>
+    </header>
+    <main>
+      <Container class="py-6 sm:py-10">
+        <slot />
+      </Container>
+    </main>
+    <footer class="border-t border-border py-8">
+      <Container class="text-center text-sm text-muted-foreground">
+        <p>&copy; 2026 &mdash; The FOSSBilling project.</p>
+      </Container>
+    </footer>
   </body>
 </html>

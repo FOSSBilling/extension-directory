@@ -1,6 +1,5 @@
 import type { APIRoute } from 'astro';
-import { extensionData } from '../../../../../data/extensions';
-import { sortReleasesDescending } from '../../../../../types';
+import { getExtensionById, getExtensionLatestRelease } from '@/lib/extensions';
 import { makeBadge } from 'badge-maker';
 
 export const prerender = false;
@@ -29,9 +28,7 @@ export const GET: APIRoute = async ({ params }) => {
     );
   }
 
-  const extension = extensionData.find(
-    (p) => p.id.toString().toLowerCase() === id.toString().toLowerCase(),
-  );
+  const extension = getExtensionById(id);
 
   if (!extension) {
     return new Response(
@@ -45,18 +42,28 @@ export const GET: APIRoute = async ({ params }) => {
     );
   }
 
+  const latest = getExtensionLatestRelease(extension);
+
+  if (!latest) {
+    return new Response(
+      JSON.stringify({ error: { message: 'No releases found' } }),
+      {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
+  }
+
   const types = [
     {
       name: 'version',
       label: 'Latest version',
-      message: 'v' + sortReleasesDescending(extension.releases)[0].tag,
+      message: 'v' + latest.tag,
     },
     {
       name: 'min_fossbilling_version',
       label: 'Minimum FOSSBilling version',
-      message:
-        'v' +
-        sortReleasesDescending(extension.releases)[0].min_fossbilling_version,
+      message: 'v' + latest.min_fossbilling_version,
     },
     {
       name: 'license',
@@ -79,8 +86,6 @@ export const GET: APIRoute = async ({ params }) => {
       format.message = type.message;
       format.color = 'blue';
     }
-
-    // TODO: handle color query param if needed
 
     const svg = makeBadge(format);
 

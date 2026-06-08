@@ -1,9 +1,9 @@
 ---
-import type { Extension } from '../types';
-import { getLatestRelease, sortReleasesDescending } from '../types';
+import type { Extension } from '@/types';
+import { getLatestRelease, sortReleasesDescending } from '@/types';
 import { formatDistanceToNow } from 'date-fns';
 import { enUS } from 'date-fns/locale';
-import { ArrowRight, Download } from '@lucide/astro';
+import { Download } from '@lucide/astro';
 
 interface Props {
   ext?: Extension;
@@ -26,10 +26,9 @@ const latestThree = ext ? sortReleasesDescending(ext.releases).slice(0, 3) : [];
               href={latest.download_url}
               target="_blank"
               rel="noopener noreferrer"
+              class="badge badge-primary gap-1 hover:bg-primary/80 cursor-pointer"
             >
-              <span class="badge badge-primary gap-1 hover:bg-primary/80 cursor-pointer">
-                <Download class="w-4 h-4" />v{latest.tag}
-              </span>
+              <Download class="w-4 h-4" />v{latest.tag}
             </a>
           </div>
           <p class="text-sm text-muted-foreground mt-1">
@@ -43,7 +42,7 @@ const latestThree = ext ? sortReleasesDescending(ext.releases).slice(0, 3) : [];
 
           <ul class="mt-4 space-y-2 border-t pt-4">
             {latestThree.map((release) => (
-              <li id={release.tag} class="flex justify-between text-sm">
+              <li id={`recent-${release.tag}`} class="flex justify-between text-sm">
                 <span>v{release.tag}</span>
                 <span class="text-muted-foreground">
                   <time datetime={release.date}>
@@ -56,11 +55,6 @@ const latestThree = ext ? sortReleasesDescending(ext.releases).slice(0, 3) : [];
               </li>
             ))}
           </ul>
-          <div class="mt-4 pt-4 border-t">
-            <button class="btn btn-outline btn-sm" data-view="release-history">
-              View more <ArrowRight class="w-4 h-4" />
-            </button>
-          </div>
         </>
       ) : (
         <>

@@ -1,6 +1,6 @@
 ---
-import type { Extension } from '../types';
-import { sortReleasesDescending } from '../types';
+import type { Extension } from '@/types';
+import { sortReleasesDescending } from '@/types';
 import { parseISO, format } from 'date-fns';
 import { enUS } from 'date-fns/locale';
 import { Download, List } from '@lucide/astro';
@@ -34,7 +34,7 @@ const releases = sortReleasesDescending(ext.releases);
         {
           releases.map((release) => (
             <tr
-              id={release.tag}
+              id={`release-${release.tag}`}
               class="border-b hover:bg-muted/50 transition-colors"
             >
               <td class="p-4 font-mono">v{release.tag}</td>
@@ -51,7 +51,7 @@ const releases = sortReleasesDescending(ext.releases);
                     href={release.download_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="Download the release"
+                    aria-label="Download the release"
                     class="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <Download class="w-4 h-4" />
@@ -61,7 +61,7 @@ const releases = sortReleasesDescending(ext.releases);
                       href={release.changelog_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      title="View the changelog for the release"
+                      aria-label="View the changelog for the release"
                       class="text-muted-foreground hover:text-foreground transition-colors"
                     >
                       <List class="w-4 h-4" />

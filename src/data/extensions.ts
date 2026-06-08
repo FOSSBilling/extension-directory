@@ -1,10 +1,8 @@
 import type { Extension, Author } from '../types';
 import { findAuthorByID } from './author';
 
-function getAuthor(id: string): Author {
-  const author = findAuthorByID(id);
-  if (!author) throw new Error(`Author not found: ${id}`);
-  return author;
+function getAuthor(id: string): Author | undefined {
+  return findAuthorByID(id);
 }
 
 export const extensionData: Extension[] = [
@@ -63,7 +61,7 @@ export const extensionData: Extension[] = [
         min_fossbilling_version: '0.1',
       },
     ],
-    author: getAuthor('fossbilling'),
+    author: getAuthor('fossbilling')!,
     license: {
       name: 'Apache 2.0',
       URL: 'https://www.apache.org/licenses/LICENSE-2.0',
@@ -138,7 +136,7 @@ This product includes the following third party work:
     type: 'payment-gateway',
     name: 'Mollie',
     description: 'Mollie extension for FOSSBilling',
-    author: getAuthor('fossbilling'),
+    author: getAuthor('fossbilling')!,
     license: {
       name: 'Apache 2.0',
       URL: 'https://www.apache.org/licenses/LICENSE-2.0',
@@ -236,7 +234,7 @@ This product includes the following third party work:
     type: 'payment-gateway',
     name: 'Bitcart',
     description: 'Bitcart extension for FOSSBilling',
-    author: getAuthor('bitcart'),
+    author: getAuthor('bitcart')!,
     license: {
       name: 'MIT',
       URL: 'https://github.com/bitcart/bitcart-fossbilling/blob/master/LICENSE',
@@ -312,7 +310,7 @@ This product includes the following third party work:
     type: 'payment-gateway',
     name: 'UddoktaPay',
     description: 'UddoktaPay extension for FOSSBilling',
-    author: getAuthor('uddoktapay'),
+    author: getAuthor('uddoktapay')!,
     license: {
       name: 'MIT',
       URL: 'https://github.com/UddoktaPay/FOSSBilling/blob/master/LICENSE',
@@ -370,7 +368,7 @@ This product includes the following third party work:
     type: 'payment-gateway',
     name: 'Razorpay',
     description: 'Razorpay extension for FOSSBilling',
-    author: getAuthor('albinvar'),
+    author: getAuthor('albinvar')!,
     license: {
       name: 'Apache 2.0',
       URL: 'https://github.com/albinvar/Razorpay-FOSSBilling/blob/1.x-prod/LICENSE',
@@ -448,7 +446,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
     type: 'payment-gateway',
     name: 'BTCPay',
     description: 'BTCPay extension for FOSSBilling',
-    author: getAuthor('christiangabs'),
+    author: getAuthor('christiangabs')!,
     license: {
       name: 'Apache License 2.0',
       URL: 'https://github.com/ChristianGabs/btcpay-fossbilling/blob/main/LICENSE',
@@ -551,7 +549,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
     type: 'payment-gateway',
     name: 'PAYEER',
     description: 'PAYEER extension for FOSSBilling',
-    author: getAuthor('neto737'),
+    author: getAuthor('neto737')!,
     license: {
       name: 'MIT',
       URL: 'https://github.com/neto737/PAYEER-FOSSBilling/blob/main/LICENSE',
@@ -614,7 +612,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
     type: 'payment-gateway',
     name: 'Xendit',
     description: 'Xendit extension for FOSSBilling',
-    author: getAuthor('fzfr'),
+    author: getAuthor('fzfr')!,
     license: {
       name: 'Apache 2.0',
       URL: 'https://github.com/FZFR/Xendit-FOSSBilling/blob/main/LICENSE',
@@ -726,7 +724,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
     type: 'domain-registrar',
     name: 'Netim',
     description: 'Netim registrar extension for FOSSBilling',
-    author: getAuthor('netim'),
+    author: getAuthor('netim')!,
     license: {
       name: 'GPL-3.0 license',
       URL: 'https://github.com/netim-com/fossbilling-registrar-module/blob/main/LICENSE',
@@ -809,7 +807,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
     type: 'payment-gateway',
     name: 'FaucetPay',
     description: 'FaucetPay extension for FOSSBilling',
-    author: getAuthor('neto737'),
+    author: getAuthor('neto737')!,
     license: {
       name: 'MIT',
       URL: 'https://github.com/neto737/FaucetPay-FOSSBilling/blob/main/LICENSE',
@@ -863,7 +861,7 @@ For support or questions, feel free to contact me at albinvar@pm.me
     type: 'domain-registrar',
     name: 'OpenProvider',
     description: 'OpenProvider registrar extension for FOSSBilling',
-    author: getAuthor('devife'),
+    author: getAuthor('devife')!,
     license: {
       name: 'Apache 2.0',
       URL: 'https://github.com/Devife/fossbilling-registrar-openprovider/blob/main/LICENSE',
@@ -965,7 +963,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
     type: 'payment-gateway',
     name: 'Yoco',
     description: 'Yoco payment gateway integration for FOSSBilling',
-    author: getAuthor('demassimo'),
+    author: getAuthor('demassimo')!,
     license: {
       name: 'Apache 2.0',
       URL: 'https://github.com/demassimo/Yoco_Payment_Gateway_Fossbilling/blob/main/LICENSE',
@@ -1039,7 +1037,7 @@ This extension is not affiliated with FOSSBilling or Yoco.`,
     name: 'CoinPayPortal Crypto Payments',
     description:
       'Accept crypto payments through CoinPayPortal. Customers are redirected to a secure checkout and invoices are automatically marked paid after verified payment confirmation.',
-    author: getAuthor('coinpayportal'),
+    author: getAuthor('coinpayportal')!,
     license: {
       name: 'MIT',
       URL: 'https://github.com/profullstack/coinpayportal/blob/master/plugins/fossbilling/LICENSE',
@@ -1115,7 +1113,7 @@ This extension is licensed under the MIT License. See the [LICENSE](https://gith
     name: 'TPP Wholesale',
     description:
       'TPP Wholesale domain registrar adapter for FOSSBilling. Supports .co.nz, .nz, .com.au, .au and .com domains. Designed for New Zealand and Australian hosting businesses.',
-    author: getAuthor('servmeit'),
+    author: getAuthor('servmeit')!,
     license: {
       name: 'Apache 2.0',
       URL: 'https://www.apache.org/licenses/LICENSE-2.0',

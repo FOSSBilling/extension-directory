@@ -1,6 +1,6 @@
 ---
-import type { Extension } from '../types';
-import { getLatestRelease } from '../types';
+import type { Extension } from '@/types';
+import { getLatestRelease } from '@/types';
 
 interface Props {
   ext: Extension;
@@ -14,7 +14,7 @@ const latest = getLatestRelease(ext);
   <article class="card hover:bg-muted/50 transition-colors h-full">
     <div class="card-body flex items-start space-x-4 p-6">
       <div class="p-2 bg-primary/10 rounded-lg">
-        <img src={ext.icon_url} class="w-10 h-10" alt="" />
+        <img src={ext.icon_url} class="w-10 h-10" alt={`${ext.name} icon`} />
       </div>
       <div class="flex-1 min-w-0">
         <div class="flex items-baseline space-x-2">

@@ -1,6 +1,6 @@
 ---
-import type { Extension } from '../types';
-import { getLatestRelease } from '../types';
+import type { Extension } from '@/types';
+import { getLatestRelease } from '@/types';
 import { ArrowLeft } from '@lucide/astro';
 
 interface Props {
@@ -20,7 +20,7 @@ const latest = getLatestRelease(ext);
       <ArrowLeft class="w-4 h-4" />
     </button>
   </a>
-  <img src={ext.icon_url} class="w-12 h-12 rounded-lg" alt="" />
+  <img src={ext.icon_url} class="w-12 h-12 rounded-lg" alt={`${ext.name} icon`} />
   <div class="flex-1">
     <div class="flex items-baseline flex-wrap gap-2">
       <h1 class="text-2xl font-semibold">{ext.name}</h1>

@@ -1,34 +1,38 @@
 import type { APIRoute } from 'astro';
-import { extensionData } from '../../data/extensions';
-import { sortReleasesDescending } from '../../types';
+import { getAllExtensionsWithSortedReleases, getExtensionsByType } from '@/lib/extensions';
 
 export const prerender = false;
 
 export const GET: APIRoute = async ({ url }) => {
   try {
-    if (!Array.isArray(extensionData)) {
-      throw new Error('Cannot find extension data');
-    }
-
     const typeParam = url.searchParams.get('type');
-    let filtered = extensionData;
 
     if (typeParam) {
-      filtered = extensionData.filter((p) => p.type === typeParam);
+      const extensions = getExtensionsByType(typeParam as import('../../types').Extension['type']);
+      const filtered = extensions.map((ext) => ({
+        ...ext,
+        releases: ext.releases.slice().sort((a, b) => b.tag.localeCompare(a.tag)),
+      }));
+      return new Response(JSON.stringify({ result: filtered }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
-    filtered.forEach((extension) => {
-      extension.releases = sortReleasesDescending(extension.releases);
-    });
+    const result = getAllExtensionsWithSortedReleases();
 
-    return new Response(JSON.stringify({ result: filtered }), {
+    return new Response(JSON.stringify({ result }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
-  } catch (err: any) {
-    return new Response(JSON.stringify({ error: { message: err.message } }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    return new Response(
+      JSON.stringify({ error: { message } }),
+      {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
   }
 };

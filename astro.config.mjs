@@ -8,5 +8,8 @@ export default defineConfig({
   adapter: cloudflare(),
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: ['basecoat-css/tabs'],
+    },
   },
 });
