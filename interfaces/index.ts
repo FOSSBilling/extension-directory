@@ -28,14 +28,14 @@ export type Author = Organization | User;
 
 export type Organization = {
   type: 'organization';
-  name: Lowercase<string>;
+  name: string;
   id: Lowercase<string>;
   URL?: string;
 };
 
 export type User = {
   type: 'user';
-  name: Lowercase<string>;
+  name: string;
   id: Lowercase<string>;
   URL?: string;
 };
