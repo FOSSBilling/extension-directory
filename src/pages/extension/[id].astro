@@ -1,0 +1,88 @@
+---
+import Base from '../../layouts/Base.astro';
+import ExtensionHeader from '../../components/ExtensionHeader.astro';
+import DetailsCard from '../../components/DetailsCard.astro';
+import ReleasesCard from '../../components/ReleasesCard.astro';
+import Overview from '../../components/Overview.astro';
+import ReleasesTable from '../../components/ReleasesTable.astro';
+import { extensionData } from '../../data/extensions';
+
+const { id } = Astro.params;
+
+if (!id) {
+  return Astro.redirect('/404');
+}
+
+const ext = extensionData.find(
+  (data) => data.id.toLowerCase() === id.toString().toLowerCase(),
+);
+
+if (!ext) {
+  return Astro.redirect('/404');
+}
+
+export function getStaticPaths() {
+  return extensionData.map((ext) => ({
+    params: { id: ext.id },
+    props: { ext },
+  }));
+}
+---
+
+<Base title={`${ext.name} | FOSSBilling Extensions`}>
+  <div class="xl:mx-48 p-6 sm:p-10">
+    <ExtensionHeader ext={ext} />
+
+    <div class="tabs mt-6" role="tablist">
+      <button
+        role="tab"
+        class="tab-btn tab-btn-active px-3 py-1.5 text-sm font-medium rounded-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors bg-background text-foreground shadow-sm"
+        data-tab="overview">Overview</button
+      >
+      <button
+        role="tab"
+        class="tab-btn px-3 py-1.5 text-sm font-medium rounded-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+        data-tab="release-history">Release history</button
+      >
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-6 mt-6">
+      <div class="lg:col-span-4">
+        <article class="card h-full">
+          <div class="card-body h-full p-0">
+            <div
+              role="tabpanel"
+              id="overview"
+              class="p-6"
+              data-tab-panel="overview"
+            >
+              <Overview ext={ext} />
+            </div>
+            <div
+              role="tabpanel"
+              id="release-history"
+              class="p-6 hidden"
+              data-tab-panel="release-history"
+            >
+              <ReleasesTable ext={ext} />
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="lg:col-span-2 space-y-6">
+        <DetailsCard ext={ext} />
+        <ReleasesCard ext={ext} />
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/basecoat-css@0.3.11/dist/js/basecoat.min.js"
+  defer></script>
+<script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/basecoat-css@0.3.11/dist/js/tabs.min.js"
+  defer></script>

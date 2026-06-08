@@ -1,37 +1,35 @@
 {
-  "private": true,
+  "name": "extension-directory",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "type-check": "tsc"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "format": "prettier --write \"{src,public}/**/*.{astro,css,js,json,mjs,ts}\" \"*.{json,mjs,ts}\"",
+    "format:check": "prettier --check \"{src,public}/**/*.{astro,css,js,json,mjs,ts}\" \"*.{json,mjs,ts}\""
   },
   "dependencies": {
-    "@radix-ui/react-slot": "^1.2.5",
-    "@radix-ui/react-tabs": "^1.1.14",
-    "@vercel/analytics": "^2.0.0",
-    "badge-maker": "^5.0.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/cloudflare": "^13.6.1",
+    "@lucide/astro": "^1.17.0",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.4.4",
+    "badge-maker": "^5.0.2",
+    "basecoat-css": "^0.3.11",
     "date-fns": "^4.4.0",
-    "lucide-react": "^1.17.0",
-    "next": "^16.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-markdown": "^10.0.0",
-    "remark-gfm": "^4.0.0",
-    "semver": "^7.5.4",
-    "tailwind-merge": "^3.6.0"
+    "marked": "^18.0.5",
+    "semver": "^7.8.2",
+    "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.7",
-    "@types/node": "^24.0.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "@types/semver": "^7.5.5",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^4.0.0",
-    "typescript": "^6.0.0"
+    "@types/node": "^25.9.2",
+    "@types/semver": "^7.7.1",
+    "prettier": "3.8.3",
+    "prettier-plugin-astro": "0.14.1",
+    "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "vite": "^7.3.1"
   }
 }

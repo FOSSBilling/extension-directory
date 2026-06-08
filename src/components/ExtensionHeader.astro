@@ -1,0 +1,33 @@
+---
+import type { Extension } from '../types';
+import { getLatestRelease } from '../types';
+import { ArrowLeft } from '@lucide/astro';
+
+interface Props {
+  ext: Extension;
+}
+
+const { ext } = Astro.props;
+const latest = getLatestRelease(ext);
+---
+
+<div class="flex items-start space-x-4">
+  <a href="/">
+    <button
+      class="btn btn-ghost btn-sm hover:bg-primary/10"
+      aria-label="Back to extensions"
+    >
+      <ArrowLeft class="w-4 h-4" />
+    </button>
+  </a>
+  <img src={ext.icon_url} class="w-12 h-12 rounded-lg" alt="" />
+  <div class="flex-1">
+    <div class="flex items-baseline flex-wrap gap-2">
+      <h1 class="text-2xl font-semibold">{ext.name}</h1>
+      <span class="text-muted-foreground"
+        >{ext.id} • v{latest?.tag ?? 'unknown'}</span
+      >
+    </div>
+    <p class="text-muted-foreground mt-1">{ext.description}</p>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+---
+import type { Extension } from '../types';
+import { sortReleasesDescending } from '../types';
+import { parseISO, format } from 'date-fns';
+import { enUS } from 'date-fns/locale';
+import { Download, List } from '@lucide/astro';
+
+interface Props {
+  ext: Extension;
+}
+
+const { ext } = Astro.props;
+const releases = sortReleasesDescending(ext.releases);
+---
+
+<div>
+  <div class="flex items-center justify-between">
+    <h2 class="text-xl font-semibold">Releases</h2>
+    <span class="badge badge-secondary">{releases.length}</span>
+  </div>
+
+  <div class="overflow-x-auto mt-6">
+    <table class="table w-full">
+      <thead>
+        <tr class="border-b">
+          <th class="text-left p-4 font-medium text-muted-foreground">Tag</th>
+          <th class="text-left p-4 font-medium text-muted-foreground"
+            >Release date</th
+          >
+          <th class="text-left p-4 font-medium text-muted-foreground">Links</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          releases.map((release) => (
+            <tr
+              id={release.tag}
+              class="border-b hover:bg-muted/50 transition-colors"
+            >
+              <td class="p-4 font-mono">v{release.tag}</td>
+              <td class="p-4">
+                <time datetime={release.date}>
+                  {format(parseISO(release.date), 'd LLLL yyyy', {
+                    locale: enUS,
+                  })}
+                </time>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center space-x-2">
+                  <a
+                    href={release.download_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Download the release"
+                    class="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <Download class="w-4 h-4" />
+                  </a>
+                  {release.changelog_url ? (
+                    <a
+                      href={release.changelog_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="View the changelog for the release"
+                      class="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <List class="w-4 h-4" />
+                    </a>
+                  ) : null}
+                </div>
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

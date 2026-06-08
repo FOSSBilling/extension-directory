@@ -1,0 +1,97 @@
+---
+import type { Extension } from '../types';
+import { getLatestRelease, repositoryURL } from '../types';
+import { CircleCheck, GitBranch, Scale, User } from '@lucide/astro';
+
+interface Props {
+  ext: Extension;
+}
+
+const { ext } = Astro.props;
+const latest = getLatestRelease(ext);
+
+type DetailsItem = {
+  name: string;
+  icon: any;
+  color: string;
+  text: string;
+  link?: string;
+};
+
+const colorClasses: Record<string, string> = {
+  amber: 'bg-amber-100 text-amber-700',
+  green: 'bg-green-100 text-green-700',
+  blue: 'bg-blue-100 text-blue-700',
+  fuchsia: 'bg-fuchsia-100 text-fuchsia-700',
+};
+
+const details: DetailsItem[] = [
+  {
+    name: 'Publisher',
+    icon: User,
+    color: 'amber',
+    text: ext.author.id,
+    link: ext.website,
+  },
+  {
+    name: 'Compatible with',
+    icon: CircleCheck,
+    color: 'green',
+    text: latest
+      ? `FOSSBilling v${latest.min_fossbilling_version} and later`
+      : 'Unknown version',
+  },
+  {
+    name: 'License',
+    icon: Scale,
+    color: 'blue',
+    text: ext.license.name,
+    link: ext.license.URL,
+  },
+  {
+    name: 'Source code',
+    icon: GitBranch,
+    color: 'fuchsia',
+    text: ext.source.repo,
+    link: repositoryURL(ext.source),
+  },
+];
+---
+
+<article class="card">
+  <div class="card-body pt-6">
+    <h2 class="card-title text-lg">Extension details</h2>
+    <ul class="mt-4 space-y-4">
+      {
+        details.map((detail) => (
+          <li
+            id={detail.name}
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+          >
+            <div class="flex items-center space-x-3">
+              <span class={`p-2 rounded-lg ${colorClasses[detail.color]}`}>
+                <detail.icon class="w-4 h-4" />
+              </span>
+              <div>
+                <p class="font-medium text-sm">{detail.name}</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-2">
+              {detail.link ? (
+                <a href={detail.link} target="_blank" rel="noopener noreferrer">
+                  <button class="btn btn-outline btn-sm">{detail.text}</button>
+                </a>
+              ) : (
+                <span
+                  class={`badge badge-secondary text-xs ${colorClasses[detail.color]}`}
+                >
+                  {detail.text}
+                </span>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</article>

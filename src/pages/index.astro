@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import ExtensionCard from '../components/ExtensionCard.astro';
+import { extensionData } from '../data/extensions';
+
+const extensions = extensionData;
+---
+
+<Base title="FOSSBilling extensions">
+  <div class="xl:mx-48 p-6 sm:p-10">
+    <div class="flex items-baseline justify-between mb-6">
+      <h1 class="text-3xl font-bold tracking-tight">
+        FOSSBilling Extension Directory
+      </h1>
+      <span class="badge badge-secondary">beta</span>
+    </div>
+    <p class="text-muted-foreground mb-6">
+      Welcome to the FOSSBilling Extension Directory. Handy with React and want
+      to contribute?{' '}
+      <a
+        href="https://github.com/FOSSBilling/extension-directory"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <button class="btn btn-ghost btn-sm"
+          >Check out the source code on GitHub</button
+        >
+      </a>
+      {' '}.
+    </p>
+    <p class="text-muted-foreground mb-8">
+      Please note that only extensions that can be auto-installed from within
+      FOSSBilling are included in the directory at this time. For a list of
+      other working extensions i.e. Registration modules please{' '}
+      <a
+        href="https://fossbilling.org/docs/extensions"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <button class="btn btn-ghost btn-sm">see here</button>
+      </a>
+      {' '}.
+    </p>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+    >
+      {extensions.map((ext) => <ExtensionCard ext={ext} />)}
+    </div>
+  </div>
+</Base>

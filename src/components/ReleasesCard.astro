@@ -1,0 +1,72 @@
+---
+import type { Extension } from '../types';
+import { getLatestRelease, sortReleasesDescending } from '../types';
+import { formatDistanceToNow } from 'date-fns';
+import { enUS } from 'date-fns/locale';
+import { ArrowRight, Download } from '@lucide/astro';
+
+interface Props {
+  ext?: Extension;
+}
+
+const { ext } = Astro.props;
+
+const latest = ext ? getLatestRelease(ext) : undefined;
+const latestThree = ext ? sortReleasesDescending(ext.releases).slice(0, 3) : [];
+---
+
+<article class="card">
+  <div class="card-body pt-6">
+    {
+      latest ? (
+        <>
+          <div class="flex items-center justify-between">
+            <h2 class="card-title text-lg">Latest release</h2>
+            <a
+              href={latest.download_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="badge badge-primary gap-1 hover:bg-primary/80 cursor-pointer">
+                <Download class="w-4 h-4" />v{latest.tag}
+              </span>
+            </a>
+          </div>
+          <p class="text-sm text-muted-foreground mt-1">
+            <time datetime={latest.date}>
+              {formatDistanceToNow(new Date(latest.date), {
+                locale: enUS,
+                addSuffix: true,
+              })}
+            </time>
+          </p>
+
+          <ul class="mt-4 space-y-2 border-t pt-4">
+            {latestThree.map((release) => (
+              <li id={release.tag} class="flex justify-between text-sm">
+                <span>v{release.tag}</span>
+                <span class="text-muted-foreground">
+                  <time datetime={release.date}>
+                    {formatDistanceToNow(new Date(release.date), {
+                      locale: enUS,
+                      addSuffix: true,
+                    })}
+                  </time>
+                </span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-4 pt-4 border-t">
+            <button class="btn btn-outline btn-sm" data-view="release-history">
+              View more <ArrowRight class="w-4 h-4" />
+            </button>
+          </div>
+        </>
+      ) : (
+        <>
+          <h2 class="card-title text-lg">Latest release</h2>
+        </>
+      )
+    }
+  </div>
+</article>
