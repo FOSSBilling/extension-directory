@@ -29,11 +29,11 @@ export function DetailsCard({ ext }: Props) {
     
     const details: DetailsItem[] = [
         {
-            name: "Publisher",
+            name: "Developer",
             icon: <User className="w-4 h-4" />,
             color: "amber",
             text: ext.author.name,
-            link: ext.website,
+            link: ext.author.URL,
         },
         {
             name: "FOSSBilling version",
