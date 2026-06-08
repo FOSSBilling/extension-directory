@@ -42,7 +42,10 @@ const latestThree = ext ? sortReleasesDescending(ext.releases).slice(0, 3) : [];
 
           <ul class="mt-4 space-y-2 border-t pt-4">
             {latestThree.map((release) => (
-              <li id={`recent-${release.tag}`} class="flex justify-between text-sm">
+              <li
+                id={`recent-${release.tag}`}
+                class="flex justify-between text-sm"
+              >
                 <span>v{release.tag}</span>
                 <span class="text-muted-foreground">
                   <time datetime={release.date}>

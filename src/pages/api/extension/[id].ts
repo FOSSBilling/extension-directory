@@ -1,5 +1,8 @@
 import type { APIRoute } from 'astro';
-import { getExtensionById, getExtensionWithSortedReleases } from '@/lib/extensions';
+import {
+  getExtensionById,
+  getExtensionWithSortedReleases,
+} from '@/lib/extensions';
 
 export const prerender = false;
 

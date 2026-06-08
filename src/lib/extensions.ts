@@ -3,9 +3,7 @@ import { sortReleasesDescending, getLatestRelease } from '../types';
 import type { Extension } from '../types';
 
 export function getExtensionById(id: string): Extension | undefined {
-  return extensionData.find(
-    (p) => p.id.toLowerCase() === id.toLowerCase(),
-  );
+  return extensionData.find((p) => p.id.toLowerCase() === id.toLowerCase());
 }
 
 export function getExtensionByIdOrThrow(id: string): Extension {

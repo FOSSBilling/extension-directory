@@ -14,8 +14,8 @@ const extensions = extensionData;
     <span class="badge badge-secondary ml-2">beta</span>
   </div>
   <p class="text-muted-foreground mb-6">
-    Welcome to the FOSSBilling Extension Directory. Handy with React and want
-    to contribute?{' '}
+    Welcome to the FOSSBilling Extension Directory. Handy with React and want to
+    contribute?{' '}
     <a
       href="https://github.com/FOSSBilling/extension-directory"
       target="_blank"
@@ -28,8 +28,8 @@ const extensions = extensionData;
   </p>
   <p class="text-muted-foreground mb-8">
     Please note that only extensions that can be auto-installed from within
-    FOSSBilling are included in the directory at this time. For a list of
-    other working extensions i.e. Registration modules please{' '}
+    FOSSBilling are included in the directory at this time. For a list of other
+    working extensions i.e. Registration modules please{' '}
     <a
       href="https://fossbilling.org/docs/extensions"
       target="_blank"
@@ -40,9 +40,9 @@ const extensions = extensionData;
     </a>
     {' '}.
   </p>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-    {extensions.map((ext) => (
-      <ExtensionCard ext={ext} />
-    ))}
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+  >
+    {extensions.map((ext) => <ExtensionCard ext={ext} />)}
   </div>
 </Base>

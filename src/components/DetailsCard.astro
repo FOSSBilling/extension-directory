@@ -18,7 +18,10 @@ type DetailsItem = {
   link?: string;
 };
 
-const badgeColorClasses: Record<'amber' | 'green' | 'blue' | 'fuchsia', string> = {
+const badgeColorClasses: Record<
+  'amber' | 'green' | 'blue' | 'fuchsia',
+  string
+> = {
   amber: 'badge-amber',
   green: 'badge-green',
   blue: 'badge-blue',
@@ -94,7 +97,9 @@ const details: DetailsItem[] = [
                   {detail.text}
                 </a>
               ) : (
-                <span class={`badge badge-secondary text-xs ${badgeColorClasses[detail.color]}`}>
+                <span
+                  class={`badge badge-secondary text-xs ${badgeColorClasses[detail.color]}`}
+                >
                   {detail.text}
                 </span>
               )}
