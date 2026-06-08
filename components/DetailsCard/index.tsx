@@ -1,4 +1,4 @@
-import { Extension, Repository, getLatestRelease, repositoryURL } from "interfaces";
+import { Extension, getLatestRelease, repositoryURL } from "interfaces";
 import { CheckCircle, GitBranch, Scale, User } from "lucide-react";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -32,14 +32,14 @@ export function DetailsCard({ ext }: Props) {
             name: "Publisher",
             icon: <User className="w-4 h-4" />,
             color: "amber",
-            text: ext.author.id,
+            text: ext.author.name,
             link: ext.website,
         },
         {
-            name: "Compatible with",
+            name: "FOSSBilling version",
             icon: <CheckCircle className="w-4 h-4" />,
             color: "green",
-            text: latest ? `FOSSBilling v${latest.min_fossbilling_version} and later` : "Unknown version",
+            text: latest ? `v${latest.min_fossbilling_version} and later` : "Unknown version",
         },
         {
             name: "License",
@@ -58,13 +58,13 @@ export function DetailsCard({ ext }: Props) {
     ];
 
     return (
-        <Card>
-            <CardContent className="pt-6">
+        <Card className="[--card-spacing:--spacing(4)]">
+            <CardContent>
                 <CardTitle className="text-lg">Extension Details</CardTitle>
                 <ul className="mt-4 space-y-4">
                     {details.map((detail) => (
                         <li key={detail.name} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                            <div className="flex items-center space-x-3">
+                            <div className="flex items-center space-x-2">
                                 <span className={cn("p-2 rounded-lg", colorClasses[detail.color])}>
                                     {detail.icon}
                                 </span>
@@ -72,7 +72,7 @@ export function DetailsCard({ ext }: Props) {
                                     <p className="font-medium text-sm">{detail.name}</p>
                                 </div>
                             </div>
-                            <div className="flex items-center space-x-2">
+                            <div className="flex items-center">
                                 {detail.link ? (
                                     <a href={detail.link} target="_blank" rel="noopener noreferrer">
                                         <Button variant="outline" size="sm">{detail.text}</Button>
