@@ -1110,4 +1110,79 @@ For full configuration and webhook setup instructions, see the [documentation](h
 
 This extension is licensed under the MIT License. See the [LICENSE](https://github.com/profullstack/coinpayportal/blob/master/plugins/fossbilling/LICENSE) file for details.`,
 },
+{
+    id: "TPPWholesale",
+    type: "domain-registrar",
+    name: "TPP Wholesale",
+    description: "TPP Wholesale domain registrar adapter for FOSSBilling. Supports .co.nz, .nz, .com.au, .au and .com domains. Designed for New Zealand and Australian hosting businesses.",
+    author: getAuthor("servmeit"),
+    license: {
+      name: "Apache 2.0",
+      URL: "https://www.apache.org/licenses/LICENSE-2.0",
+    },
+    source: {
+      type: "github",
+      repo: "grant436/fossbilling-tpp-wholesale",
+    },
+    version: "1.0.0",
+    download_url:
+      "https://github.com/grant436/fossbilling-tpp-wholesale/archive/refs/tags/v1.0.0.zip",
+    releases: [
+      {
+        tag: "1.0.0",
+        date: "2026-06-07T00:00:00Z",
+        download_url:
+          "https://github.com/grant436/fossbilling-tpp-wholesale/archive/refs/tags/v1.0.0.zip",
+        changelog_url:
+          "https://github.com/grant436/fossbilling-tpp-wholesale/releases/tag/v1.0.0",
+        min_fossbilling_version: "0.8.2",
+      },
+    ],
+    icon_url:
+      "https://www.tppwholesale.com.au/wp-content/uploads/2022/12/TPP-logo-basic.png",
+    website: "https://github.com/grant436/fossbilling-tpp-wholesale",
+    readme: `# TPP Wholesale Registrar for FOSSBilling
+
+A domain registrar adapter for [FOSSBilling](https://fossbilling.org) that integrates with [TPP Wholesale](https://www.tppwholesale.com.au), the leading ANZ domain registrar.
+
+## Features
+
+- Domain availability checking
+- Domain registration (.co.nz, .nz, .com.au, .au, .com and more)
+- Domain renewal
+- Domain transfers
+- Nameserver management
+- Contact management
+- Domain locking/unlocking
+- EPP/auth code retrieval
+- Test mode for safe testing without registering real domains
+- Auto-derives TPP console account reference from API credentials
+
+## Requirements
+
+- FOSSBilling 0.8.2 or later (PHP 8.3+)
+- TPP Wholesale reseller account with API access enabled
+- TPP Legacy API credentials (Account No, Login, Password)
+
+## Installation
+
+1. Download \`TPPWholesale.php\` from the release archive
+2. Copy it to \`/library/Registrar/Adapter/TPPWholesale.php\` in your FOSSBilling installation
+3. In FOSSBilling admin go to **Domain Management → Registrars**
+4. Click **New Domain Registrar** and select **TPPWholesale**
+5. Click the cog icon and enter your TPP API credentials
+
+## Configuration
+
+| Field | Description | Required |
+|---|---|---|
+| Account Number | Your TPP account number | Yes |
+| User ID | Your TPP API login (e.g. SER-993-API) | Yes |
+| Password | Your TPP API password | Yes |
+| Console Account Reference | Your TPP account reference (e.g. SER-993). Leave blank to auto-derive from User ID | No |
+
+## License
+
+Apache 2.0`,
+},
 ];

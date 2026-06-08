@@ -67,6 +67,12 @@ export const authorData: Author[] = [
     id: "coinpayportal",
     URL: "https://coinpayportal.com",
   },
+  {
+    type: "organization",
+    name: "ServMe IT Limited",
+    id: "servmeit",
+    URL: "https://www.servmeit.co.nz",
+  },
 ];
 
 export function findAuthorByID(id: string): Author | undefined {
