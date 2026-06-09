@@ -18,17 +18,17 @@ type DetailsItem = {
   link?: string;
 };
 
+const iconBgClasses: Record<'amber' | 'green' | 'blue' | 'fuchsia', string> = {
+  amber: 'bg-amber-100 text-amber-700',
+  green: 'bg-green-100 text-green-700',
+  blue: 'bg-blue-100 text-blue-700',
+  fuchsia: 'bg-fuchsia-100 text-fuchsia-700',
+};
+
 const badgeColorClasses: Record<
   'amber' | 'green' | 'blue' | 'fuchsia',
   string
 > = {
-  amber: 'badge-amber',
-  green: 'badge-green',
-  blue: 'badge-blue',
-  fuchsia: 'badge-fuchsia',
-};
-
-const iconBgClasses: Record<'amber' | 'green' | 'blue' | 'fuchsia', string> = {
   amber: 'bg-amber-100 text-amber-700',
   green: 'bg-green-100 text-green-700',
   blue: 'bg-blue-100 text-blue-700',
@@ -69,9 +69,11 @@ const details: DetailsItem[] = [
 ---
 
 <article class="card">
-  <div class="card-body pt-6">
-    <h2 class="card-title text-lg">Extension Details</h2>
-    <ul class="mt-4 space-y-4">
+  <header>
+    <h2>Extension Details</h2>
+  </header>
+  <section>
+    <ul class="space-y-4">
       {
         details.map((detail) => (
           <li
@@ -98,7 +100,7 @@ const details: DetailsItem[] = [
                 </a>
               ) : (
                 <span
-                  class={`badge badge-secondary text-xs ${badgeColorClasses[detail.color]}`}
+                  class={`badge text-xs ${badgeColorClasses[detail.color]}`}
                 >
                   {detail.text}
                 </span>
@@ -108,5 +110,5 @@ const details: DetailsItem[] = [
         ))
       }
     </ul>
-  </div>
+  </section>
 </article>

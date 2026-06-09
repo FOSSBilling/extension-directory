@@ -12,7 +12,7 @@ const latest = getLatestRelease(ext);
 
 <a href={`/extension/${ext.id}`} class="block">
   <article class="card hover:bg-muted/50 transition-colors h-full">
-    <div class="card-body flex items-start space-x-4 p-6">
+    <section class="flex items-start space-x-4">
       <div class="p-2 bg-primary/10 rounded-lg">
         <img src={ext.icon_url} class="w-10 h-10" alt={`${ext.name} icon`} />
       </div>
@@ -29,6 +29,6 @@ const latest = getLatestRelease(ext);
           {ext.description}
         </p>
       </div>
-    </div>
+    </section>
   </article>
 </a>

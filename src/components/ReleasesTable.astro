@@ -16,36 +16,32 @@ const releases = sortReleasesDescending(ext.releases);
 <div>
   <div class="flex items-center justify-between">
     <h2 class="text-xl font-semibold">Releases</h2>
-    <span class="badge badge-secondary">{releases.length}</span>
+    <span class="badge-secondary">{releases.length}</span>
   </div>
 
   <div class="overflow-x-auto mt-6">
-    <table class="table w-full">
+    <table class="table">
+      <caption class="sr-only">Releases for {ext.name}</caption>
       <thead>
-        <tr class="border-b">
-          <th class="text-left p-4 font-medium text-muted-foreground">Tag</th>
-          <th class="text-left p-4 font-medium text-muted-foreground"
-            >Release date</th
-          >
-          <th class="text-left p-4 font-medium text-muted-foreground">Links</th>
+        <tr>
+          <th class="text-left">Tag</th>
+          <th class="text-left">Release date</th>
+          <th class="text-left">Links</th>
         </tr>
       </thead>
       <tbody>
         {
           releases.map((release) => (
-            <tr
-              id={`release-${release.tag}`}
-              class="border-b hover:bg-muted/50 transition-colors"
-            >
-              <td class="p-4 font-mono">v{release.tag}</td>
-              <td class="p-4">
+            <tr id={`release-${release.tag}`}>
+              <td class="font-mono">v{release.tag}</td>
+              <td>
                 <time datetime={release.date}>
                   {format(parseISO(release.date), 'd LLLL yyyy', {
                     locale: enUS,
                   })}
                 </time>
               </td>
-              <td class="p-4">
+              <td>
                 <div class="flex items-center space-x-2">
                   <a
                     href={release.download_url}
