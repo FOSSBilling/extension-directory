@@ -16,17 +16,17 @@ const latestThree = ext ? sortReleasesDescending(ext.releases).slice(0, 3) : [];
 ---
 
 <article class="card">
-  <div class="card-body pt-6">
-    {
-      latest ? (
-        <>
+  {
+    latest ? (
+      <>
+        <header>
           <div class="flex items-center justify-between">
-            <h2 class="card-title text-lg">Latest release</h2>
+            <h2>Latest Release</h2>
             <a
               href={latest.download_url}
               target="_blank"
               rel="noopener noreferrer"
-              class="badge badge-primary gap-1 hover:bg-primary/80 cursor-pointer"
+              class="badge gap-1 cursor-pointer"
             >
               <Download class="w-4 h-4" />v{latest.tag}
             </a>
@@ -39,8 +39,9 @@ const latestThree = ext ? sortReleasesDescending(ext.releases).slice(0, 3) : [];
               })}
             </time>
           </p>
-
-          <ul class="mt-4 space-y-2 border-t pt-4">
+        </header>
+        <section>
+          <ul class="space-y-2">
             {latestThree.map((release) => (
               <li
                 id={`recent-${release.tag}`}
@@ -58,12 +59,12 @@ const latestThree = ext ? sortReleasesDescending(ext.releases).slice(0, 3) : [];
               </li>
             ))}
           </ul>
-        </>
-      ) : (
-        <>
-          <h2 class="card-title text-lg">Latest release</h2>
-        </>
-      )
-    }
-  </div>
+        </section>
+      </>
+    ) : (
+      <header>
+        <h2>Latest Release</h2>
+      </header>
+    )
+  }
 </article>

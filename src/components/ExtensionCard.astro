@@ -21,8 +21,7 @@ const latest = getLatestRelease(ext);
           <h3 class="text-xl font-semibold leading-none tracking-tight">
             {ext.name}
           </h3>
-          <span class="text-sm text-muted-foreground"
-            >{ext.id} • v{latest?.tag ?? 'unknown'}</span
+          <span class="text-sm text-muted-foreground">v{latest?.tag ?? 'unknown'}</span
           >
         </div>
         <p class="text-sm text-muted-foreground mt-1 truncate">
