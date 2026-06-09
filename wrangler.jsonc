@@ -1,20 +1,23 @@
 {
 	"name": "extensions",
 	"compatibility_date": "2026-06-06",
-	"compatibility_flags": [ "global_fetch_strictly_public", "nodejs_compat" ],
+	"compatibility_flags": [
+		"global_fetch_strictly_public",
+		"nodejs_compat"
+	],
 	"observability": {
-    "logs": {
-      "enabled": true
-    },
-    "traces": {
-      "enabled": true
-    }
-  },
-  "workers_dev": false,
-  "preview_urls": true,
-  "keep_vars": true,
-  "assets": {
-    "binding": "ASSETS",
-    "directory": "./dist"
+		"logs": {
+			"enabled": true
+		},
+		"traces": {
+			"enabled": true
+		}
+	},
+	"workers_dev": true,
+	"preview_urls": true,
+	"keep_vars": true,
+	"assets": {
+		"binding": "ASSETS",
+		"directory": "./dist"
 	}
 }
