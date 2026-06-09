@@ -13,7 +13,8 @@
   "workers_dev": false,
   "preview_urls": true,
   "keep_vars": true,
-	"assets": {
-		"directory": "./dist"
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist"
 	}
 }
