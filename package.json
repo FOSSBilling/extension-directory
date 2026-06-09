@@ -3,6 +3,7 @@
   "license": "AGPL-3.0-only",
   "type": "module",
   "scripts": {
+    "cf-typegen": "wrangler types",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
