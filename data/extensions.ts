@@ -1185,4 +1185,68 @@ A domain registrar adapter for [FOSSBilling](https://fossbilling.org) that integ
 
 Apache 2.0`,
 },
+{
+    id: "ISPmanager",
+    type: "server-manager",
+    name: "ISPmanager 6",
+    description: "ISPmanager 6 server manager adapter for FOSSBilling. Automatically provisions hosting accounts, websites and SSL certificates when customers purchase hosting plans.",
+    author: getAuthor("servmeit"),
+    license: {
+      name: "Apache 2.0",
+      URL: "https://www.apache.org/licenses/LICENSE-2.0",
+    },
+    source: {
+      type: "github",
+      repo: "grant436/fossbilling-ispmanager",
+    },
+    version: "1.0.0",
+    download_url:
+      "https://github.com/grant436/fossbilling-ispmanager/archive/refs/tags/v1.0.0.zip",
+    releases: [
+      {
+        tag: "1.0.0",
+        date: "2026-06-10T00:00:00Z",
+        download_url:
+          "https://github.com/grant436/fossbilling-ispmanager/archive/refs/tags/v1.0.0.zip",
+        changelog_url:
+          "https://github.com/grant436/fossbilling-ispmanager/releases/tag/v1.0.0",
+        min_fossbilling_version: "0.8.2",
+      },
+    ],
+    icon_url:
+      "https://www.ispmanager.com/wp-content/themes/ispmanager/assets/img/logo.svg",
+    website: "https://github.com/grant436/fossbilling-ispmanager",
+    readme: `# ISPmanager 6 Server Manager for FOSSBilling
+
+Automatically provisions hosting accounts in [ISPmanager 6](https://www.ispmanager.com) when customers purchase hosting plans through [FOSSBilling](https://fossbilling.org).
+
+## Features
+
+- Automatic hosting account creation on purchase
+- Account suspension and unsuspension
+- Account cancellation and deletion
+- Password changes
+- Package upgrades and downgrades
+- Primary domain creation with PHP and SSL
+- Comprehensive API call logging
+
+## Requirements
+
+- FOSSBilling 0.8.2 or later (PHP 8.3+)
+- ISPmanager 6 (Lite, Pro or Host)
+- A dedicated API administrator user in ISPmanager (no 2FA)
+
+## Installation
+
+1. Download \`ispmanager.php\` from the release archive
+2. Copy it to \`/library/Server/Manager/ISPmanager.php\` in your FOSSBilling installation
+3. Create a dedicated API user in ISPmanager with administrator privileges and no 2FA
+4. Allow FOSSBilling to reach ISPmanager on port 1500
+5. In FOSSBilling go to **Products & Services → Hosting Plans → Servers** and add your server
+6. Set Server Manager to **ISPmanager**, enter credentials and click **Test Connection**
+
+## License
+
+Apache 2.0`,
+},
 ];
