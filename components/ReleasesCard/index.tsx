@@ -1,6 +1,5 @@
 import { formatDistanceToNow } from 'date-fns'
 import { enUS } from 'date-fns/locale'
-
 import { ArrowRight, Download } from "lucide-react";
 import { Extension, getLatestRelease, sortReleasesDescending } from "interfaces";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
@@ -13,19 +12,11 @@ type Props = {
     onSelectedViewChange?: (view: string) => void
 }
 
-function DownloadIcon({ className }: { className?: string }) {
-    return <Download className={cn("w-4 h-4", className)} />;
-};
-
-function ArrowIcon({ className }: { className?: string }) {
-    return <ArrowRight className={cn("w-4 h-4", className)} />;
-};
-
 export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
     if (!ext) {
         return (
-            <Card>
-                <CardContent className="pt-6">
+            <Card className="[--card-spacing:--spacing(4)]">
+                <CardContent>
                     <CardTitle className="text-lg">Latest Release</CardTitle>
                 </CardContent>
             </Card>
@@ -41,8 +32,8 @@ export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
 
     if (!latest) {
         return (
-            <Card>
-                <CardContent className="pt-6">
+            <Card className="[--card-spacing:--spacing(4)]">
+                <CardContent>
                     <CardTitle className="text-lg">Latest Release</CardTitle>
                     <p className="text-muted-foreground mt-2">No releases available</p>
                 </CardContent>
@@ -51,13 +42,13 @@ export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
     }
 
     return (
-        <Card>
-            <CardContent className="pt-6">
+        <Card className="[--card-spacing:--spacing(4)]">
+            <CardContent>
                 <div className="flex items-center justify-between">
                     <CardTitle className="text-lg">Latest Release</CardTitle>
                     <a href={latest.download_url} target="_blank" rel="noopener noreferrer">
                         <Badge className="hover:bg-primary/80 cursor-pointer gap-1" variant="default">
-                            <DownloadIcon /> v{latest.tag}
+                            <Download data-icon="inline-start" /> v{latest.tag}
                         </Badge>
                     </a>
                 </div>
@@ -77,7 +68,7 @@ export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
                 </ul>
                 <div className="mt-4 pt-4 border-t">
                     <Button variant="outline" size="sm" onClick={setState}>
-                        View More <ArrowIcon />
+                        View More <ArrowRight data-icon="inline-end" />
                     </Button>
                 </div>
             </CardContent>

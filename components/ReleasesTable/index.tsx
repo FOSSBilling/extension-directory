@@ -31,7 +31,7 @@ export function ReleasesTable({ ext }: Props) {
                 <Badge variant="secondary">{releases.length}</Badge>
             </div>
 
-            <Table className="mt-6">
+            <Table className="mt-4">
                 <TableHeader>
                     <TableRow>
                         <TableHead>Tag</TableHead>
