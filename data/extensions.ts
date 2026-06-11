@@ -1214,7 +1214,7 @@ Apache 2.0`,
       },
     ],
     icon_url:
-      "https://www.ispmanager.com/wp-content/themes/ispmanager/assets/img/logo.svg",
+        "https://raw.githubusercontent.com/grant436/fossbilling-ispmanager/main/logo-ispmgr.svg",
     website: "https://github.com/grant436/fossbilling-ispmanager",
     readme: `# ISPmanager 6 Server Manager for FOSSBilling
 
