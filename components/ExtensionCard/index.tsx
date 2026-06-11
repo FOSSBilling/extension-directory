@@ -18,15 +18,15 @@ export function ExtensionCard({ ext }: Props) {
 
     return (
         <Link href={`/extension/${ext.id}`}>
-            <Card className={cn("hover:bg-muted/50 transition-colors", "h-full")}>
-                <CardContent className="flex items-start space-x-4 p-6">
-                    <div className="p-2 bg-primary/10 rounded-lg">
+            <Card size="sm" className={cn("hover:bg-muted/50 transition-colors", "h-full")}>
+                <CardContent className="flex items-start space-x-4 p-4">
+                    <div className="p-1 bg-primary/10">
                         {extensionIcon()}
                     </div>
                     <div className="flex-1 min-w-0">
                         <div className="flex items-baseline space-x-2">
-                            <h3 className="text-xl font-semibold leading-none tracking-tight">{ext.name}</h3>
-                            <span className="text-sm text-muted-foreground">{ext.id} • v{latest?.tag ?? "unknown"}</span>
+                            <h3 className="text-lg font-semibold leading-none tracking-tight">{ext.name}</h3>
+                            <span className="text-sm text-muted-foreground">v{latest?.tag ?? "unknown"}</span>
                         </div>
                         <p className="text-sm text-muted-foreground mt-1 truncate">{ext.description}</p>
                     </div>

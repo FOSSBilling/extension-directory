@@ -23,7 +23,7 @@ export function ExtensionHeader({ ext }: Props) {
             <div className="flex-1">
                 <div className="flex items-baseline flex-wrap gap-2">
                     <h1 className="text-2xl font-semibold">{ext.name}</h1>
-                    <span className="text-muted-foreground">{ext.id} • v{latest?.tag ?? "unknown"}</span>
+                    <span className="text-muted-foreground">v{latest?.tag ?? "unknown"}</span>
                 </div>
                 <p className="text-muted-foreground mt-1">{ext.description}</p>
             </div>

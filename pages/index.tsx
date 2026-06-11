@@ -16,16 +16,12 @@ export default function Index({ extensions }: { extensions: Extension[] }) {
                 <Badge variant="secondary">beta</Badge>
             </div>
             <p className="text-muted-foreground mb-6">
-                Welcome to the FOSSBilling Extension Directory. Handy with React and want to contribute?{' '}
-                <a href="https://github.com/FOSSBilling/extension-directory" target="_blank" rel="noopener noreferrer">
-                    <Button variant="ghost" size="sm">Check out the source code on GitHub</Button>
-                </a>
-                {' '}.
+                Welcome to the FOSSBilling Extension Directory.
             </p>
             <p className="text-muted-foreground mb-8">
-                Please note that only extensions that can be auto-installed from within FOSSBilling are included in the directory at this time. For a list of other working extensions i.e. Registration modules please{' '}
+                Please note that only extensions that can be auto-installed from within FOSSBilling are included in the directory at this time. For a list of other working extensions i.e., Registration modules please{' '}
                 <a href="https://fossbilling.org/docs/extensions" target="_blank" rel="noopener noreferrer">
-                    <Button variant="ghost" size="sm">see here</Button>
+                    <Button variant="link" size="sm">see here</Button>
                 </a>
                 {' '}.
             </p>
