@@ -25,7 +25,7 @@ export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
     const latest = getLatestRelease(ext);
     const latestThree = sortReleasesDescending(ext.releases).slice(0, 3);
 
-    function setState() {
+    function handleViewMoreClick() {
         onSelectedViewChange?.("release-history");
     }
 
@@ -66,7 +66,7 @@ export function ReleasesCard({ ext, onSelectedViewChange }: Props) {
                     ))}
                 </ul>
                 <div className="mt-4 pt-4 border-t">
-                    <Button variant="outline" size="sm" onClick={setState}>
+                    <Button variant="outline" size="sm" onClick={handleViewMoreClick}>
                         View More <ArrowRight data-icon="inline-end" />
                     </Button>
                 </div>
