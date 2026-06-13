@@ -5,7 +5,6 @@ import { Extension, getLatestRelease, sortReleasesDescending } from "interfaces"
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 type Props = {
     ext?: Extension,
