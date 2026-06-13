@@ -35,6 +35,6 @@ export default function Index({ extensions }: { extensions: Extension[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const extensions: Extension[] = extensionData
+    const extensions: Extension[] = extensionData;
     return { props: { extensions } }
 }

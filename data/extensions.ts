@@ -13,7 +13,7 @@ export const extensionData: Extension[] = [
     type: "mod",
     name: "Example",
     description: "An example module for developers to get started.",
-    version: "0.0.4",
+    version: "0.0.5",
     download_url: "https://github.com/FOSSBilling/example-module/releases/download/0.0.5/Example.zip",
     releases: [
       {
@@ -199,7 +199,7 @@ This product includes the following third party work:
     icon_url:
       "https://raw.githubusercontent.com/FOSSBilling/Mollie/main/src/Mollie.png",
     website: "https://fossbilling.org",
-    readme: `![Molllie for FOSSBilling](https://user-images.githubusercontent.com/35808275/236844335-8085c37f-ea5f-4e6a-9712-8c5bea7ebcaf.png)
+    readme: `![Mollie for FOSSBilling](https://user-images.githubusercontent.com/35808275/236844335-8085c37f-ea5f-4e6a-9712-8c5bea7ebcaf.png)
   # Mollie for FOSSBilling
   
   
