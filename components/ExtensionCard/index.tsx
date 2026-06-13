@@ -12,7 +12,7 @@ export function ExtensionCard({ ext }: Props) {
 
     function extensionIcon() {
         return (
-            <img src={ext.icon_url} className="w-10 h-10" />
+            <img src={ext.icon_url} alt={ext.name} className="w-10 h-10" />
         );
     }
 
