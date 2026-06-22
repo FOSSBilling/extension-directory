@@ -10,7 +10,7 @@
     "@radix-ui/react-slot": "^1.2.5",
     "@radix-ui/react-tabs": "^1.1.14",
     "@vercel/analytics": "^2.0.0",
-    "badge-maker": "^5.0.0",
+    "badge-maker": "^6.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
