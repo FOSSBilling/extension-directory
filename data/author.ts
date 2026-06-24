@@ -73,6 +73,12 @@ export const authorData: Author[] = [
     id: "servmeit",
     URL: "https://www.servmeit.co.nz",
   },
+  {
+    type: "organization",
+    name: "C-Soft Oy",
+    id: "c-softoy",
+    URL: "https://nordname.com",
+  },
 ];
 
 export function findAuthorByID(id: string): Author | undefined {
