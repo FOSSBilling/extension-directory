@@ -67,16 +67,21 @@ const { title } = Astro.props;
             <LogoLight class="h-8 w-auto dark:hidden" />
             <LogoDark class="h-8 w-auto hidden dark:block" />
           </a>
-          <span class="ml-3 pl-3 border-s text-sm font-semibold uppercase tracking-wider">Extensions</span>
+          <span
+            class="ml-3 pl-3 border-s text-sm font-semibold uppercase tracking-wider"
+            >Extensions</span
+          >
           <span class="ml-2 badge-secondary">beta</span>
         </div>
-        <button type="button"
+        <button
+          type="button"
           aria-label="Toggle Dark Mode"
           data-tooltip="Toggle Dark Mode"
           data-side="bottom"
           data-align="end"
           onclick="document.dispatchEvent(new CustomEvent('basecoat:theme'))"
-          class="btn-icon-outline size-8">
+          class="btn-icon-outline size-8"
+        >
           <Sun class="w-5 h-5 hidden dark:block" aria-hidden="true" />
           <Moon class="w-5 h-5 block dark:hidden" aria-hidden="true" />
         </button>

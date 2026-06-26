@@ -76,8 +76,10 @@ const details: DetailsItem[] = [
     <ul class="space-y-2">
       {
         details.map((detail) => (
-          <li id={`detail-${detail.name.toLowerCase().replace(/\s+/g, '-')}`}
-            class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <li
+            id={`detail-${detail.name.toLowerCase().replace(/\s+/g, '-')}`}
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+          >
             <div class="flex items-center space-x-3">
               <span class={`p-2 rounded-lg ${iconBgClasses[detail.color]}`}>
                 <detail.icon class="w-4 h-4" aria-hidden="true" />
@@ -88,14 +90,18 @@ const details: DetailsItem[] = [
             </div>
             <div class="flex items-center">
               {detail.link ? (
-                <a href={detail.link}
+                <a
+                  href={detail.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn-sm-outline">
+                  class="btn-sm-outline"
+                >
                   {detail.text}
                 </a>
               ) : (
-                <span class={`badge-outline text-xs ${badgeColorClasses[detail.color]}`}>
+                <span
+                  class={`badge-outline text-xs ${badgeColorClasses[detail.color]}`}
+                >
                   {detail.text}
                 </span>
               )}
