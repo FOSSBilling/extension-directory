@@ -23,7 +23,7 @@ You can find the extension directory at [https://extensions.fossbilling.org](htt
 
 ## How to Submit An Extension
 
-Currently, the backend doesn't rely on a database, so you can't submit extensions through the website. You can submit extensions by creating a pull request on GitHub. We keep a list of extensions in the `src/data/extensions.ts` file, and extension authors in the `src/data/author.ts` file. You can add your extension to the list by adding new Extension object to the arrays.
+Extension submission is currently suspended while we finalize self-submission support. In the meantime, if you'd like to list your extension, please open an issue on this repository.
 
 ## The Badge API
 
@@ -51,8 +51,6 @@ You also might want to join our [Discord server](https://fossbilling.org/discord
 
 ### Running a Local Development Server
 
-Running the extension directory locally is fairly easy.
-
 #### Install the Dependencies
 
 ```bash
@@ -66,6 +64,8 @@ npm run dev
 ```
 
 Most of your changes will be reflected instantly without needing to restart the development server.
+
+> **Note:** The site uses Cloudflare D1 for its database. When running locally with `npm run dev`, you will need a local D1 database populated with extension data. You can use [Wrangler's local development server](https://developers.cloudflare.com/workers/wrangler/) (`npx wrangler dev`) for a more complete local environment with D1 bindings.
 
 ## License
 
