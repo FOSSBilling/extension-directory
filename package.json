@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@types/node": "26.0.1",
-    "@types/sanitize-html": "^2.16.1",
+    "@types/sanitize-html": "2.16.1",
     "@types/semver": "7.7.1",
     "prettier": "3.8.5",
     "prettier-plugin-astro": "0.14.1",
