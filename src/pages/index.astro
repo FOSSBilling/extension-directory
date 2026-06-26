@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import ExtensionCard from '../components/ExtensionCard.astro';
+import { extensionData } from '../data/extensions';
+
+const extensions = extensionData;
+---
+
+<Base title="FOSSBilling Extensions">
+  <p class="text-muted-foreground mb-6">
+    Welcome to the FOSSBilling Extension Directory.
+  </p>
+  <p class="text-muted-foreground mb-8">
+    Please note that only extensions that can be auto-installed from within
+    FOSSBilling are included in the directory at this time. For a list of other
+    working extensions i.e., Registration modules please{' '}
+    <a
+      href="https://docs.fossbilling.org/extensions-and-development/extensions/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-sm-ghost"
+    >
+      see here
+    </a>
+    {' '}.
+  </p>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+  >
+    {extensions.map((ext) => <ExtensionCard ext={ext} />)}
+  </div>
+</Base>

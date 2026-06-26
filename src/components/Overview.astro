@@ -1,0 +1,13 @@
+---
+import type { Extension } from '@/types';
+import { marked } from 'marked';
+
+interface Props {
+  ext: Extension;
+}
+
+const { ext } = Astro.props;
+const readmeHtml = marked.parse(ext.readme ?? '', { async: false });
+---
+
+<div class="markdown-body" set:html={readmeHtml} />

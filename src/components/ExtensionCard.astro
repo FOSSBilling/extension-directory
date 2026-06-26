@@ -1,0 +1,34 @@
+---
+import type { Extension } from '@/types';
+import { getLatestRelease } from '@/types';
+
+interface Props {
+  ext: Extension;
+}
+
+const { ext } = Astro.props;
+const latest = getLatestRelease(ext);
+---
+
+<a href={`/extension/${ext.id}`} class="block">
+  <article class="card hover:bg-muted/50 transition-colors h-full">
+    <section class="flex items-start space-x-4">
+      <div class="p-2 bg-primary/10 rounded-lg">
+        <img src={ext.icon_url} class="w-10 h-10" alt={`${ext.name} icon`} />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-baseline space-x-2">
+          <h3 class="text-xl font-semibold leading-none tracking-tight">
+            {ext.name}
+          </h3>
+          <span class="text-sm text-muted-foreground"
+            >v{latest?.tag ?? 'unknown'}</span
+          >
+        </div>
+        <p class="text-sm text-muted-foreground mt-1 truncate">
+          {ext.description}
+        </p>
+      </div>
+    </section>
+  </article>
+</a>

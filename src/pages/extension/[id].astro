@@ -1,0 +1,98 @@
+---
+import Base from '@/layouts/Base.astro';
+import ExtensionHeader from '@/components/ExtensionHeader.astro';
+import DetailsCard from '@/components/DetailsCard.astro';
+import ReleasesCard from '@/components/ReleasesCard.astro';
+import Overview from '@/components/Overview.astro';
+import ReleasesTable from '@/components/ReleasesTable.astro';
+import { extensionData } from '@/data/extensions';
+
+const { id } = Astro.params;
+
+if (!id) {
+  return Astro.redirect('/404');
+}
+
+const ext = extensionData.find(
+  (data) => data.id.toLowerCase() === id.toString().toLowerCase(),
+);
+
+if (!ext) {
+  return Astro.redirect('/404');
+}
+
+export function getStaticPaths() {
+  return extensionData.map((ext) => ({
+    params: { id: ext.id },
+    props: { ext },
+  }));
+}
+---
+
+<Base title={`${ext.name} | FOSSBilling Extensions`}>
+  <ExtensionHeader ext={ext} />
+
+  <div class="tabs mt-6" id="extension-tabs">
+    <nav
+      role="tablist"
+      aria-orientation="horizontal"
+      aria-label="Extension tabs"
+    >
+      <button
+        type="button"
+        role="tab"
+        id="overview-tab"
+        aria-selected="true"
+        aria-controls="overview-panel"
+        tabindex="0"
+      >
+        Overview
+      </button>
+      <button
+        type="button"
+        role="tab"
+        id="release-history-tab"
+        aria-selected="false"
+        aria-controls="release-history-panel"
+        tabindex="0"
+      >
+        Release History
+      </button>
+    </nav>
+
+    <div class="grid gap-6 lg:grid-cols-6 mt-6">
+      <div class="lg:col-span-4">
+        <article class="card h-full">
+          <div class="h-full">
+            <div
+              role="tabpanel"
+              id="overview-panel"
+              class="p-6"
+              aria-labelledby="overview-tab"
+              tabindex="-1"
+              aria-selected="true"
+            >
+              <Overview ext={ext} />
+            </div>
+            <div
+              role="tabpanel"
+              id="release-history-panel"
+              class="p-6"
+              aria-labelledby="release-history-tab"
+              tabindex="-1"
+              aria-selected="false"
+              hidden
+            >
+              <ReleasesTable ext={ext} />
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="lg:col-span-2 space-y-6">
+        <DetailsCard ext={ext} />
+        <ReleasesCard ext={ext} />
+      </div>
+    </div>
+  </div>
+</Base>
