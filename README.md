@@ -1,73 +1,70 @@
-# FOSSBilling Extension Directory
+# FOSSBilling Extensions
 
-![image](https://user-images.githubusercontent.com/35808275/233458835-61a11691-e814-47c9-9cc7-63d9a585e3d5.png)
+The FOSSBilling Extensions site is the official directory for extensions that can be discovered and installed by FOSSBilling users.
 
-This is the FOSSBilling extension directory. It is a collection of extensions for FOSSBilling. It is still under ongoing development, but we have a few extensions available for download right now.
+Visit the directory at [extensions.fossbilling.org](https://extensions.fossbilling.org).
 
-You can find the extension directory at [https://extensions.fossbilling.org](https://extensions.fossbilling.org).
+## About the Directory
 
-## How to Install An Extension
+The directory helps FOSSBilling users find compatible modules, themes, payment gateways, server managers, domain registrars, hooks, and translations.
 
-### Automatically (Recommended)
+Only extensions that can be auto-installed from within FOSSBilling are listed at this time. Other community extensions may still be available through the FOSSBilling documentation, GitHub, or individual maintainers.
 
-1. Log into your FOSSBilling admin panel
-2. Go to the Extensions page
-3. Click on the "Install" button next to the extension you want to install
+## Installing Extensions
 
-### Manually
+The recommended way to install an extension is from your FOSSBilling admin panel:
 
-1. Download the extension archive from the extension directory
-2. Create a folder named the ID of the extension in the `modules` folder of your FOSSBilling installation
-3. Extract the archive there
-4. Go to the Extensions page in your FOSSBilling admin panel and enable the extension
+1. Log in to your FOSSBilling admin panel.
+2. Open the Extensions page.
+3. Find the extension you want to install.
+4. Click Install.
 
-## How to Submit An Extension
+Extensions can also be installed manually by downloading an archive, extracting it into the correct FOSSBilling extension folder, and enabling it from the admin panel.
 
-Extension submission is currently suspended while we finalize self-submission support. In the meantime, if you'd like to list your extension, please open an issue on this repository.
+## Submitting Extensions
 
-## The Badge API
+Extension submission is currently paused while self-service submission and management are being prepared.
 
-We provide an API that renders badges for your extension. You can use these badges on your README or on your website.
+If you maintain an extension and would like it to be listed, please open an issue in this repository with a link to the extension and any relevant installation details.
 
-The API is available at `https://api.fossbilling.net/extensions/v1/:id/badges/:type`. The `:id` parameter is the ID of your extension. The `:type` parameter is the type of badge you want to render. Currently, we support the following types:
+## Badges
 
-| Type | Description | Example |
-| ---- | ----------- | ------- |
-| `version` | Renders the latest version of your extension | ![badge](https://api.fossbilling.net/extensions/v1/Example/badges/version) |
-| `min_fossbilling_version` | Renders the minimum version of FOSSBilling your extension supports | ![badge](https://api.fossbilling.net/extensions/v1/Example/badges/min_fossbilling_version) |
-| `license` | Renders the license of your extension | ![badge](https://api.fossbilling.net/extensions/v1/Example/badges/license) |
+The FOSSBilling API provides badges that extension authors can use in README files or project pages.
 
-Optionally, you can add a `?color=` parameter to the URL to change the color of the badge. The parameter also accepts a three or six-character hex color code.
+Examples:
 
-Example: `https://api.fossbilling.net/extensions/v1/Example/badges/version?color=orange`
-
-![badge](https://api.fossbilling.net/extensions/v1/Example/badges/version?color=orange)
-
-## How to Contribute
-
-If you want to contribute to the extension directory, you can do so by creating a pull request on GitHub. You can also create an issue if you have any questions or suggestions.
-
-You also might want to join our [Discord server](https://fossbilling.org/discord) if you want to get in touch with us.
-
-### Running a Local Development Server
-
-#### Install the Dependencies
-
-```bash
-npm i
+```text
+https://api.fossbilling.net/extensions/v1/Example/badges/version
+https://api.fossbilling.net/extensions/v1/Example/badges/min_fossbilling_version
+https://api.fossbilling.net/extensions/v1/Example/badges/license
 ```
 
-#### Start the Development Server
+Badge colors can be customized with a `?color=` query parameter.
+
+## Contributing
+
+Issues and pull requests are welcome. Useful contributions include bug reports, accessibility improvements, UI fixes, documentation updates, and improvements to extension metadata handling.
+
+For broader discussion, join the FOSSBilling community on [Discord](https://fossbilling.org/discord).
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Most of your changes will be reflected instantly without needing to restart the development server.
-
-> **Note:** The site uses Cloudflare D1 for its database. When running locally with `npm run dev`, you will need a local D1 database populated with extension data. You can use [Wrangler's local development server](https://developers.cloudflare.com/workers/wrangler/) (`npx wrangler dev`) for a more complete local environment with D1 bindings.
+The site uses Cloudflare D1 for extension data, so some pages require a populated local D1 database or a Wrangler-powered local environment to fully match production.
 
 ## License
 
-Each module is licensed under the terms set by the author. Please see the `LICENSE` file in each module for more information.
-The extension directory website is licensed under the GNU Affero General Public License Version 3 (AGPLv3) license. See the `LICENSE` file for more information.
+The extension directory website is licensed under the GNU Affero General Public License Version 3. See [LICENSE](./LICENSE) for details.
+
+Individual extensions are licensed by their respective authors.
