@@ -1,6 +1,12 @@
 // Queries the shared D1 database (extensions_data) directly.
 // If the D1 schema changes, update fossbilling/api AND this file.
-import { type Extension, type Author, type Release, type Repository, sortReleasesDescending } from '@/types';
+import {
+  type Extension,
+  type Author,
+  type Release,
+  type Repository,
+  sortReleasesDescending,
+} from '@/types';
 
 const SELECT_EXTENSIONS = `
   SELECT e.id, e.type, e.author_id,
@@ -12,15 +18,31 @@ const SELECT_EXTENSIONS = `
 `;
 
 export async function getAllExtensions(db: D1Database): Promise<Extension[]> {
-  const result = await db.prepare(SELECT_EXTENSIONS).all<Record<string, unknown>>();
-  return (result.results ?? []).map(parseExtensionRow);
+  let result;
+  try {
+    result = await db
+      .prepare(`${SELECT_EXTENSIONS} ORDER BY e.name`)
+      .all<Record<string, unknown>>();
+  } catch {
+    return [];
+  }
+  if (!result.success) return [];
+  return result.results.map(parseExtensionRow);
 }
 
-export async function getExtensionById(db: D1Database, id: string): Promise<Extension | null> {
-  const row = await db
-    .prepare(`${SELECT_EXTENSIONS} WHERE LOWER(e.id) = LOWER(?)`)
-    .bind(id)
-    .first<Record<string, unknown>>();
+export async function getExtensionById(
+  db: D1Database,
+  id: string,
+): Promise<Extension | null> {
+  let row;
+  try {
+    row = await db
+      .prepare(`${SELECT_EXTENSIONS} WHERE LOWER(e.id) = LOWER(?)`)
+      .bind(id)
+      .first<Record<string, unknown>>();
+  } catch {
+    return null;
+  }
   return row ? parseExtensionRow(row) : null;
 }
 
