@@ -25,7 +25,7 @@
 	],
 	"assets": {
 		"binding": "ASSETS",
-		"directory": "./dist/client"
+		"directory": "./dist"
 	},
 	"d1_databases": [
 		{

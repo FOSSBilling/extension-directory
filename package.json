@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "cf-typegen": "wrangler types",
-    "cf-deploy": "wrangler deploy --config dist/server/wrangler.json",
+    "cf-deploy": "wrangler deploy",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
