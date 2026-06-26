@@ -73,7 +73,7 @@ export function getLatestRelease(extension: Extension): Release | undefined {
 }
 
 export function sortReleasesDescending(releases: Release[]): Release[] {
-  return releases.sort((a, b) => {
+  return [...releases].sort((a, b) => {
     if (gt(a.tag, b.tag)) {
       return -1;
     } else if (lt(a.tag, b.tag)) {
