@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import ExtensionCard from '../components/ExtensionCard.astro';
-import { extensionData } from '../data/extensions';
+import { getAllExtensions } from '@/lib/database';
+import { env } from 'cloudflare:workers';
 
-const extensions = extensionData;
+const extensions = await getAllExtensions(env.DB_EXTENSIONS);
 ---
 
 <Base title="FOSSBilling Extensions">
