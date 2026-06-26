@@ -5,10 +5,21 @@ import {
   type Author,
   type Release,
   type Repository,
-  sortReleasesDescending,
 } from '@/types';
 
-const SELECT_EXTENSIONS = `
+// Omits readme (large field) — used for index page listings.
+const SELECT_EXTENSIONS_LIST = `
+  SELECT e.id, e.type, e.author_id,
+         a.type AS author_type, a.name AS author_name, a.url AS author_url,
+         e.name, e.description, e.website, e.license,
+         e.icon_url, e.source, e.version, e.download_url, e.releases
+  FROM extensions e
+  LEFT JOIN authors a ON e.author_id = a.id
+  ORDER BY e.name
+`;
+
+// Includes readme — used for detail pages.
+const SELECT_EXTENSION_DETAIL = `
   SELECT e.id, e.type, e.author_id,
          a.type AS author_type, a.name AS author_name, a.url AS author_url,
          e.name, e.description, e.releases, e.website, e.license,
@@ -21,7 +32,7 @@ export async function getAllExtensions(db: D1Database): Promise<Extension[]> {
   let result;
   try {
     result = await db
-      .prepare(`${SELECT_EXTENSIONS} ORDER BY e.name`)
+      .prepare(SELECT_EXTENSIONS_LIST)
       .all<Record<string, unknown>>();
   } catch {
     return [];
@@ -37,7 +48,7 @@ export async function getExtensionById(
   let row;
   try {
     row = await db
-      .prepare(`${SELECT_EXTENSIONS} WHERE LOWER(e.id) = LOWER(?)`)
+      .prepare(`${SELECT_EXTENSION_DETAIL} WHERE LOWER(e.id) = LOWER(?)`)
       .bind(id)
       .first<Record<string, unknown>>();
   } catch {
@@ -58,7 +69,6 @@ function parseJSON<T>(value: unknown, fallback: T): T {
 }
 
 function parseExtensionRow(row: Record<string, unknown>): Extension {
-  const releases = parseJSON<Release[]>(row.releases, []);
   return {
     id: row.id as string,
     type: row.type as Extension['type'],
@@ -67,14 +77,15 @@ function parseExtensionRow(row: Record<string, unknown>): Extension {
     author: {
       type: (row.author_type as 'organization' | 'user') ?? 'user',
       name: (row.author_name as string) ?? '',
-      id: (row.author_id as Lowercase<string>) ?? ('' as Lowercase<string>),
+      id: ((row.author_id as string | undefined)?.toLowerCase() ??
+        '') as Lowercase<string>,
       URL: typeof row.author_url === 'string' ? row.author_url : undefined,
     } as Author,
-    releases: sortReleasesDescending(releases),
+    releases: parseJSON<Release[]>(row.releases, []),
     website: row.website as string,
     license: parseJSON(row.license, { name: '' }),
     icon_url: typeof row.icon_url === 'string' ? row.icon_url : undefined,
-    readme: row.readme as string,
+    readme: (row.readme as string | undefined) ?? '',
     source: parseJSON<Repository>(row.source, { type: 'custom', repo: '' }),
     version: row.version as string,
     download_url: row.download_url as string,
