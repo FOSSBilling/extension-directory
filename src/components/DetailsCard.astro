@@ -37,14 +37,14 @@ const badgeColorClasses: Record<
 
 const details: DetailsItem[] = [
   {
-    name: 'Publisher',
+    name: 'Developer',
     icon: User,
     color: 'amber',
     text: ext.author.id,
     link: ext.website,
   },
   {
-    name: 'Compatible with',
+    name: 'FOSSBilling Version',
     icon: CircleCheck,
     color: 'green',
     text: latest
@@ -59,7 +59,7 @@ const details: DetailsItem[] = [
     link: ext.license.URL,
   },
   {
-    name: 'Source code',
+    name: 'Source Code',
     icon: GitBranch,
     color: 'fuchsia',
     text: ext.source.repo,
@@ -82,7 +82,7 @@ const details: DetailsItem[] = [
           >
             <div class="flex items-center space-x-3">
               <span class={`p-2 rounded-lg ${iconBgClasses[detail.color]}`}>
-                <detail.icon class="w-4 h-4" aria-hidden="true" />
+                <detail.icon class="w-3 h-3" aria-hidden="true" />
               </span>
               <div>
                 <p class="font-medium text-sm">{detail.name}</p>
