@@ -1,3 +1,5 @@
+// Queries the shared D1 database (extensions_data) directly.
+// If the D1 schema changes, update fossbilling/api AND this file.
 import { type Extension, type Author, type Release, type Repository, sortReleasesDescending } from '@/types';
 
 const SELECT_EXTENSIONS = `
