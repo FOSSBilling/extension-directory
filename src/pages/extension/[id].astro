@@ -5,7 +5,8 @@ import DetailsCard from '@/components/DetailsCard.astro';
 import ReleasesCard from '@/components/ReleasesCard.astro';
 import Overview from '@/components/Overview.astro';
 import ReleasesTable from '@/components/ReleasesTable.astro';
-import { extensionData } from '@/data/extensions';
+import { getExtensionById } from '@/lib/database';
+import { env } from 'cloudflare:workers';
 
 const { id } = Astro.params;
 
@@ -13,19 +14,10 @@ if (!id) {
   return Astro.redirect('/404');
 }
 
-const ext = extensionData.find(
-  (data) => data.id.toLowerCase() === id.toString().toLowerCase(),
-);
+const ext = await getExtensionById(env.DB_EXTENSIONS, id);
 
 if (!ext) {
   return Astro.redirect('/404');
-}
-
-export function getStaticPaths() {
-  return extensionData.map((ext) => ({
-    params: { id: ext.id },
-    props: { ext },
-  }));
 }
 ---
 

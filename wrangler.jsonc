@@ -26,5 +26,11 @@
 	"assets": {
 		"binding": "ASSETS",
 		"directory": "./dist"
-	}
+	},
+	"d1_databases": [
+		{
+			"binding": "DB_EXTENSIONS",
+			"database_id": "c81c21db-2b8b-40da-9ad5-9eda5ec24015"
+		}
+	]
 }
