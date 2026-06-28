@@ -14,10 +14,10 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
-    "@astrojs/cloudflare": "^13.6.1",
+    "@astrojs/cloudflare": "^14.0.0",
     "@lucide/astro": "^1.17.0",
     "@tailwindcss/vite": "^4.3.0",
-    "astro": "^6.4.4",
+    "astro": "^7.0.0",
     "basecoat-css": "^1.0.0",
     "date-fns": "^4.4.0",
     "marked": "^18.0.5",
